@@ -1,0 +1,32 @@
+[{
+	id: "abcdef1234567890",
+	name: "Cute Little Coffee Shop",
+	phone: "(416) - 123 - 4567",
+	website: "http://cutelittlecoffeeshop.com",
+	location: {
+		lat: 10,
+		lng: 10,
+		address: "123 Main Street"
+	},
+	rating: 4.5,
+
+	menu: {
+		"Americano": {
+			prices: {
+				"small": 2.5,
+				"medium": 3.5,
+				"large": 4.5
+			},
+			rating: 3.3
+		},
+
+		"Latte": {
+			prices: {
+				"small": 3.75,
+				"medium": 4.75,
+				"large": 5.75
+			},
+			rating: 5
+		}
+	}
+}, ...]
