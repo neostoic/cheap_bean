@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<style type="text/css" media="screen">
+ table { border: 1px solid black;float:center;width:200px;margin:0 auto;}
+ #table_container{width:200px;margin:0 ;}
+</style>
 <body>
 
-STYLE GUIDE: <br>
 
-Company Name: Capitalized, and written as the most commonly used form. Abbreviate Company to Co, for instance. <br>
-Chain: Yes if a coffee shop has multiple locations. For example, YES for starbucks, YES for balzacs, NO for manic.<br>
-Location: The local name of the coffee shop. For example, Balzacs in liberty village would be "Liberty Village". If not named, most major street, for example Starbucks "Bathurst/Bloor". <br>
-Phone: 4161234567 form. Do not use (), -, ., etc. Will be normalized and formatted with regex before use. <br>
-Hours: "Mon-Sat: 7AM-10PM, Sun: 10AM-6PM." Capitalize day of week, dash to denote range, AM/PM included, and comma between days. <br>
+<H1> Form site for data entry into mongoDB for Coffee Platform. </H1>
+<hr>
+<strong>STYLE GUIDE:</strong><br>
 
-<form action="">
-Company name: <input type="text" name="companyname"><br>
-Chain: <button name="chain">YES</button><button name="nochain">NO</button><br>
-	Location1:<input type="text" name="location1"> <br>
-	Address1:<input type="text" name="address1"></br>
-	Phone1:<input type="text" name="phone1"></br>
-	Hours1:<input type="text" name="hours1"><br>
-
-	Location2:<input type="text" name="location2"></br>
-	Address2:<input type="text" name="address2"></br>
-	Phone2:<input type="text" name="phone2"></br>
-	Hours2:<input type"text" name="hours2"></br>
-
-	Location3:
-	Address3:
-	Phone3:
-	Hours3:
-
+<b>Company Name: </b><mark>"Balzac's Coffee Roasters"</mark> Capitalized, and written as the most commonly used form. Abbreviate Company to Co, for instance. <br>
+<b>Chain: </b> <mark>"YES"</mark> If a coffee shop has multiple locations. For example, <mark>YES</mark> for starbucks, <mark>YES</mark> for balzacs, <mark>NO</mark> for manic.<br>
+<b>Website: </b> <mark>www.balzacs.com</mark> Standard URL with www. prefix and tld suffix. <br>
+<br>
+<b>Location: </b><mark>"Liberty Village"</mark> The local name of the coffee shop. If not named, nearest major intersection, for example Starbucks <mark>"Bathurst/Bloor"</mark>. <br>
+<b>Phone: </b> <mark>4161234567</mark> form. Do not use (), -, ., etc. Will be normalized and formatted with regex before use. <br>
+<b>Hours: </b><mark>"Mon-Sat: 7AM-10PM, Sun: 10AM-6PM."</mark> Capitalize day of week, dash to denote range, AM/PM included, and comma between days. <br>
+<br>
+<b>Drink: </b><mark>"Americano"</mark> Simple drink name, capitalized.<br>
+<b>Size: </b><mark>"12oz/16oz"/18oz"</mark> Drink sizes in oz. Sizes should be pretty standardized between coffeeshops. Estimations would be fine to a point. <mark>"Single/Double"</mark> is fine for some drinks.<br>
+<b>Price: </b><mark>"2.49/3.26/3.43"</mark> Simple decimal form with forward slashes to denote sizes in chronological order. <br> 
+<hr>
+	<b> 1. General Info (1 per company)
+	    <table border="1">
+		<tr><td>Company name: </td><td><input type="text" name="companyname"> <br></td></tr>
+		<tr><td>Chain:</td><td><input type="text" name="chain"></br></td></tr>
+		<tr><td>Website:</td><td><input type="text" name="website"></br></td></tr>
+		</table> 
+		<center><button name="submitinfo">SUBMIT</button><button name="clearinfo">CLEAR</button><br></center>
+<hr>
+		2. Location Info (1 per location)
+	    <table border="1">
+		<tr><td>Company name:</td><td><input type="text" name="companyname"> <br></td></tr>
+		<tr><td>Chain:</td><td><input type="text" name="address1"></br></td></tr>
+		<tr><td>Website:</td><td><input type="number" name="phone1"></br></td></tr>
+		</table> 
+		<center><button name="submitlocation">SUBMIT</button><button name="clearlocation">CLEAR</button><br></center>
+<hr>
+		3. Drink Info (1 per drink)
+		<table border="1">
+		<tr><td>Drink:</td><td><input type="text" name="drink1"> <br></td></tr>
+		<tr><td>Size:</td><td><input type="text" name="size1"></br></td></tr>
+		<tr><td>Price:</td><td><input type="number" name="price1"></br></td></tr>
+		</table> 
+		<center><button name="submitdrink">SUBMIT</button><button name="cleardrink">CLEAR</button><br></center>
+</div>
 </body>
+<hr>
 </html>
+
