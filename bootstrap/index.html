@@ -11,8 +11,8 @@
 
       html,
       body {
-        height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
+        /* Padding below footer */
+        padding-bottom: 20px;
       }
 
       /* Wrapper for page content to push down footer */
@@ -28,8 +28,6 @@
       #push,
       #footer {
         height: 50px;
-      }
-      #footer {
         background-color: #f5f5f5;
       }
 
@@ -66,7 +64,7 @@
         .carousel-caption .btn {
          font-size: 18px;
         }
-      /* CUSTOMIZE THE CAROUSEL
+    /* CUSTOMIZE THE CAROUSEL
     -------------------------------------------------- */
 
     /* Carousel base class */
@@ -117,14 +115,112 @@
     .carousel-caption .btn {
       margin-top: 10px;
     }
+
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+        /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }   
   }
   </style>
 	</head>
 	<body>
-<div id="wrap">
+  <div id="wrap">
 
     <!-- Menu Bar
     ================================================== -->
+    <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
 	  <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -151,55 +247,93 @@
                   <li><a href="#">One more separated link</a></li>
                 </ul>
               </li>
-            </ul>
+            </ul> 
+
             <!-- Search Bar
             ================================================== -->
             <form class="navbar-form pull-right">
               <input class="span4" type="text" placeholder="Search">
-            </form>
+            </form> 
           </div>
         </div>
       </div>
     </div>
 
     <!-- Container for primary message
-    ================================================== -->
+    ==================================================  
     <div class="container">
       <div class="hero-unit">
         <h2>&nbsp;Hello, world!</h2>
         <p>This is //FrugallyCaffeinated//, the working name for the best coffeeshop discovery tool in the world.</p>
-      </div>  
+      </div>
+      -->
+    
 
     <!-- Carousel for image display
     ================================================== -->
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-          <img src="img/coffeeshop.jpg" alt="coffeeshop.jpg"> 
+          <img src="img/slide-01.jpg" width="100%" height="50%" alt="Image1">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Welcome to FrugallyCaffeinated.</h1>
+              <p class="lead">The best coffee shop locating platform in the world </p>
+              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+            </div>
+          </div>
         </div>
         <div class="item">
-          <img src="../assets/img/examples/slide-02.jpg" alt="">  
+          <img src="/img/slide-02.jpg" width="100%" height="50%" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>
         </div>
         <div class="item">
-          <img src="../assets/img/examples/slide-03.jpg" alt="">
+          <img src="../img/slide-03.jpg" width="100%" height="50%" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            </div>
+          </div>
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
+<div class="container marketing">
+    <!-- Pushes Footer to bottom
+    ================================================== -->
+    
+      <div id="push"></div>
 
     <!-- Footer
     ================================================== -->
     <div id="footer">
       <div class="container">
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p><center>&copy; Frugally Caffeinated 2014 | Created by Lance Stacenko</center></p>
+        <p><center>&copy; Frugally Caffeinated 2014 &middot;   Created by Lance Stacenko</center></p>
       </div>
     </div>  
-
+  </div>
+ </div><!-- /.container -->
     <!-- Added dependancies to bottom to save on load time
     ================================================== -->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src=”js/bootstrap.js”></script></div>
+      <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
 	</body>
 </html>
