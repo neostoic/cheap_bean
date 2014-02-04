@@ -4,6 +4,45 @@
 		<meta charset="utf-8">
 		<title>Coffee Site</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -40px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 40px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+      </style>
 	</head>
 	<body>
 	  <div class="navbar navbar-inverse navbar-fixed-top">
@@ -44,16 +83,18 @@
       <div class="hero-unit">
         <h1>Hello, world!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
       </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Frugally Caffeinated 2014</p>
-      </footer>
-
+      <!-- Front page image -->
+      <img src="img/coffeeshop.jpg" alt="Coffeeshop">
     </div>
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <p><center>&copy; Frugally Caffeinated 2014&nbsp;|&nbsp;Created by Lance Stacenko</center></p>
+      </div>
+    </div>
+
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src=”js/bootstrap.js”></script>
 	</body>
