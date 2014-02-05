@@ -11,18 +11,17 @@
 
       html,
       body {
-        /* Padding below footer */
-        padding-bottom: 20px;
+        height: 100%;
+        overflow: hidden;
       }
 
       /* Wrapper for page content to push down footer */
-      #wrap {
+      .wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        /* Negative indent footer by it's height */
         margin: 0 auto -50px;
-      }
+}
 
       /* Set the fixed height of the footer here */
       #push,
@@ -236,18 +235,6 @@
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
             </ul> 
 
             <!-- Search Bar
@@ -269,8 +256,7 @@
           <img src="img/slide-01.jpg" width="100%" alt="">
             <div class="carousel-caption">
               <div class="container">
-              <h1>Welcome to FrugallyCaffeinated</h1>
-              <p class="lead">//FrugallyCaffeinated//, the working name for the best coffeeshop locating platform in the world.</p>
+              <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
             </div>
           </div>
         </div>
@@ -278,8 +264,7 @@
           <img src="img/slide-02.jpg" width="100%" alt="">
             <div class="carousel-caption">
               <div class="container">
-              <h1>Welcome to FrugallyCaffeinated</h1>
-              <p class="lead">//FrugallyCaffeinated//, the working name for the best coffeeshop locating platform in the world.</p>
+              <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
             </div>
           </div>
         </div>
@@ -287,24 +272,48 @@
           <img src="img/slide-03.jpg" width="100%" alt="">
           <div class="carousel-caption">
             <div class="container">
-              <h1>Welcome to FrugallyCaffeinated</h1>
-              <p class="lead">//FrugallyCaffeinated//, the working name for the best coffeeshop locating platform in the world.</p>
+              <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
             </div>
           </div>
         </div>
       </div>
     </div><!-- /.carousel -->
-<div class="container marketing">
+
+        <p class="pull-right"><img src="img/map.png" alt="Map"></p>
+<p class="pull-left">
+<style type="text/css">
+.tftable {font-size:12px;text-align:center;color:#333333;width:60%;border-width: 1px;border-color: #a9a9a9;border-collapse: collapse;}
+.tftable th {font-size:12px;background-color:#b8b8b8;border-width: 1px;padding: 5px;border-style: solid;border-color: #a9a9a9;text-align:center;}
+.tftable tr {background-color:#ffffff;}
+.tftable td {font-size:12px;border-width: 1px;padding: 4px;border-style: solid;border-color: #a9a9a9;}
+.tftable tr:hover {background-color:#ffff99;}
+</style>
+
+<table class="tftable" border="1">
+<tr><th>Name</th><th>Location</th><th>Difference from avg. price</th><th>Rating</th></tr>
+<tr><td>Balzac's, Liberty Village</td><td>43 Hanna Ave, Toronto</td><td>+0.25%</td><td>****</td></tr>
+<tr><td>Manic Coffee</td><td>426 College St, Toronto</td><td>-0.50%</td><td>*****</td></tr>
+<tr><td>The Arrow Cafe</td><td>1164 Dundas St. W, Toronto</td><td>+0.75%</td><td>****</td></tr>
+<tr><td>Ezra's Pound</td><td> 913 Dundas St W, Toronto</td><td>+0.65%</td><td>*****</td></tr>
+<tr><td>The Brockton Haunt</td><td>1150 College St, Toronto</td><td>-0.33%</td><td>*****</td></tr>
+<tr><td>Cabin Fever Collective</td><td>1669 Bloor St. W, Toronto</td><td>-1.00%</td><td>***</td></tr>
+<tr><td>I Deal Coffee, Yonge</td><td>3336 Yonge St, Toronto</td><td>+0.84%</td><td>****</td></tr>
+<tr><td>Noir Coffee & Tea</td><td>701 St. Clair Ave. W, Toronto</td><td>-0.66%</td><td>*****</td></tr>
+<tr><td>Cafe Neon</td><td>241 Wallace Ave, Toronto</td><td>+0.45%</td><td>****</td></tr>
+<tr><td>The Abbott</td><td>99 Spencer Ave, Toronto</td><td>-0.22%</td><td>*****</td></tr>
+
+<tr><td>The Grind House</td><td>281 Augusta Ave, Toronto</td><td>+0.35%</td><td>*****</td></tr>
+</table>
+</p>
     <!-- Pushes Footer to bottom
     ================================================== -->
     
 <div id="push">
-
     <!-- Footer
     ================================================== -->
     <div id="footer">
       <div class="container">
-        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right"></p>
         <p><center>&copy; Frugally Caffeinated 2014 &middot;   Created by Lance Stacenko</center></p>
       </div>
     </div>  
