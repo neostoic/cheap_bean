@@ -1,0 +1,23 @@
+            CompanyName:
+            Chain:
+            Website:
+
+            Location:
+            	Address:
+            Phone:
+            Hours:
+            
+            Drink:
+            Size:
+
+   	YelpAPI: {
+            YelpID
+            is_claimed
+            is_closed
+            Name
+            url
+            phone
+            review count
+            rating
+            location
+          }
