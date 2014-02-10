@@ -2,12 +2,13 @@
 
 Platform under development that lists the coffee shops (Chain & Independent) in Toronto, Canada, and provides simple metrics (Price & Rating) to consumers to allow them to make informed choices.
 
-----------[Current development links]---------                                       
-Note: Make screenshots/static copies of all planning/wireframing in web apps (screenshot) and commit to GH for standardization and archive purposes. Maintain git versions with periodic updates every significant iteration.
+                                      
+####Section[1] - Form Site
+Static HTML site with form fields and style guide for data input.
 
+####Section[2] - Mongo Database
+Mongo database running on Heroku that contains all data for the coffee site, from Form Site.
 
-    Lean Canvas (high level project map): https://leanstack.com/canvases/137671
-
-    Trello (live To-Do/Doing/Done board): https://trello.com/b/hwF7UwOe
-
-    Balsamiq Mockups (Digital wireframing/UI planning tool): Need to create account.
+####Section[3] - Front End
+Site created with twitter bootstrap to display data to the user, as well as google maps and other content.
+ 
