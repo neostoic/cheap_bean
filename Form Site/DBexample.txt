@@ -1,45 +1,45 @@
 db.shops.insert(
-   {
-     company_name: “Manic Coffee”,
-     website: “www.maniccoffee.com”,
-     chain: false,
-     date_added: ‘2014-02-11’,
-     rating:
-			{
-			 yelp_rating: 3.5,
-			 	yelp_reviews: 95,
-     		 user_rating: null,	
+   	{
+	company_name: “Manic Coffee”,
+	website: “www.maniccoffee.com”,
+	chain: false,
+	date_added: ‘2014-02-11’,
+	rating:
+   		{
+		yelp_rating: 3.5,
+		yelp_reviews: 95,
+     		user_rating: null,	
+		},
+	locations: 
+		{
+		location_number: 1,
+		location_name: ‘College/Bathurst’
+		address: ’426 College St, Toronto’,
+		phone: ‘(416)966-3888’,
+		hours: {
+			Monday: ‘7AM-8PM’,
+			Tuesday: ‘7AM-8PM’,
+			Wednesday: ‘7AM-8PM’,
+			Thursday: ‘7AM-8PM’,
+			Friday: ‘7AM-8PM’,
+			Saturday: ’8AM-8PM’,
+			Sunday: ’8AM-8PM’
 			},
-     locations: 
-               {
-         			location_number: 1,
-			 		location_name: ‘College/Bathurst’
-			 		address: ’426 College St, Toronto’,
-			 		phone: ‘(416)966-3888’,
-			 		hours: {
-						Monday: ‘7AM-8PM’,
-						Tuesday: ‘7AM-8PM’,
-						Wednesday: ‘7AM-8PM’,
-						Thursday: ‘7AM-8PM’,
-						Friday: ‘7AM-8PM’,
-						Saturday: ’8AM-8PM’,
-						Sunday: ’8AM-8PM’
-							},
-					},
-		drinks:
-            {
-            	drink: ‘Americano’,
-						{
-							small: 2.43,
-							medium: 2.65,
-							large: 2.76,
-						},
-             drink: ‘Cappuccino’,
-						{
-							small: 2.56,
-							medium: 2.73,
-							large: 2.98,
-						},
-				}
-   }
+		},
+	drinks:
+		{
+		drink: ‘Americano’,
+				{
+				small: 2.43,
+				medium: 2.65,
+				large: 2.76,
+				},
+		drink: ‘Cappuccino’,
+				{
+				small: 2.56,
+				medium: 2.73,
+				large: 2.98,
+				},
+		}
+   	}
 )
