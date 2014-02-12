@@ -1,6 +1,7 @@
 var ejs = require('ejs')
   , fs = require('fs')
-  , express = require("express");
+  , express = require('express')
+  , mongoose = require('mongoose');
 
 console.log("starting");
 var port = process.env.PORT || 5000;
@@ -11,18 +12,8 @@ var app = express();
 //Serve files out of /public directory. 
 app.use(express.static(__dirname + '/public'));
 app.get("/", function(request, response) {
-	response.send("Welcome to my Node.js webserver");
+	response.send("Node.js webserver that serves from ~/Development/Projects/08_frugallycaffeinated/ejs_learning/public");
 });
-
-/* Database connection with mongojs
-===========================*/
-	var databaseUrl = "heroku:admin@troup.mongohq.com/app22094857"; // "username:password@example.com/mydb"
-	var collection = ["shops"]
-var db = require("mongojs").connect(databaseUrl, collection);
-db.shops.find(function(err, docs) {
-
-//console.log(returnall);
-/*=========================*/
 
 //Serve /ejs, populated with test data right now.
 app.get("/ejs", function(request, response) {
@@ -46,5 +37,3 @@ app.get("/ejs", function(request, response) {
 	response.send(ret);
 });
 app.listen(port);
-
-
