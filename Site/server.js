@@ -14,16 +14,6 @@ app.get("/", function(request, response) {
 	response.send("Welcome to my Node.js webserver");
 });
 
-/* Database connection with mongojs
-===========================*/
-	var databaseUrl = "heroku:admin@troup.mongohq.com/app22094857"; // "username:password@example.com/mydb"
-	var collection = ["shops"]
-var db = require("mongojs").connect(databaseUrl, collection);
-db.shops.find(function(err, docs) {
-
-//console.log(returnall);
-/*=========================*/
-
 //Serve /ejs, populated with test data right now.
 app.get("/ejs", function(request, response) {
 			
