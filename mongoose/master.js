@@ -1,6 +1,7 @@
 /* Mongo datbase connection
 ================================*/
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+  , Schema = mongoose.Schema;
 
 // mongodb://heroku:admin@troup.mongohq.com:10075/app22094857
 mongoose.connect('mongodb://heroku:admin@troup.mongohq.com:10075/app22094857');
@@ -15,57 +16,59 @@ console.log('Over authentication block.')
 
 /* Declares schema
 ================================*/
-var nestSchema = mongoose.Schema({
-  company_name: String,
-  website: String,
-  chain: Boolean,
+var main = Schema({
+  company_name:        String,
+  website:             String,
+  chain:               Boolean,
   date: {
-    date_added: Date,
+    date_added:        Date,
     date_lastupdated: { type: Date, default: Date.now},     
   },
   rating: {
-    yelp_rating: Number,
-    yelp_reviews: Number,
-    user_rating: Number,
+    yelp_rating:       Number,
+    yelp_reviews:      Number,
+    user_rating:       Number,
   },
-  locations: [locationSchema],
-  drinks: [drinksSchema]
+  locations: [locations],
+  drinks: [drinks]
 });
 
 /* Schema for embedded subdocument location
 ================================*/
-var locationSchema = mongoose.Schema({
-  number: Number,
-  name: String,
-  address: String,
-  phone: String, 
-  hours: {
-    Monday: String,
-    Tuesday: String,
-    Wednesday: String,
-    Thursday: String,
-    Friday: String,
-    Saturday: String,
-    Sunday: String,
-  }
+var locations = Schema({
+ 		number:        Number,
+  		name:          String,
+  		address:       String,
+  		phone:         String, 
+  		hours: {
+    		Monday:    String,
+    		Tuesday:   String,
+    		Wednesday: String,
+    		Thursday:  String,
+    		Friday:    String,
+    		Saturday:  String,
+    		Sunday:    String,
+  			}
 });
 
 /* Schema for embedded subdocument drinks
 ================================*/
-var drinksSchema = mongoose.Schema({
-	drinks: {
-		drink: String,
+var drinks = Schema({
+		drink:         String,
 		sizes: {
-			small: Number,
-			medium: Number,
-			large: Number,
-		}
+			small:     Number,
+			medium:    Number,
+			large:     Number,
 	}
 });
 
 /* Declares model from schema
 ================================*/
-var nest_model = mongoose.model('coffeeshop', nestSchema);
+var nest_model = mongoose.model('coffeeshop', main)
+
+/* Pushes to subdocs - Stackexchange solution, still not working */
+main.location.push({drinks});
+
 
 /* Data entry into model
 ================================*/
