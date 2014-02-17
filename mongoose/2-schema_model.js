@@ -9,13 +9,14 @@ var main = Schema({
   website:             String,
   chain:               Boolean,
   date: {
-    date_added:        Date,
+    date_added:       { type: Date, default: Date.now}, //Add logic to differentiate between added and lastupdated
     date_lastupdated: { type: Date, default: Date.now},     
   },
   rating: {
     yelp_rating:       Number,
     yelp_reviews:      Number,
     user_rating:       Number,
+    avg_price:         Number, //Most logical place to put avg_price right now
   },
   locations: [locations],
   drinks: [drinks]
@@ -26,6 +27,7 @@ var main = Schema({
 	var locations = Schema({
 			number:        Number,
 			name:          String,
+			display_name:  String, //Name as displayed in table (Minimal characters)
 			address:       String,
 			phone:         String, 
 			hours: {
