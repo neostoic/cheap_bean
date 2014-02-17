@@ -9,7 +9,7 @@ var mongoose = require('mongoose')
   
 /* Data entry into model
 ================================*/
-var coffeeshop = new nest_model({ 	
+var coffeeshop = new nest_model({
 	company_name: "Balzac's Coffee Roasters",
 	website: 'http://www.balzacs.com',
 	chain: true,
@@ -109,5 +109,5 @@ coffeeshop.save(function (err) {
 	nest_model.findById(coffeeshop, function (err, doc) {
 		if (err) return handleError(err);
 		console.log(doc);
-	})
-})
+	});
+});
