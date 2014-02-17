@@ -22,16 +22,18 @@ console.log('Attempting authentication.');
 	});
 console.log('Over authentication block.');
 
-nest_model.find({chain: 'true'}, function (err, coffeshop) {
+var operation;
+nest_model.find({chain: 'true'}, function (err, coffeeshop) {
 	if(err){
 		onErr(err,callback);
 	}else{
 		mongoose.connection.close();
-		var find_operation = coffeeshop;
+		operation = coffeeshop;
+		console.log('Stored coffeeshop callback as operation, and closed mongo connection');
 	}
 });
 
 //Export authentication so next script can use it.
 module.exports.db = db;
 //Export data from find operation.
-module.exports.find_operation = find_operation;  
+module.exports.operation = operation; 
