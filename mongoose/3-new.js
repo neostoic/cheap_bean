@@ -11,8 +11,10 @@ var mongoose = require('mongoose')
 ================================*/
 var coffeeshop = new nest_model({
 	company_name: "Balzac's Coffee Roasters",
+	display_name: "Balzac's",
 	website: 'http://www.balzacs.com',
 	chain: true,
+	avg_price: 2.86,
 	date: {
 		date_added: { type: Date, default: Date.now}, //come up with right logic
 		date_lastupdated: { type: Date, default: Date.now},		
@@ -23,8 +25,8 @@ var coffeeshop = new nest_model({
 		user_rating: null,
 	},
 	locations: [{
-		location_number: 1,
-		location_name: 'Distillery District',
+		number: 1,
+		name: 'Distillery District',
 		address: '1 Trinity Street, Toronto',
 		phone: '(416)207-1709', 
 		hours: {
@@ -38,8 +40,8 @@ var coffeeshop = new nest_model({
 		},
 	},
 	{
-		location_number: 2,
-		location_name: 'Liberty Village',
+		number: 2,
+		name: 'Liberty Village',
 		address: '43 Hanna Ave, Toronto',
 		phone: '(416)534-7372',
 		hours: {
@@ -53,8 +55,8 @@ var coffeeshop = new nest_model({
 		},
 	},
 	{
-		location_number: 3,
-		location_name: 'Ryerson Image Arts',
+		number: 3,
+		name: 'Ryerson Image Arts',
 		address: '122 Bond Street, Toronto',
 		phone: '(416)597-1700',
 		hours: {
@@ -68,8 +70,8 @@ var coffeeshop = new nest_model({
 		}
 	},
 	{
-		location_number: 4,
-		location_name: 'Toronto Reference Library',
+		number: 4,
+		name: 'Toronto Reference Library',
 		address: '789 Yonge Street, Toronto',
 		phone: '(416)922-3700',
 		hours: {
