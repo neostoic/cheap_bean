@@ -1,4 +1,6 @@
 // Step 1
+// Script authenticates into mongo database, finds all documents, then logs results to var find_operation.
+
 // Authenticates into mongo database
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema
@@ -25,9 +27,11 @@ nest_model.find({chain: 'true'}, function (err, coffeshop) {
 		onErr(err,callback);
 	}else{
 		mongoose.connection.close();
-		console.log(coffeshop); //Got console.logging to work
+		var find_operation = coffeeshop;
 	}
 });
 
 //Export authentication so next script can use it.
 module.exports.db = db;
+//Export data from find operation.
+module.exports.find_operation = find_operation;  
