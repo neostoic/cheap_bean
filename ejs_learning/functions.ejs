@@ -4,7 +4,7 @@
 
 		<style>
 			table,th,td
-			{border:1px solid black;}
+			{border:0.5px solid black;}
 		</style>
 		</head>
 		<body>
@@ -16,14 +16,20 @@
 				       <col span="1" style="width: 10%">
 				    </colgroup>
 		<tr>
-		  <td> <a href="<%= user.website %>"><%= user.company_name %></a></td>
-
-		  <td><%= user.rating.yelp_rating %></td>		
-		  <td><%= user.avg_price %></td>
+			<th>Name</th>
+			<th>Rating</th>
+			<th>Avg. Price</th>
+			<th>Location</th>
+		</tr>
+		<tr>
+		  <td> <a href="<%= user.website %>"><%= user.display_name%></a></td>
+		  <td><%= user.rating.yelp_rating %></td>	
+		  <td>$<%= user.avg_price %></td>
 		  <td><%= user.location %></td>
 		</tr>
 		</table>
 	<% } %>
 <ul>
+
   <% users.map(user) %>
 </ul>
