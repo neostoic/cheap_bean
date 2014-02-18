@@ -131,7 +131,7 @@ app.get("/ejs", function(request, response) {
             display_name: "Manic",
             website: "www.maniccoffee.com",
             chain: false,
-            avg_price: 4.30,
+            avg_price: 4.35,
             drinks: [
               {
                 sizes: {
@@ -217,13 +217,14 @@ app.get("/ejs", function(request, response) {
               yelp_reviews: 25,
               user_rating: null
             },
-            __v: 0    });
+            __v: 0    
+    });
     users.push({
             company_name: "Aroma Espresso Bar",
             display_name: "Aroma",
             website: "www.aromaespresso.com",
             chain: true,
-            avg_price: 7.30,
+            avg_price: 3.32,
             drinks: [
               {
                 sizes: {
@@ -316,7 +317,7 @@ app.get("/ejs", function(request, response) {
             display_name: "Starbucks",
             website: "www.aromaespresso.com",
             chain: true,
-            avg_price: 1.30,
+            avg_price: 1.37,
             drinks: [
               {
                 sizes: {
@@ -409,7 +410,7 @@ app.get("/ejs", function(request, response) {
             display_name: "The Abbott",
             website: "www.aromaespresso.com",
             chain: true,
-            avg_price: 1.30,
+            avg_price: 1.39,
             drinks: [
               {
                 sizes: {

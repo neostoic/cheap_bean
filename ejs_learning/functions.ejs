@@ -3,9 +3,16 @@
 		<tr>
 		<!-- Loop through locations, find by location_num -->
 			<!-- Company Name -->
-		  <td> <a href="<%= user.website %>"><%= user.display_name%></a></td>
+		  <td> <a href="<%= user.website %>"> <%= user.display_name%> </a></td>
 			<!-- Location Name -->  
-		  <td>Liberty Village</td> 						<!-- Filler right now -->
+		  <td>Liberty Village</td> 	
+
+		  <!-- Interesting. snippet is populating horozontally -->
+<!-- FOR LOOP -->
+		  <% for(var i=0; i<user.locations.length; i++)	{%>				<!-- Filler right now -->
+		  	<td><%= user.locations[i].address %> </td>
+		  <% } %>
+
 		  	<!-- Address -->
 		  <td>99 Atlantic Ave, Toronto</td> 			<!-- Filler right now -->
 		  	<!-- Rating -->
