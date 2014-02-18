@@ -27,7 +27,8 @@ app.get("/ejs", function(request, response) {
     }
     console.log(data);
     users = data; 
-  })
+  });
+
 
   //Initialize an empty array
   var users = [];
@@ -123,7 +124,8 @@ app.get("/ejs", function(request, response) {
             yelp_reviews: 25,
             user_rating: null
           },
-          __v: 0});
+          __v: 0
+  });
   //Log value of users to console
   console.log(users);
 
