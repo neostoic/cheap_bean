@@ -217,8 +217,7 @@ app.get("/ejs", function(request, response) {
               yelp_reviews: 25,
               user_rating: null
             },
-            __v: 0
-    });
+            __v: 0    });
     users.push({
             company_name: "Aroma Espresso Bar",
             display_name: "Aroma",
@@ -407,7 +406,7 @@ app.get("/ejs", function(request, response) {
     });
     users.push({
             company_name: "Starbucks Coffee",
-            display_name: "Tim Hortons",
+            display_name: "The Abbott",
             website: "www.aromaespresso.com",
             chain: true,
             avg_price: 1.30,
