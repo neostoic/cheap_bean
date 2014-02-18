@@ -16,9 +16,10 @@
 				       <col span="1" style="width: 10%">
 				    </colgroup>
 		<tr>
-		  <td><%= <a href="user.website">user.display_name</a> %></td>
-		  <td><%= user.rating %></td>
-		  <td><%= user.averageprice %></td>
+		  <td> <a href="<%= user.website %>"><%= user.company_name %></a></td>
+
+		  <td><%= user.rating.yelp_rating %></td>		
+		  <td><%= user.avg_price %></td>
 		  <td><%= user.location %></td>
 		</tr>
 		</table>
