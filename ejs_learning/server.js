@@ -2,6 +2,8 @@ var ejs = require('ejs')
   , fs = require('fs')
   , express = require("express");
 
+var filename = 'queryoperation.txt';
+
 console.log("starting");
 var port = process.env.PORT || 5000;
 process.env.PWD = process.cwd()
@@ -20,7 +22,18 @@ app.get("/ejs", function(request, response) {
   var path = __dirname + '/functions.ejs'
   , str = fs.readFileSync(path, 'utf8');
 
-/*
+//Complete Node.js script to query mongo database, and export the last function(query)
+// as a module.export in Node.js. 
+
+//2014-02-19 - Update to code block below, outputs file read callback to console in utf8.
+fs.readFile('databaseoutput.txt', 'utf8' , function (err, data) {
+  if (err)
+    throw err;
+  if (data)
+    console.log(data);
+});
+
+/* May not be required, will update at a later date.
   fs.readFile('testdata.js', 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
@@ -29,6 +42,11 @@ app.get("/ejs", function(request, response) {
     users = data; 
   });
 */
+
+//This code will likely be replaced shortly, once support is in place to read
+//from file, and eventually use the callback from mongoose_fetch to populate
+//the array automatically.
+
 
   //Initialize an empty array
   var users = [];
@@ -499,7 +517,7 @@ app.get("/ejs", function(request, response) {
             __v: 0
     });
   //Log value of users to console
-  console.log(users);
+  //console.log(users);
 
   var ret = ejs.render(str, {
   //Map var users
@@ -511,5 +529,3 @@ app.get("/ejs", function(request, response) {
   response.send(ret);
 });
 app.listen(port);
-
-
