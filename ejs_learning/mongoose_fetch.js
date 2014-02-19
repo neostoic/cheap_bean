@@ -66,6 +66,8 @@ var main = Schema({
 // Declares nest_model from schema.
 var nest_model = mongoose.model('coffeeshop', main);
 
+
+
 //Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
 //function so args can be inserted externally, and it is better practice than having global variables.
 
@@ -79,17 +81,13 @@ nest_model.find({chain: 'true'}, function (err, coffeeshop) {
 		console.log('Encountered an error executing query operation.');
 	}else{
 		mongoose.connection.close(); //Closes DB session
-		coffeeshop = operation;
 		console.log('Stored coffeeshop callback as operation, and closed mongo connection');
+			//Write callback from query to file as a string. 
+			fs.writeFile('helloworld.txt', JSON.stringify(coffeeshop), function (err) {
+				if (err) return console.log(err);
+				console.log('Hello World > helloworld.txt');
+			});
 	}
-});
-
-console.log(operation);
-
-//Write callback from query operation to file for inspection and debugging.
-fs.writeFile('helloworld.txt', operation, function (err) {
-	if (err) return console.log(err);
-	console.log('Hello World > helloworld.txt');
 });
 
 //Instead of exporting callback, export function.
