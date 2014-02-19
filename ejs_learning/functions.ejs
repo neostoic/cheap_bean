@@ -1,27 +1,26 @@
 <!-- Function to populate table with data from users array -->
 <% function user(user) { %>
+	<% for(var i=0; i<user.locations.length; i++)	{ if(i==0){ %>
 		<tr>
 		<!-- Loop through locations, find by location_num -->
 			<!-- Company Name -->
-		  <td> <a href="<%= user.website %>"> <%= user.display_name%> </a></td>
+		  <td> <a href="<%= user.website %>"> <%= user.display_name%></a></td>
 			<!-- Location Name -->  
-		  <td>Liberty Village</td> 	
-
-		  <!-- Interesting. snippet is populating horozontally -->
-<!-- FOR LOOP -->
-		  <% for(var i=0; i<user.locations.length; i++)	{%>				<!-- Filler right now -->
-		  	<td><%= user.locations[i].address %> </td>
-		  <% } %>
-
-		  	<!-- Address -->
-		  <td>99 Atlantic Ave, Toronto</td> 			<!-- Filler right now -->
+		 
+		  	<td><%= user.locations[i].location_name %></td>
+	
+		 <!-- Conor suggested moving outside tr, still within scope of function, then refrencing it as a seperate <tr> tag contained in place of this comment -->
+		 	<!-- FOR LOOP -->
+		  
+		  	<td> <%= user.locations[i].address %> </td>
+		  
 		  	<!-- Rating -->
 		  <td><%= user.rating.yelp_rating %>(<%= user.rating.yelp_reviews %>)</td>
 		  	<!-- Average Price -->
 		  <td>$<%= user.avg_price %></td>
 		</tr>
+	<% } }%>
 <% } %>
-
 <html>
 <head>
 <style>
@@ -31,11 +30,11 @@
 	</head>
 		<body>
 			<h1>Making dynamic HTML table from DB data to port over to main site</h1>
-		<table style="width:600px">
+	<table style="width:600px">
 	<!-- TABLE HEADER -->
 		<tr>
 			<th style="width: 20%"> Company Name </th>
-			<th style="width: 30%"> Location Name </th>	
+			<th style="width: 30%"> Location Name </th>
 			<th style="width: 30%"> Address </th>
 			<th style="width: 10%"> Rating </th>
 			<th style="width: 10%"> Avg. Price </th>

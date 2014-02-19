@@ -1,24 +1,8 @@
-var ejs = require('ejs')
-  , fs = require('fs')
-  , express = require("express")
-  , app = express()
-  , mongoose = require('mongoose');
-
-console.log("Starting Node.js");
-var port = process.env.PORT || 5000;
-process.env.PWD = process.cwd();
-
-//Serve files out of /public directory.
-app.use(express.static(__dirname + '/public'));
-app.get("/", function(request, response) {
-  response.send("Welcome to my Node.js webserver");
-});
-
-//Serve /ejs, populated with test data right now.
-app.get("/ejs", function(request, response) {
-
-  var path = __dirname + '/functions.ejs'
-  , str = fs.readFileSync(path, 'utf8');
+var ejs = require('ejs');
+var fs = require('fs');
+var express = require("express");
+var app = express();
+var mongoose = require('mongoose');
 
 //Starts database query operation
   // [1] DB credentials.
@@ -83,6 +67,23 @@ app.get("/ejs", function(request, response) {
     // [4] Declares nest_model from schema.
     var nest_model = mongoose.model('coffeeshop', main);
 
+
+console.log("Starting Node.js");
+var port = process.env.PORT || 5000;
+process.env.PWD = process.cwd();
+
+//Serve files out of /public directory.
+app.use(express.static(__dirname + '/public'));
+app.get("/", function(request, response) {
+  response.send("Welcome to my Node.js webserver");
+});
+
+//Serve /ejs, populated with test data right now.
+app.get("/ejs", function(request, response) {
+
+  var path = __dirname + '/functions.ejs';
+  var str = fs.readFileSync(path, 'utf8');
+
     //Initialize an empty array
     var users = [];
 
@@ -91,21 +92,29 @@ app.get("/ejs", function(request, response) {
     // UPADATE: Moved everything to 1 file, will deal with exportation later.
 
     // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
-    module.exports = nest_model.find({chain: 'true'}, function (err, coffeeshop) {
+    nest_model.find({chain: 'true'}, function (err, coffeeshop) {
               if(err){
                 onErr(err,callback);
                 console.log('Encountered an error executing query operation.');
               }else{
                 mongoose.connection.close(); //Closes DB session
                 console.log('Stored coffeeshop callback as operation, and closed mongo connection');
-                users.push(coffeeshop());
+                //users.push(coffeeshop);
               }
-            });
-
+              //console.log(users);
+                var ret = ejs.render(str, {
+                //Map var users
+                users: users,
+                //Set path
+                filename: path
+              });
+              response.send(ret);
+    });
+  
   //Finishes database query operation
 
   //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
-  /*users.push({
+  /*  users.push({
             company_name: "Balzac's Coffee Roasters",
             display_name: "Balzac's",
             website: "www.balzacs.com",
@@ -569,16 +578,7 @@ app.get("/ejs", function(request, response) {
               user_rating: null
             },
             __v: 0
-    });
-  */
-
-  var ret = ejs.render(str, {
-  //Map var users
-  users: users,
-  //Set path
-  filename: path
-  });
-
-  response.send(ret);
+    });*/
 });
+
 app.listen(port);
