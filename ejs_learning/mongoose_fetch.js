@@ -83,9 +83,9 @@ nest_model.find({chain: 'true'}, function (err, coffeeshop) {
 		mongoose.connection.close(); //Closes DB session
 		console.log('Stored coffeeshop callback as operation, and closed mongo connection');
 			//Write callback from query to file as a string. 
-			fs.writeFile('helloworld.txt', JSON.stringify(coffeeshop), function (err) {
+			fs.writeFile('databaseoutput.txt', JSON.stringify(coffeeshop, null, "\t"), function (err) {
 				if (err) return console.log(err);
-				console.log('Hello World > helloworld.txt');
+				console.log('Saved output from database query as JSON object in file.');
 			});
 	}
 });
