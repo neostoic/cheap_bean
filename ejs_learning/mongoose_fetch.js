@@ -2,6 +2,7 @@
 executes a query operation, and returns the callback as an exported variable */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var fs = require('fs');
 
 //DB credentials.
 mongoose.connect('mongodb://heroku:admin@troup.mongohq.com:10075/app22094857');
@@ -65,7 +66,10 @@ var main = Schema({
 // Declares nest_model from schema.
 var nest_model = mongoose.model('coffeeshop', main);
 
-//Declares var operation as global variable, then populates within scope of query.
+//Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
+//function so args can be inserted externally, and it is better practice than having global variables.
+
+//Declares var operation as global variable, then populates within scope of query (BAD PRACTICE)
 var operation;
 
 //Query operation on DB.
@@ -75,16 +79,22 @@ nest_model.find({chain: 'true'}, function (err, coffeeshop) {
 		console.log('Encountered an error executing query operation.');
 	}else{
 		mongoose.connection.close(); //Closes DB session
+		coffeeshop = operation;
 		console.log('Stored coffeeshop callback as operation, and closed mongo connection');
 	}
 });
 
-//Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export function
-//so args can be inserted externally, and it is better practice than having global variables.
+console.log(operation);
 
+//Write callback from query operation to file for inspection and debugging.
+fs.writeFile('helloworld.txt', operation, function (err) {
+	if (err) return console.log(err);
+	console.log('Hello World > helloworld.txt');
+});
 
+//Instead of exporting callback, export function.
+//module.exports.nest_model = query;
 
-console.log(coffeeshop);
-
+//For now export callback and see how it plays with EJS and server.js
 //Exports callback containing result of DB query.
-module.exports.operation = nest_model.find();
+//module.exports.operation = nest_model.find();
