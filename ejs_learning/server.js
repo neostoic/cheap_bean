@@ -1,14 +1,13 @@
 var ejs = require('ejs')
   , fs = require('fs')
-  , express = require("express");
+  , express = require("express")
+  , app = express()
+  , mongoose = require('mongoose')
+  , Schema = mongoose.schema;
 
-var filename = 'queryoperation.txt';
-
-console.log("starting");
+console.log("Starting Node.js");
 var port = process.env.PORT || 5000;
-process.env.PWD = process.cwd()
-
-var app = express();
+process.env.PWD = process.cwd();
 
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
@@ -22,36 +21,92 @@ app.get("/ejs", function(request, response) {
   var path = __dirname + '/functions.ejs'
   , str = fs.readFileSync(path, 'utf8');
 
-//Complete Node.js script to query mongo database, and export the last function(query)
-// as a module.export in Node.js. 
+//Starts database query operation
+  // [1] DB credentials.
+  mongoose.connect('mongodb://heroku:admin@troup.mongohq.com:10075/app22094857');
 
-//2014-02-19 - Update to code block below, outputs file read callback to console in utf8.
-fs.readFile('databaseoutput.txt', 'utf8' , function (err, data) {
-  if (err)
-    throw err;
-  if (data)
-    console.log(data);
-});
+  // [2] DB authentication.
+  console.log('Attempting authentication.');
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function callback () {
+      console.log('Yeah were in!');
+    });
+  console.log('Over authentication block.');
 
-/* May not be required, will update at a later date.
-  fs.readFile('testdata.js', 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    console.log(data);
-    users = data; 
+  // [3]Declares schema.
+  var main = Schema({
+    company_name: String,
+    display_name: String,
+    website: String,
+    chain: Boolean,
+    avg_price: Number, //Most logical place to put avg_price right now
+    date: {
+      date_added: { type: Date, default: Date.now}, //Add logic to differentiate between added and lastupdated
+      date_lastupdated: { type: Date, default: Date.now},
+    },
+    rating: {
+      yelp_rating: Number,
+      num_reviews: Number,
+      user_rating: Number,
+    },
+    locations: [locations], //Reference for subdocument locations
+    drinks: [drinks]  //Reference for subdocument drinks.
   });
-*/
+    
+    // [3a] Schema for embedded subdocument location.
+    var locations = Schema({
+    number: Number,
+    name: String,
+    address: String,
+    phone: String,
+      hours: {
+        Monday: String,
+        Tuesday: String,
+        Wednesday: String,
+        Thursday: String,
+        Friday: String,
+        Saturday: String,
+        Sunday: String,
+      }
+    });
 
-//This code will likely be replaced shortly, once support is in place to read
-//from file, and eventually use the callback from mongoose_fetch to populate
-//the array automatically.
+    // [3b] Schema for embedded subdocument drinks.
+    var drinks = Schema({
+    drink: String,
+      sizes: {
+        small: Number,
+        medium: Number,
+        large: Number,
+      }
+    });
 
+    // [4] Declares nest_model from schema.
+    var nest_model = mongoose.model('coffeeshop', main);
 
-  //Initialize an empty array
-  var users = [];
-  //Push test data into array
-    users.push({
+    //Initialize an empty array
+    var users = [];
+
+    // Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
+    // function so args can be inserted externally, and it is better practice than having global variables.
+    // UPADATE: Moved everything to 1 file, will deal with exportation later.
+
+    // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
+    module.exports = nest_model.find({chain: 'true'}, function (err, coffeeshop) {
+              if(err){
+                onErr(err,callback);
+                console.log('Encountered an error executing query operation.');
+              }else{
+                mongoose.connection.close(); //Closes DB session
+                console.log('Stored coffeeshop callback as operation, and closed mongo connection');
+                users.push(coffeeshop());
+              }
+            });
+    
+  //Finishes database query operation
+
+  //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
+  /*users.push({
             company_name: "Balzac's Coffee Roasters",
             display_name: "Balzac's",
             website: "www.balzacs.com",
@@ -516,8 +571,7 @@ fs.readFile('databaseoutput.txt', 'utf8' , function (err, data) {
             },
             __v: 0
     });
-  //Log value of users to console
-  //console.log(users);
+  */
 
   var ret = ejs.render(str, {
   //Map var users
