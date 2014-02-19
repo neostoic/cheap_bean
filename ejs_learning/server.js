@@ -2,8 +2,7 @@ var ejs = require('ejs')
   , fs = require('fs')
   , express = require("express")
   , app = express()
-  , mongoose = require('mongoose')
-  , Schema = mongoose.schema;
+  , mongoose = require('mongoose');
 
 console.log("Starting Node.js");
 var port = process.env.PORT || 5000;
@@ -35,7 +34,7 @@ app.get("/ejs", function(request, response) {
   console.log('Over authentication block.');
 
   // [3]Declares schema.
-  var main = Schema({
+  var main = mongoose.Schema({
     company_name: String,
     display_name: String,
     website: String,
@@ -55,7 +54,7 @@ app.get("/ejs", function(request, response) {
   });
     
     // [3a] Schema for embedded subdocument location.
-    var locations = Schema({
+    var locations = mongoose.Schema({
     number: Number,
     name: String,
     address: String,
@@ -72,7 +71,7 @@ app.get("/ejs", function(request, response) {
     });
 
     // [3b] Schema for embedded subdocument drinks.
-    var drinks = Schema({
+    var drinks = mongoose.Schema({
     drink: String,
       sizes: {
         small: Number,
@@ -102,7 +101,7 @@ app.get("/ejs", function(request, response) {
                 users.push(coffeeshop());
               }
             });
-    
+
   //Finishes database query operation
 
   //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
