@@ -9,13 +9,17 @@
       table,th,td{
           border:0.5px solid black; text-align:center; vertical-align: middle; padding: 1px;
       }
+      table{
+        padding-left: 20px;
+      }
       /* Styling for Google Map
       -------------------------------------------------- */      
       #map_canvas {
-        width: 600px;
+        width: 575px;
         height: 350px;
         position: absolute;
-        right: 15px;
+        right: 20px;
+        top: 250px;
       }
 
       .rating {

@@ -150,8 +150,8 @@ app.get("/ejs", function(request, response) {
                   Monday: "7:00 AM - 8:00 PM"
                 },
                 phone: "(416)207-1709",
-                address: "1 Trinity Street, Toronto",
-                location_name: "Distillery District",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
                 location_number: 1
               },
               {
