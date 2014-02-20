@@ -110,8 +110,6 @@ app.get("/ejs", function(request, response) {
               });
               response.send(ret);
     });
-  
-  //Finishes database query operation
 
   //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
     users.push({
@@ -488,7 +486,7 @@ app.get("/ejs", function(request, response) {
     });
     users.push({
             company_name: "Starbucks Coffee",
-            display_name: "The Abbott",
+            display_name: "Bicerin Coffee",
             website: "www.aromaespresso.com",
             chain: true,
             avg_price: 1.39,
@@ -522,8 +520,8 @@ app.get("/ejs", function(request, response) {
                   Monday: "7:00 AM - 8:00 PM"
                 },
                 phone: "(416)207-1709",
-                address: "1 Trinity Street, Toronto",
-                location_name: "Distillery District",
+                address: "37 Baldwin St, Toronto",
+                location_name: "Baldwin Village",
                 location_number: 1
               },
               {
@@ -579,6 +577,472 @@ app.get("/ejs", function(request, response) {
             },
             __v: 0
     });
+    users.push({
+            company_name: "Starbucks Coffee",
+            display_name: "Cafe Neon",
+            website: "www.aromaespresso.com",
+            chain: true,
+            avg_price: 1.39,
+            drinks: [
+              {
+                sizes: {
+                  large: 3.1,
+                  medium: 2.6,
+                  small: 2.4
+                },
+                drink: "Americano"
+              },
+              {
+                sizes: {
+                  large: 2.8,
+                  medium: 2.1,
+                  small: 3.4
+                },
+                drink: "Cappucino"
+              }
+            ],
+            locations: [
+              {
+                hours: {
+                  Sunday: "8:00 AM - 7:00 PM",
+                  Saturday: "7:00 AM - 8:00 PM",
+                  Friday: "7:00 AM - 8:00 PM",
+                  Thursday: "7:00 AM - 8:00 PM",
+                  Wednesday: "7:00 AM - 8:00 PM",
+                  Tuesday: "7:00 AM - 8:00 PM",
+                  Monday: "7:00 AM - 8:00 PM"
+                },
+                phone: "(416)207-1709",
+                address: "241 Wallace Ave, Toronto",
+                location_name: "Lansdowne",
+                location_number: 1
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 7:00 PM",
+                  Saturday: "8:00 AM - 7:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 7:00 PM",
+                  Wednesday: "7:00 AM - 7:00 PM",
+                  Tuesday: "7:00 AM - 7:00 PM",
+                  Monday: "7:00 AM - 7:00 PM"
+                },
+                phone: "(416)534-7372",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
+                location_number: 2
+              },
+              {
+                hours: {
+                  Sunday: "10:00 AM - 5:00 PM",
+                  Saturday: "10:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 9:00 PM",
+                  Thursday: "7:00 AM - 9:00 PM",
+                  Wednesday: "7:00 AM - 9:00 PM",
+                  Tuesday: "7:00 AM - 9:00 PM",
+                  Monday: "7:00 AM - 9:00 PM"
+                },
+                phone: "(416)597-1700",
+                address: "122 Bond Street, Toronto",
+                location_name: "Ryerson Image Arts",
+                location_number: 3
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 4:00 PM",
+                  Saturday: "8:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 8:30 PM",
+                  Wednesday: "7:00 AM - 8:30 PM",
+                  Tuesday: "7:00 AM - 8:30 PM",
+                  Monday: "7:00 AM - 8:30 PM"
+                },
+                phone: "(416)922-3700",
+                address: "789 Yonge Street, Toronto",
+                location_name: "Toronto Reference Library",
+                location_number: 4
+              }
+            ],
+            rating: {
+              yelp_rating: 5.5,
+              yelp_reviews: 70,
+              user_rating: null
+            },
+            __v: 0
+    });
+    users.push({
+            company_name: "Stadrbucks Coffee",
+            display_name: "I Deal Coffee",
+            website: "www.aromaespresso.com",
+            chain: true,
+            avg_price: 1.39,
+            drinks: [
+              {
+                sizes: {
+                  large: 3.1,
+                  medium: 2.6,
+                  small: 2.4
+                },
+                drink: "Americano"
+              },
+              {
+                sizes: {
+                  large: 2.8,
+                  medium: 2.1,
+                  small: 3.4
+                },
+                drink: "Cappucino"
+              }
+            ],
+            locations: [
+              {
+                hours: {
+                  Sunday: "8:00 AM - 7:00 PM",
+                  Saturday: "7:00 AM - 8:00 PM",
+                  Friday: "7:00 AM - 8:00 PM",
+                  Thursday: "7:00 AM - 8:00 PM",
+                  Wednesday: "7:00 AM - 8:00 PM",
+                  Tuesday: "7:00 AM - 8:00 PM",
+                  Monday: "7:00 AM - 8:00 PM"
+                },
+                phone: "(416)207-1709",
+                address: "3336 Yonge St, Toronto",
+                location_name: "Yonge",
+                location_number: 1
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 7:00 PM",
+                  Saturday: "8:00 AM - 7:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 7:00 PM",
+                  Wednesday: "7:00 AM - 7:00 PM",
+                  Tuesday: "7:00 AM - 7:00 PM",
+                  Monday: "7:00 AM - 7:00 PM"
+                },
+                phone: "(416)534-7372",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
+                location_number: 2
+              },
+              {
+                hours: {
+                  Sunday: "10:00 AM - 5:00 PM",
+                  Saturday: "10:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 9:00 PM",
+                  Thursday: "7:00 AM - 9:00 PM",
+                  Wednesday: "7:00 AM - 9:00 PM",
+                  Tuesday: "7:00 AM - 9:00 PM",
+                  Monday: "7:00 AM - 9:00 PM"
+                },
+                phone: "(416)597-1700",
+                address: "122 Bond Street, Toronto",
+                location_name: "Ryerson Image Arts",
+                location_number: 3
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 4:00 PM",
+                  Saturday: "8:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 8:30 PM",
+                  Wednesday: "7:00 AM - 8:30 PM",
+                  Tuesday: "7:00 AM - 8:30 PM",
+                  Monday: "7:00 AM - 8:30 PM"
+                },
+                phone: "(416)922-3700",
+                address: "789 Yonge Street, Toronto",
+                location_name: "Toronto Reference Library",
+                location_number: 4
+              }
+            ],
+            rating: {
+              yelp_rating: 5.5,
+              yelp_reviews: 70,
+              user_rating: null
+            },
+            __v: 0
+    });
+    users.push({
+            company_name: "Starbucks Coffee",
+            display_name: "The Grind House",
+            website: "www.aromaespresso.com",
+            chain: true,
+            avg_price: 1.39,
+            drinks: [
+              {
+                sizes: {
+                  large: 3.1,
+                  medium: 2.6,
+                  small: 2.4
+                },
+                drink: "Americano"
+              },
+              {
+                sizes: {
+                  large: 2.8,
+                  medium: 2.1,
+                  small: 3.4
+                },
+                drink: "Cappucino"
+              }
+            ],
+            locations: [
+              {
+                hours: {
+                  Sunday: "8:00 AM - 7:00 PM",
+                  Saturday: "7:00 AM - 8:00 PM",
+                  Friday: "7:00 AM - 8:00 PM",
+                  Thursday: "7:00 AM - 8:00 PM",
+                  Wednesday: "7:00 AM - 8:00 PM",
+                  Tuesday: "7:00 AM - 8:00 PM",
+                  Monday: "7:00 AM - 8:00 PM"
+                },
+                phone: "(416)207-1709",
+                address: "281 Augusta Ave, Toronto",
+                location_name: "Kensington",
+                location_number: 1
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 7:00 PM",
+                  Saturday: "8:00 AM - 7:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 7:00 PM",
+                  Wednesday: "7:00 AM - 7:00 PM",
+                  Tuesday: "7:00 AM - 7:00 PM",
+                  Monday: "7:00 AM - 7:00 PM"
+                },
+                phone: "(416)534-7372",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
+                location_number: 2
+              },
+              {
+                hours: {
+                  Sunday: "10:00 AM - 5:00 PM",
+                  Saturday: "10:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 9:00 PM",
+                  Thursday: "7:00 AM - 9:00 PM",
+                  Wednesday: "7:00 AM - 9:00 PM",
+                  Tuesday: "7:00 AM - 9:00 PM",
+                  Monday: "7:00 AM - 9:00 PM"
+                },
+                phone: "(416)597-1700",
+                address: "122 Bond Street, Toronto",
+                location_name: "Ryerson Image Arts",
+                location_number: 3
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 4:00 PM",
+                  Saturday: "8:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 8:30 PM",
+                  Wednesday: "7:00 AM - 8:30 PM",
+                  Tuesday: "7:00 AM - 8:30 PM",
+                  Monday: "7:00 AM - 8:30 PM"
+                },
+                phone: "(416)922-3700",
+                address: "789 Yonge Street, Toronto",
+                location_name: "Toronto Reference Library",
+                location_number: 4
+              }
+            ],
+            rating: {
+              yelp_rating: 5.5,
+              yelp_reviews: 70,
+              user_rating: null
+            },
+            __v: 0
+    });
+    users.push({
+            company_name: "Starbucks Coffee",
+            display_name: "Cabin Fever Collective",
+            website: "www.aromaespresso.com",
+            chain: true,
+            avg_price: 1.39,
+            drinks: [
+              {
+                sizes: {
+                  large: 3.1,
+                  medium: 2.6,
+                  small: 2.4
+                },
+                drink: "Americano"
+              },
+              {
+                sizes: {
+                  large: 2.8,
+                  medium: 2.1,
+                  small: 3.4
+                },
+                drink: "Cappucino"
+              }
+            ],
+            locations: [
+              {
+                hours: {
+                  Sunday: "8:00 AM - 7:00 PM",
+                  Saturday: "7:00 AM - 8:00 PM",
+                  Friday: "7:00 AM - 8:00 PM",
+                  Thursday: "7:00 AM - 8:00 PM",
+                  Wednesday: "7:00 AM - 8:00 PM",
+                  Tuesday: "7:00 AM - 8:00 PM",
+                  Monday: "7:00 AM - 8:00 PM"
+                },
+                phone: "(416)207-1709",
+                address: "1669 Bloor St. W, Toronto",
+                location_name: "Bloor St.",
+                location_number: 1
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 7:00 PM",
+                  Saturday: "8:00 AM - 7:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 7:00 PM",
+                  Wednesday: "7:00 AM - 7:00 PM",
+                  Tuesday: "7:00 AM - 7:00 PM",
+                  Monday: "7:00 AM - 7:00 PM"
+                },
+                phone: "(416)534-7372",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
+                location_number: 2
+              },
+              {
+                hours: {
+                  Sunday: "10:00 AM - 5:00 PM",
+                  Saturday: "10:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 9:00 PM",
+                  Thursday: "7:00 AM - 9:00 PM",
+                  Wednesday: "7:00 AM - 9:00 PM",
+                  Tuesday: "7:00 AM - 9:00 PM",
+                  Monday: "7:00 AM - 9:00 PM"
+                },
+                phone: "(416)597-1700",
+                address: "122 Bond Street, Toronto",
+                location_name: "Ryerson Image Arts",
+                location_number: 3
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 4:00 PM",
+                  Saturday: "8:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 8:30 PM",
+                  Wednesday: "7:00 AM - 8:30 PM",
+                  Tuesday: "7:00 AM - 8:30 PM",
+                  Monday: "7:00 AM - 8:30 PM"
+                },
+                phone: "(416)922-3700",
+                address: "789 Yonge Street, Toronto",
+                location_name: "Toronto Reference Library",
+                location_number: 4
+              }
+            ],
+            rating: {
+              yelp_rating: 5.5,
+              yelp_reviews: 70,
+              user_rating: null
+            },
+            __v: 0
+    });
+    users.push({
+            company_name: "Starbucks Coffee",
+            display_name: "Bivy",
+            website: "www.aromaespresso.com",
+            chain: true,
+            avg_price: 1.39,
+            drinks: [
+              {
+                sizes: {
+                  large: 3.1,
+                  medium: 2.6,
+                  small: 2.4
+                },
+                drink: "Americano"
+              },
+              {
+                sizes: {
+                  large: 2.8,
+                  medium: 2.1,
+                  small: 3.4
+                },
+                drink: "Cappucino"
+              }
+            ],
+            locations: [
+              {
+                hours: {
+                  Sunday: "8:00 AM - 7:00 PM",
+                  Saturday: "7:00 AM - 8:00 PM",
+                  Friday: "7:00 AM - 8:00 PM",
+                  Thursday: "7:00 AM - 8:00 PM",
+                  Wednesday: "7:00 AM - 8:00 PM",
+                  Tuesday: "7:00 AM - 8:00 PM",
+                  Monday: "7:00 AM - 8:00 PM"
+                },
+                phone: "(416)207-1709",
+                address: "1600 Dundas St. W, Toronto",
+                location_name: "Little Italy",
+                location_number: 1
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 7:00 PM",
+                  Saturday: "8:00 AM - 7:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 7:00 PM",
+                  Wednesday: "7:00 AM - 7:00 PM",
+                  Tuesday: "7:00 AM - 7:00 PM",
+                  Monday: "7:00 AM - 7:00 PM"
+                },
+                phone: "(416)534-7372",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
+                location_number: 2
+              },
+              {
+                hours: {
+                  Sunday: "10:00 AM - 5:00 PM",
+                  Saturday: "10:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 9:00 PM",
+                  Thursday: "7:00 AM - 9:00 PM",
+                  Wednesday: "7:00 AM - 9:00 PM",
+                  Tuesday: "7:00 AM - 9:00 PM",
+                  Monday: "7:00 AM - 9:00 PM"
+                },
+                phone: "(416)597-1700",
+                address: "122 Bond Street, Toronto",
+                location_name: "Ryerson Image Arts",
+                location_number: 3
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 4:00 PM",
+                  Saturday: "8:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 8:30 PM",
+                  Wednesday: "7:00 AM - 8:30 PM",
+                  Tuesday: "7:00 AM - 8:30 PM",
+                  Monday: "7:00 AM - 8:30 PM"
+                },
+                phone: "(416)922-3700",
+                address: "789 Yonge Street, Toronto",
+                location_name: "Toronto Reference Library",
+                location_number: 4
+              }
+            ],
+            rating: {
+              yelp_rating: 5.5,
+              yelp_reviews: 70,
+              user_rating: null
+            },
+            __v: 0
+    });
+
 });
 
 app.listen(port);
