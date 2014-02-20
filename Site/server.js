@@ -1,7 +1,9 @@
-var ejs = require('ejs')
-  , fs = require('fs')
-  , express = require("express");
-  
+var ejs = require('ejs');
+var fs = require('fs');
+var express = require("express");
+var app = express();
+var mongoose = require('mongoose');
+
 //Starts database query operation
   // [1] DB credentials.
   mongoose.connect('mongodb://heroku:admin@troup.mongohq.com:10075/app22094857');
@@ -64,19 +66,52 @@ var ejs = require('ejs')
 
     // [4] Declares nest_model from schema.
     var nest_model = mongoose.model('coffeeshop', main);
-  
 
-console.log("starting");
+
+console.log("Starting Node.js");
 var port = process.env.PORT || 5000;
 process.env.PWD = process.cwd();
 
-var app = express();
-
-//Serve files out of /public directory. 
+//Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
 app.get("/", function(request, response) {
-	response.send("Welcome to my Node.js webserver");
+  response.send("Welcome to my Node.js webserver");
 });
+
+//Serve /ejs, populated with test data right now.
+app.get("/ejs", function(request, response) {
+
+  var path = __dirname + '/public/index.ejs';
+  var str = fs.readFileSync(path, 'utf8');
+
+    //Initialize an empty array
+    var users = [];
+
+    // Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
+    // function so args can be inserted externally, and it is better practice than having global variables.
+    // UPADATE: Moved everything to 1 file, will deal with exportation later.
+
+    // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
+    nest_model.find({chain: 'true'}, function (err, coffeeshop) {
+              if(err){
+                onErr(err,callback);
+                console.log('Encountered an error executing query operation.');
+              }else{
+                mongoose.connection.close(); //Closes DB session
+                console.log('Stored coffeeshop callback as operation, and closed mongo connection');
+                //users.push(coffeeshop);
+              }
+              //console.log(users);
+                var ret = ejs.render(str, {
+                //Map var users
+                users: users,
+                //Set path
+                filename: path
+              });
+              response.send(ret);
+    });
+  
+  //Finishes database query operation
 
   //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
     users.push({
