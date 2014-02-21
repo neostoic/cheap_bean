@@ -1,25 +1,24 @@
-<!-- EJS for dynamic table on home page -->
-<% function user(user) { %>
-  <% for(var i=0; i<user.locations.length; i++) { if(i==0){ %>
-    <tr>
-      <td> <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %></td>
-        <td> <%= user.locations[i].address %> </td>
-        <td><%= user.rating.yelp_rating %>(<%= user.rating.yelp_reviews %>)</td>
-        <td>%<%= user.avg_price %></td>
-    </tr>
-  <% } }%>
-<% } %>
+<!doctype html>
+<html><head></head><body>&lt;% function user(user) { %&gt;
+  &lt;% for(var i=0; i<user.locations.length; i++)="" {="" if(i="=0){" %="">
+    
+       <a href="<%= user.website %>"> &lt;%= user.display_name%&gt;</a>,   &lt;%= user.locations[i].location_name %&gt;
+         &lt;%= user.locations[i].address %&gt; 
+        &lt;%= user.rating.yelp_rating %&gt;(&lt;%= user.rating.yelp_reviews %&gt;)
+        %&lt;%= user.avg_price %&gt;
+    
+  &lt;% } }%&gt;
+&lt;% } %&gt;
 
-<!DOCTYPE html>
-<html>
-	<head>
+
+
+	
 		<meta charset="utf-8">
 		<title>Frugally Caffeinated</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <!-- Hotfixes on top of stylesheet-->
-    <link rel="stylesheet" type="text/css" href="css/frugallycaffeinated.css"
-	</head>
-  <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+    <link rel="stylesheet" type="text/css" href="css/frugallycaffeinated.css" <="" head="">
+  <script data-cfasync="false" type="text/javascript">/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
       f[z]=function(){
       (a.s=a.s||[]).push(arguments)};var a=f[z]._={
       },q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
@@ -37,23 +36,23 @@
       loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
       /* custom configuration goes here (www.olark.com/documentation) */
       olark.identify('1669-606-10-5663');/*]]>*/</script><noscript><a href="https://www.olark.com/site/1669-606-10-5663/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
-	<body>
+	
   <div id="wrap">
       <!-- Menu Bar
       ================================================== -->
   	  <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-          <div class="container">
-            <a class="brand" href="#">Frugally Caffeinated</a>
-            <div class="nav-collapse collapse">
-              <ul class="nav">
+        <div class="container">
+          <div class="container"><div class="navbar-header"><a class="navbar-brand" href="#">Frugally Caffeinated</a></div>
+            
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
               </ul> 
               <!-- Search Bar
               ================================================== -->
               <form class="navbar-form pull-right">
-                <input class="span6" type="text" placeholder="Search">
+                <input class="span6 form-control" placeholder="Search" type="text">
               </form> 
             </div>
           </div>
@@ -64,7 +63,7 @@
       <div id="myCarousel" class="carousel slide">
         <div class="carousel-inner">
           <div class="item active">
-            <img src="img/slide-01.jpg" width="100%" alt="">
+            <img src="img/slide-01.jpg" alt="" width="100%">
               <div class="carousel-caption">
                 <div class="container">
                 <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
@@ -72,7 +71,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="img/slide-02.jpg" width="100%" alt="">
+            <img src="img/slide-02.jpg" alt="" width="100%">
               <div class="carousel-caption">
                 <div class="container">
                 <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
@@ -80,7 +79,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="img/slide-03.jpg" width="100%" alt="">
+            <img src="img/slide-03.jpg" alt="" width="100%">
             <div class="carousel-caption">
               <div class="container">
                 <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
@@ -92,24 +91,24 @@
       <!-- Data Table + Tablesorter 2.0
       ================================================== -->
       <p class="pull-right">
+        
+          &lt;% users.map(user) %&gt;
         <table style="width:650px; padding:10px">
         <!-- TABLE HEADER -->
-        <tr>
+        <tbody><tr>
           <th style="width: 30%"> Name </th>
           <th style="width: 30%"> Address </th>
           <th style="width: 10%; padding:5px"> Rating </th>
           <th style="width: 20%; padding:5px"> Difference from <br> Avg. Price </th>
         </tr>
-          <!-- Insert function user(user) into HTML table -->
-          <% users.map(user) %>
-        </table>
+          <!-- Insert function user(user) into HTML table --></tbody></table>
 
       </p>
       <!-- Google Maps implimentation
       ================================================== -->
       <p class="pull-right">
-        <div id="map_canvas"></div>
-      </p>
+        </p><div id="map_canvas"></div>
+      <p></p>
     <!-- Pushes rest of content down page
     ================================================== -->  
     <div id="push"></div>
@@ -120,9 +119,9 @@
     ================================================== -->
     <div id="footer">
       <div class="container">
-        <p><center>&copy; Frugally Caffeinated 2014 &middot; Created by <a href="http://lancestacenko.me">Lance Stacenko</center></p>
-      </div>
-    </div>
+        <p></p><center>© Frugally Caffeinated 2014 · Created by <a href="http://lancestacenko.me">Lance Stacenko</a></center><p></p><a href="http://lancestacenko.me">
+      </a></div><a href="http://lancestacenko.me">
+    </a></div><a href="http://lancestacenko.me">
     <!-- Added dependancies to bottom to save on load time
     ================================================== -->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> <!-- Jquery -->
@@ -148,7 +147,7 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
       </script> <!-- Google Maps -->
-		<script src=”js/bootstrap.js”></script> <!-- Bootstrap -->
+		<script src="”js/bootstrap.js”"></script> <!-- Bootstrap -->
     <script src="js/carousel.js"></script><script>
         !function ($) {
           $(function(){
@@ -158,5 +157,5 @@
             }
           })
         }(window.jQuery)</script> <!-- Carousel JS --> <!-- Carousel --> <!-- Carousel -->
-	</body>
-</html>
+	
+</a></user.locations.length;></body></html>
