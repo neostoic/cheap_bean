@@ -1,14 +1,15 @@
-<!doctype html>
-<html><head></head><body>&lt;% function user(user) { %&gt;
-  &lt;% for(var i=0; i<user.locations.length; i++)="" {="" if(i="=0){" %="">
-    
-       <a href="<%= user.website %>"> &lt;%= user.display_name%&gt;</a>,   &lt;%= user.locations[i].location_name %&gt;
-         &lt;%= user.locations[i].address %&gt; 
-        &lt;%= user.rating.yelp_rating %&gt;(&lt;%= user.rating.yelp_reviews %&gt;)
-        %&lt;%= user.avg_price %&gt;
-    
-  &lt;% } }%&gt;
-&lt;% } %&gt;
+<!DOCTYPE html>
+<!-- EJS for dynamic table on home page -->
+<% function user(user) { %>
+  <% for(var i=0; i<user.locations.length; i++) { if(i==0){ %>
+    <tr>
+      <td> <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %></td>
+        <td> <%= user.locations[i].address %> </td>
+        <td><%= user.rating.yelp_rating %>(<%= user.rating.yelp_reviews %>)</td>
+        <td>% <%= user.avg_price %></td>
+    </tr>
+  <% } }%>
+<% } %>
 
 
 
