@@ -1,0 +1,18 @@
+{
+  "name": "herokudeploy",
+  "version": "0.0.0",
+  "description": "Heroku deployment of coffee site.",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "logfmt": "~0.21.0",
+    "express": "~3.4.8",
+    "ejs": "~0.8.5",
+    "mongoose": "~3.8.7"
+  },
+  "devDependencies": {}
+}
