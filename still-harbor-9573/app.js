@@ -4,6 +4,10 @@ var express = require("express");
 var app = express();
 var mongoose = require('mongoose');
 
+console.log("Starting Node.js");
+var port = process.env.PORT || 5000;
+process.env.PWD = process.cwd();
+
 //Starts database query operation
   // [1] DB credentials.
   // User: Heroku | Pass: 4dm1n (Will be changed upon switching to production)
@@ -68,15 +72,10 @@ var mongoose = require('mongoose');
     // [4] Declares nest_model from schema.
     var nest_model = mongoose.model('coffeeshop', main);
 
-console.log("Starting Node.js");
-var port = process.env.PORT || 5000;
-process.env.PWD = process.cwd();
-
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
-
-//Serve /ejs, populated with test data right now.
-app.get("/ejs", function(request, response) {
+//Serve webpage as default dir.
+app.get("/", function(request, response) {
 
   var path = __dirname + '/public/index.ejs';
   var str = fs.readFileSync(path, 'utf8');
