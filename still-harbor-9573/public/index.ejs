@@ -4,8 +4,8 @@
     <tr>
       <td> <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %></td>
         <td> <%= user.locations[i].address %> </td>
-        <td><%= user.rating.yelp_rating %>(<%= user.rating.yelp_reviews %>)</td>
-        <td>%<%= user.avg_price %></td>
+        <td><%= user.rating.yelp_rating %> (<%= user.rating.yelp_reviews %> reviews)</td>
+        <td>% <%= user.avg_price %></td>
     </tr>
   <% } }%>
 <% } %>
@@ -94,14 +94,11 @@
       ================================================== -->
       <div class="span6">
         <!-- Alert bar to show progress text -->
-        <div class="alert alert-success" style="width:70%; margin-left:5%; float:left;">
-          <center>More coffeeshops are constantly being added. Check back soon!</center>
+        <div class="alert alert-success" style="width:90%; margin-left:5%; margin-right: 5%; float:left;">
+          <center>More coffeeshops are constantly being added in the coming weeks. Check back soon!</center>
         </div>
-        <!-- Add green 'success' button above EJS table -->
-        <div class="btn-group" style="float:left; margin-left:5%; margin-top:3px;">
-            <button class="btn btn-success">Sort By:</button>
-            <button class="btn btn-success dropdown-toggle " data-toggle="dropdown">
-            <span class="caret"></span>
+        <!-- Commented 'sortby' button, no longer needed with tablesorter plugins available -->
+        <div class="btn-group">
             </button>
             <ul class="dropdown-menu">
             <!-- dropdown menu links -->
@@ -140,7 +137,7 @@
         <p><center>&copy; Frugally Caffeinated 2014 &middot; Created by <a href="http://lancestacenko.me">Lance Stacenko</center></p>
       </div>
     </div>
-    <!-- Added dependancies to bottom to save on load timef
+    <!-- Added dependancies to bottom to save on load time
     ================================================== -->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> <!-- Jquery -->
     <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
@@ -170,7 +167,7 @@
         !function ($) {
           $(function(){
             // carousel demo
-            $('#myCarousel').carousel(){
+            $('#myCarousel').carousel();{
 
             }
           })

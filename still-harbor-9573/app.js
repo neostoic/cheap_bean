@@ -939,7 +939,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 4.0,
+              yelp_rating: 4.1,
               yelp_reviews: 42,
               user_rating: null
             },
