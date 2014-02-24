@@ -74,12 +74,9 @@ process.env.PWD = process.cwd();
 
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
-app.get("/", function(request, response) {
-  response.send("Welcome to my Node.js webserver");
-});
 
 //Serve /ejs, populated with test data right now.
-app.get("/ejs", function(request, response) {
+app.get("/", function(request, response) {
 
   var path = __dirname + '/public/index.ejs';
   var str = fs.readFileSync(path, 'utf8');
