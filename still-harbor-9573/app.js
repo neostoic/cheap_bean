@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 
 //Starts database query operation
   // [1] DB credentials.
-  mongoose.connect('mongodb://heroku:admin@troup.mongohq.com:10075/app22094857');
+  // User: Heroku | Pass: 4dm1n (Will be changed upon switching to production)
+  mongoose.connect('mongodb://heroku:4dm1n@troup.mongohq.com:10029/app22422589');
 
   // [2] DB authentication.
   console.log('Attempting authentication.');
@@ -67,7 +68,6 @@ var mongoose = require('mongoose');
     // [4] Declares nest_model from schema.
     var nest_model = mongoose.model('coffeeshop', main);
 
-
 console.log("Starting Node.js");
 var port = process.env.PORT || 5000;
 process.env.PWD = process.cwd();
@@ -76,7 +76,7 @@ process.env.PWD = process.cwd();
 app.use(express.static(__dirname + '/public'));
 
 //Serve /ejs, populated with test data right now.
-app.get("/", function(request, response) {
+app.get("/ejs", function(request, response) {
 
   var path = __dirname + '/public/index.ejs';
   var str = fs.readFileSync(path, 'utf8');
@@ -1039,7 +1039,6 @@ app.get("/", function(request, response) {
             },
             __v: 0
     });
-
 });
 
 app.listen(port);
