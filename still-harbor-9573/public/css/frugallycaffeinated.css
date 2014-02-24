@@ -16,11 +16,8 @@
       /* Styling for Google Map
       -------------------------------------------------- */      
       #map_canvas {
-        width: 575px;
-        height: 350px;
-        position: absolute;
-        right: 20px;
-        top: 250px;
+        height: 550px;
+        margin-right: 2%;
       }
 
       .rating {
