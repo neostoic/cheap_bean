@@ -8,7 +8,7 @@ console.log("Starting Node.js");
 var port = process.env.PORT || 5000;
 process.env.PWD = process.cwd();
 
-//Starts database query operation
+//Starts database query operation, declaring connection, schema, model. 
   // [1] DB credentials.
   // User: Heroku | Pass: 4dm1n (Will be changed upon switching to production)
   mongoose.connect('mongodb://heroku:4dm1n@troup.mongohq.com:10029/app22422589');
@@ -93,7 +93,7 @@ app.get("/", function(request, response) {
                 onErr(err,callback);
                 console.log('Encountered an error executing query operation.');
               }else{
-                mongoose.connection.close(); //Closes DB session
+                //mongoose.connection.close(); //Closes DB session
                 console.log('Stored coffeeshop callback as operation, and closed mongo connection');
                 //users.push(coffeeshop);
               }
