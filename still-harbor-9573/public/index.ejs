@@ -4,7 +4,7 @@
     <tr>
       <td> <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %></td>
         <td> <%= user.locations[i].address %> </td>
-        <td><%= user.rating.yelp_rating %> (<%= user.rating.yelp_reviews %> reviews)</td>
+        <td><%= user.rating.yelp_rating %> (<%= user.rating.yelp_reviews %>)</td>
         <td>% <%= user.avg_price %></td>
     </tr>
   <% } }%>
@@ -67,7 +67,7 @@
             <img src="img/slide-01.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
+                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority on finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <img src="img/slide-02.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
+                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority on finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
             <img src="img/slide-03.jpg" width="100%" alt="">
             <div class="carousel-caption">
               <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the working name for the world's best coffeeshop locating platform.</p>
+                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority on finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -94,17 +94,10 @@
       ================================================== -->
       <div class="span6">
         <!-- Alert bar to show progress text -->
-        <div class="alert alert-success" style="width:90%; margin-left:5%; margin-right: 5%; float:left;">
+        <div class="alert alert-success" style="width:100%; margin-left:5%; margin-right:10%; ">
           <center>More coffeeshops are constantly being added in the coming weeks. Check back soon!</center>
         </div>
-        <!-- Commented 'sortby' button, no longer needed with tablesorter plugins available -->
-        <div class="btn-group">
-            </button>
-            <ul class="dropdown-menu">
-            <!-- dropdown menu links -->
-            </ul>
-
-        </div>
+        
         <!-- Insert dynamic EJS table -->
         <table style="width:100%; margin-left:20px; clear:both;">
         <!-- TABLE HEADER -->
@@ -134,23 +127,20 @@
     ================================================== -->
     <div id="footer">
       <div class="container">
-        <p><center>&copy; Frugally Caffeinated 2014 &middot; Created by <a href="http://lancestacenko.me">Lance Stacenko</center></p>
+        <p><center>&copy; Frugally Caffeinated 2014 &middot; Created by <a href="http://lancestacenko.me">Lance Stacenko
+        </a></center></p>
       </div>
     </div>
     <!-- Added dependancies to bottom to save on load time
     ================================================== -->
-		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> <!-- Jquery -->
-    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
-      <script>
-        $(document).ready(function() 
-      { 
-        $("#myTable").tablesorter(); 
-      } 
-      ); 
-      </script> <!-- Tablesorter -->
-    <script type="text/javascript" src="ejs.js"></script> <!-- EJS -->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-      <script>
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
+    <script type="text/javascript" src="js/bootstrap.js"></script> 
+    <script type="text/javascript" src="js/carousel.js"></script> 
+    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script> 
+    <script type="text/javascript" src="js/ejs.js"></script> 
+    <script type="text/javascript" src="js/underscore.js"></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+    <script>
       function initialize() {
         var map_canvas = document.getElementById('map_canvas');
         var map_options = {
@@ -162,8 +152,33 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
       </script> <!-- Google Maps -->
-		<script src=”js/bootstrap.js”></script> <!-- Bootstrap -->
-    <script src="js/carousel.js"></script><script>
+    <script>
+      $(function(){
+
+      // Cache reference to our container
+      var $container = $("#container");
+
+      // A function for updating max-height
+      function updateMaxHeight () {
+          $container.css("max-height", $(this).height() - 100);
+      }
+
+      // Version of updateMaxHeight that will run no more than once every 200ms
+      var updateMaxHeightThrottled = _.throttle(updateMaxHeight, 200);
+
+      // Call updateMaxHeightThrottled when browser resize event fires
+      $(window).on("resize", updateMaxHeightThrottled);
+      });
+      </script>
+    <script>
+      $(document).ready(function() 
+      { 
+        $("#myTable").tablesorter(); 
+      } 
+      ); 
+      </script>
+     <!-- EJS -->
+    <script>
         !function ($) {
           $(function(){
             // carousel demo
@@ -171,6 +186,6 @@
 
             }
           })
-        }(window.jQuery)</script> <!-- Carousel JS --> <!-- Carousel --> <!-- Carousel -->
+        }(window.jQuery)</script> 
 	</body>
 </html>
