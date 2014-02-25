@@ -15,8 +15,8 @@
       }
       /* Styling for Google Map
       -------------------------------------------------- */      
-      #map_canvas {
-        height: 550px;
+      #map {
+        height: 350px;
         margin-right: 2%;
       }
 
