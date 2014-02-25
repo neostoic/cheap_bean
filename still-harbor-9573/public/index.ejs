@@ -160,19 +160,24 @@
     <script>
       $(function(){
 
-      // Cache reference to our container
-      var $container = $("#map_canvas");
+      // Cache reference to map container
+      var $container = $("#map");
 
       // A function for updating max-height
       function updateMaxHeight () {
-          $container.css("max-height", $(this).height() - 100);
+          var carousel = $('#myCarousel'), footer = $('#footer'), win_h = $(window).height(), margin = 40;
+
+
+          var map_height = win_h - footer.height() - carousel.height() - margin;
+          console.log(map_height)
+          $container.css("height", map_height);
       }
 
-      // Version of updateMaxHeight that will run no more than once every 200ms
-      var updateMaxHeightThrottled = _.throttle(updateMaxHeight, 200);
+      // Version of updateMaxHeight that will run no more than once every 500ms
+      //var updateMaxHeightThrottled = _.throttle(updateMaxHeight, 500);
 
       // Call updateMaxHeightThrottled when browser resize event fires
-      $(window).on("resize", updateMaxHeightThrottled);
+      $(window).on("resize", updateMaxHeight);
       });
       </script>
     <script>

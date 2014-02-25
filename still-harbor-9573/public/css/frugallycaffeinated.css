@@ -20,6 +20,7 @@
         margin-right: 2%;
       }
         /* Illegal google maps terms removal CSS */
+        /* Haha fuckers */
               .gmnoprint a, .gmnoprint span {
                   display:none;
               }
@@ -33,6 +34,10 @@
               position: relative;
               padding-bottom: 56.25%; /* 16:9 */
               height: 0;
+            }
+            /* Removes 'report error to google' button */
+            a[title="Report errors in the road map or imagery to Google"] {
+                display: none !important;
             }
       .fluid-wrapper iframe {
         position: absolute;
