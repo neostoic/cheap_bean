@@ -67,7 +67,7 @@
             <img src="img/slide-01.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority on finding the best inexpensive coffeeshops in your area.</p>
+                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <img src="img/slide-02.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority on finding the best inexpensive coffeeshops in your area.</p>
+                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
             <img src="img/slide-03.jpg" width="100%" alt="">
             <div class="carousel-caption">
               <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority on finding the best inexpensive coffeeshops in your area.</p>
+                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -114,7 +114,10 @@
       <!-- Google Maps implimentation
       ================================================== -->
       <div class="span6">
-        <div id="map"></div>
+        <!-- Taken from web example. Supposed to make map responsive -->
+        <div class="fluid-wrapper">
+          <div id="map"></div>
+        </div>
      </div>
     </div>
     <!-- Pushes rest of content down page
@@ -133,14 +136,13 @@
     </div>
     <!-- Added dependancies to bottom to save on load time
     ================================================== -->
-    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
-    <script type="text/javascript" src="js/bootstrap.js"></script> 
-    <script type="text/javascript" src="js/carousel.js"></script> 
-    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script> 
-    <script type="text/javascript" src="js/ejs.js"></script> 
-    <script type="text/javascript" src="js/underscore.js"></script> 
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> <!-- JQuery -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>  <!-- Bootstrap -->
+    <script type="text/javascript" src="js/carousel.js"></script>  <!-- Bootstrap, Carousel -->
+    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>  <!-- Tablesorter -->
+    <script type="text/javascript" src="js/ejs.js"></script>  <!-- EJS -->
+    <script type="text/javascript" src="js/underscore.js"></script> <!-- Underscore -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script> <!-- Google Maps -->
     <script type="text/javascript">
       // When the window has finished loading create our google map below
       google.maps.event.addDomListener(window, 'load', init);
@@ -151,13 +153,14 @@
           var mapOptions = {
               // How zoomed in you want the map to start at (always required)
               zoom: 12,
+              disableDefaultUI: true,
 
               // The latitude and longitude to center the map (always required)
               center: new google.maps.LatLng(43.6617, -79.3950), // New York
 
               // How you would like to style the map. 
               // This is where you would paste any style found on Snazzy Maps.
-              styles: [{featureType:"administrative",stylers:[{visibility:"off"}]},{featureType:"poi",stylers:[{visibility:"off"}]},{featureType:"road",elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{visibility:"simplified"}]},{featureType:"transit",stylers:[{visibility:"off"}]},{featureType:"landscape",stylers:[{visibility:"simplified"}]},{featureType:"road.highway",stylers:[{visibility:"off"}]},{featureType:"road.local",stylers:[{visibility:"on"}]},{featureType:"road.highway",elementType:"geometry",stylers:[{visibility:"on"}]},{featureType:"water",stylers:[{color:"#84afa3"},{lightness:52}]},{stylers:[{saturation:-17},{gamma:0.36}]},{featureType:"transit.line",elementType:"geometry",stylers:[{color:"#3f518c"}]}]
+              styles: [{featureType:"administrative",stylers:[{visibility:"all"}]},{featureType:"poi",stylers:[{visibility:"off"}]},{featureType:"road",elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{visibility:"simplified"}]},{featureType:"transit",stylers:[{visibility:"simplified"}]},{featureType:"landscape",stylers:[{visibility:"simplified"}]},{featureType:"road.highway",stylers:[{visibility:"off"}]},{featureType:"road.local",stylers:[{visibility:"simplified"}]},{featureType:"road.highway",elementType:"geometry",stylers:[{visibility:"on"}]},{featureType:"water",stylers:[{color:"#84afa3"},{lightness:52}]},{stylers:[{saturation:-17},{gamma:0.36}]},{featureType:"transit.line",elementType:"geometry",stylers:[{color:"#3f518c"}]}]
           };
 
           // Get the HTML DOM element that will contain your map 
