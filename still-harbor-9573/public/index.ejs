@@ -177,8 +177,10 @@
       //var updateMaxHeightThrottled = _.throttle(updateMaxHeight, 500);
 
       // Call updateMaxHeightThrottled when browser resize event fires
-      $(window).on("resize", updateMaxHeight);
+        $(window).on("resize", updateMaxHeight);
+        updateMaxHeight()
       });
+
       </script>
     <script>
       $(document).ready(function() 
