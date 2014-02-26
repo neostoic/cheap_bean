@@ -143,7 +143,7 @@
     <script type="text/javascript" src="js/ejs.js"></script>  <!-- EJS -->
     <script type="text/javascript" src="js/underscore.js"></script> <!-- Underscore -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script> <!-- Google Maps -->
-    <script type="text/javascript">
+    <script>
       google.maps.event.addDomListener(window, 'load', init);
   
       function init() {
@@ -155,11 +155,6 @@
               };
           var mapElement = document.getElementById('map');
           var map = new google.maps.Map(mapElement, mapOptions);
-
-          /* Transit layer not activated due to inconsistant labelling 
-          var transitLayer = new google.maps.TransitLayer();
-          transitLayer.setMap(map);
-          */
 
           /*next step is to write a foreach loop that iterates through array users and adds markers in sequence. 
           $.each(users, function(index, value) {
@@ -174,7 +169,8 @@
       $(function(){
 
       // Cache reference to map container
-      var $container = $("#map");
+      var $map = $("#map");
+      var $table 
 
       // A function for updating max-height
       function updateMaxHeight () {
@@ -183,15 +179,15 @@
 
           var map_height = win_h - footer.height() - carousel.height() - margin;
           console.log(map_height)
-          $container.css("height", map_height);
+          $map.css("height", map_height);
       }
 
       // Version of updateMaxHeight that will run no more than once every 500ms
       //var updateMaxHeightThrottled = _.throttle(updateMaxHeight, 500);
 
       // Call updateMaxHeightThrottled when browser resize event fires
-        $(window).on("resize", updateMaxHeight);
-        updateMaxHeight()
+        $(window).on("resize", updateMaxHeight); //Call on resize
+        updateMaxHeight(); //Call on load
       });
 
       </script>
