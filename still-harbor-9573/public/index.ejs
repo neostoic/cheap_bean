@@ -2,7 +2,9 @@
 <% function user(user) { %>
   <% for(var i=0; i<user.locations.length; i++) { if(i==0){ %>
     <tr>
-      <td> <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %></td>
+        <!-- Write if/else control flow to determine whether to display green or red icon, dependant on status. -->
+        <td> <image src="/img/open.png" width="15" height="15" align="left"> </td>
+        <td>  <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %> </td>
         <td> <%= user.locations[i].address %> </td>
         <td><%= user.rating.yelp_rating %> (<%= user.rating.yelp_reviews %>)</td>
         <td>% <%= user.avg_price %></td>
@@ -97,34 +99,24 @@
         <div class="alert alert-success" style="width:85%; margin-left:7%; ">
           <center>More coffeeshops are constantly being added. Check back soon!</center>
         </div>
-        
-
         <!-- Styled Table insertion -->
         <table id="hor-minimalist-a" summary="Front Page Coffeeshops">
           <thead>
           <tr>
-            <th style="width: 30%"> Name </th>
-            <th style="width: 30%"> Address </th>
-            <th style="width: 10%; padding:5px"> Rating </th>
-            <th style="width: 20%; padding:5px"> Difference from <br> Average Price </th>
+            <th style="width: 5%">Open</th>
+            <th style="width: 30%">Coffeeshop</th>
+            <th style="width: 30%">Location</th>
+            <th style="width: 10%; padding:5px">Rating</th>
+            <th style="width: 20%; padding:5px">Difference from<br>Average Price</th>
           </tr>
+          <!-- Map users array to user for EJS -->
           <% users.map(user) %>
         </table>
-
-
-        <!-- Insert dynamic EJS table
-        <table style="width:100%; margin-left:20px; clear:both;">
-        <!-- TABLE HEADER
-        <tr>
-          <th style="width: 30%"> Name </th>
-          <th style="width: 30%"> Address </th>
-          <th style="width: 10%; padding:5px"> Rating </th>
-          <th style="width: 20%; padding:5px"> Difference from <br> Average Price </th>
-        </tr>
-          <!-- Insert function user(user) into HTML table 
-          <% users.map(user) %>
-        </table> -->
-      </div>
+        <!--
+        <div class="alert alert-success" style="width:85%; margin-left:7%; ">
+          <center>The average price for //Index Item// in Toronto is $2.32</center>
+        </div> -->
+      </div> 
       <!-- Google Maps implimentation
       ================================================== -->
       <div class="span6">
@@ -144,7 +136,7 @@
     ================================================== -->
     <div id="footer">
       <div class="container">
-        <p><center>&copy; Frugally Caffeinated 2014 &middot; Created by <a href="http://lancestacenko.me">Lance Stacenko
+        <p><center>&copy; Frugally Caffeinated 2014 &middot; <a href="http://lancestacenko.me" style="color: #000000; border-bottom:1px double;">Created by Lance Stacenko
         </a></center></p>
       </div>
     </div>

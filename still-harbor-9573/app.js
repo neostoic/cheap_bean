@@ -238,7 +238,7 @@ app.get("/", function(request, response) {
                 },
                 phone: "(416)207-1709",
                 address: "426 College St, Toronto",
-                location_name: "Distillery District",
+                location_name: "Bathurst and College",
                 location_number: 1
               },
               {
@@ -330,8 +330,8 @@ app.get("/", function(request, response) {
                   Monday: "7:00 AM - 8:00 PM"
                 },
                 phone: "(416)207-1709",
-                address: "1 Trinity Street, Toronto",
-                location_name: "Distillery District",
+                address: "500 Bloor St W, Toronto",
+                location_name: "Bathurst and Bloor",
                 location_number: 1
               },
               {
