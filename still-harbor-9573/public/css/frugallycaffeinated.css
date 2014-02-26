@@ -14,6 +14,19 @@
         padding-left: 20px;
       }
 
+      .bitcoin
+      {
+        vertical-align: middle;
+        padding-top: 5px;
+        padding-left: 2px;
+      }
+      .copywrite
+      {
+        text-align: left;
+        vertical-align: middle;
+        padding-top: 7px;
+      }
+
       /* Styling for tables, 'horozontal minimalist', from web */
       #hor-minimalist-a
       {
@@ -118,7 +131,7 @@
       }
 
       .carousel-caption {
-        background: rgba(0,0,0,0.25);
+        background: rgba(0,0,0,0.50);
       }
 
       /* Lastly, apply responsive CSS fixes as necessary */

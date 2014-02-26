@@ -1,0 +1,323 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'fuck-you' ]
+2 info using npm@1.3.5
+3 info using node@v0.10.21
+4 verbose cache add [ 'fuck-you', null ]
+5 verbose cache add name=undefined spec="fuck-you" args=["fuck-you",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'fuck-you',
+6 verbose parsed url   path: 'fuck-you',
+6 verbose parsed url   href: 'fuck-you' }
+7 silly lockFile 5d9e0828-fuck-you fuck-you
+8 verbose lock fuck-you /Users/LanceStacenko/.npm/5d9e0828-fuck-you.lock
+9 silly lockFile 5d9e0828-fuck-you fuck-you
+10 silly lockFile 5d9e0828-fuck-you fuck-you
+11 verbose addNamed [ 'fuck-you', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 3eb09360-fuck-you fuck-you@
+14 verbose lock fuck-you@ /Users/LanceStacenko/.npm/3eb09360-fuck-you.lock
+15 silly addNameRange { name: 'fuck-you', range: '*', hasData: false }
+16 verbose url raw fuck-you
+17 verbose url resolving [ 'https://registry.npmjs.org/', './fuck-you' ]
+18 verbose url resolved https://registry.npmjs.org/fuck-you
+19 info trying registry request attempt 1 at 17:21:35
+20 verbose etag "ECK6TTGQZ9L8LOMA2XFRAFZHF"
+21 http GET https://registry.npmjs.org/fuck-you
+22 http 304 https://registry.npmjs.org/fuck-you
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Wed, 26 Feb 2014 22:21:35 GMT',
+23 silly registry.get     server: 'Apache',
+23 silly registry.get     connection: 'Keep-Alive',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     etag: '"ECK6TTGQZ9L8LOMA2XFRAFZHF"',
+23 silly registry.get     'cache-control': 'max-age=1',
+23 silly registry.get     vary: 'Accept' } ]
+24 verbose etag fuck-you from cache
+25 silly addNameRange number 2 { name: 'fuck-you', range: '*', hasData: true }
+26 silly addNameRange versions [ 'fuck-you', [ '1.0.0', '1.0.1', '1.0.2', '1.0.3', '1.1.0' ] ]
+27 verbose addNamed [ 'fuck-you', '1.1.0' ]
+28 verbose addNamed [ '1.1.0', '1.1.0' ]
+29 silly lockFile 7692df3b-fuck-you-1-1-0 fuck-you@1.1.0
+30 verbose lock fuck-you@1.1.0 /Users/LanceStacenko/.npm/7692df3b-fuck-you-1-1-0.lock
+31 silly lockFile 7692df3b-fuck-you-1-1-0 fuck-you@1.1.0
+32 silly lockFile 7692df3b-fuck-you-1-1-0 fuck-you@1.1.0
+33 silly lockFile 3eb09360-fuck-you fuck-you@
+34 silly lockFile 3eb09360-fuck-you fuck-you@
+35 silly resolved [ { name: 'fuck-you',
+35 silly resolved     version: '1.1.0',
+35 silly resolved     description: ' (╯°□°）╯︵sǝssǝɔoɹd oʎ llɐ llıʞǝɓɐɹ',
+35 silly resolved     main: 'index.js',
+35 silly resolved     bin: { fuck: 'index.js' },
+35 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+35 silly resolved     repository:
+35 silly resolved      { type: 'git',
+35 silly resolved        url: 'git://github.com/robotlolita/fuck-you.git' },
+35 silly resolved     keywords: [ 'kill', 'processes' ],
+35 silly resolved     author: { name: 'Quildreen Motta' },
+35 silly resolved     license: 'MIT',
+35 silly resolved     bugs: { url: 'https://github.com/robotlolita/fuck-you/issues' },
+35 silly resolved     homepage: 'https://github.com/robotlolita/fuck-you',
+35 silly resolved     dependencies:
+35 silly resolved      { 'core.lambda': '~0.2.1',
+35 silly resolved        'control.monads': '~0.3.1',
+35 silly resolved        'data.future': '~2.0.0',
+35 silly resolved        'data.maybe': '^1.0.0' },
+35 silly resolved     readme: 'Fuck You\n========\n\nA rage-y way of killing yo processes.\n\n![](https://raw.github.com/robotlolita/fuck-you/master/example.gif)\n\n\n## Installation\n\n    npm install -g fuck-you\n\n\n## Usage\n\n    fuck [you...] process_name\n\nKills `process_name`. The `you` is optional. You can get creative too, `fuck\nyour bloody memory hogging, firefox` works.\n\n\n## Acknowledgements\n\nThe tweet that started it all:\nhttps://twitter.com/louroboros/status/412913768998268928\n\n\n## Contributors\n\n  - [Quildreen Motta](http://github.com/robotlolita)\n  - [Cezar “ikari” Pokorski](http://github.com/ikari-pl)\n\n- - -\nMIT licensed.\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     _id: 'fuck-you@1.1.0',
+35 silly resolved     _from: 'fuck-you@' } ]
+36 info install fuck-you@1.1.0 into /usr/local/lib
+37 info installOne fuck-you@1.1.0
+38 info /usr/local/lib/node_modules/fuck-you unbuild
+39 verbose tar unpack /Users/LanceStacenko/.npm/fuck-you/1.1.0/package.tgz
+40 silly lockFile 09cf0a53--local-lib-node-modules-fuck-you tar:///usr/local/lib/node_modules/fuck-you
+41 verbose lock tar:///usr/local/lib/node_modules/fuck-you /Users/LanceStacenko/.npm/09cf0a53--local-lib-node-modules-fuck-you.lock
+42 silly lockFile 58329a9a-o-npm-fuck-you-1-1-0-package-tgz tar:///Users/LanceStacenko/.npm/fuck-you/1.1.0/package.tgz
+43 verbose lock tar:///Users/LanceStacenko/.npm/fuck-you/1.1.0/package.tgz /Users/LanceStacenko/.npm/58329a9a-o-npm-fuck-you-1-1-0-package-tgz.lock
+44 silly gunzTarPerm modes [ '755', '644' ]
+45 silly gunzTarPerm extractEntry package.json
+46 silly gunzTarPerm extractEntry .npmignore
+47 silly gunzTarPerm extractEntry README.md
+48 silly gunzTarPerm extractEntry LICENCE
+49 silly gunzTarPerm extractEntry index.js
+50 silly gunzTarPerm extractEntry .hgignore
+51 silly gunzTarPerm extractEntry .hgtags
+52 silly gunzTarPerm extractEntry example.gif
+53 silly lockFile 09cf0a53--local-lib-node-modules-fuck-you tar:///usr/local/lib/node_modules/fuck-you
+54 silly lockFile 09cf0a53--local-lib-node-modules-fuck-you tar:///usr/local/lib/node_modules/fuck-you
+55 silly lockFile 58329a9a-o-npm-fuck-you-1-1-0-package-tgz tar:///Users/LanceStacenko/.npm/fuck-you/1.1.0/package.tgz
+56 silly lockFile 58329a9a-o-npm-fuck-you-1-1-0-package-tgz tar:///Users/LanceStacenko/.npm/fuck-you/1.1.0/package.tgz
+57 info preinstall fuck-you@1.1.0
+58 verbose readDependencies using package.json deps
+59 verbose readDependencies using package.json deps
+60 verbose cache add [ 'control.monads@~0.3.1', null ]
+61 verbose cache add name=undefined spec="control.monads@~0.3.1" args=["control.monads@~0.3.1",null]
+62 verbose parsed url { protocol: null,
+62 verbose parsed url   slashes: null,
+62 verbose parsed url   auth: null,
+62 verbose parsed url   host: null,
+62 verbose parsed url   port: null,
+62 verbose parsed url   hostname: null,
+62 verbose parsed url   hash: null,
+62 verbose parsed url   search: null,
+62 verbose parsed url   query: null,
+62 verbose parsed url   pathname: 'control.monads@~0.3.1',
+62 verbose parsed url   path: 'control.monads@~0.3.1',
+62 verbose parsed url   href: 'control.monads@~0.3.1' }
+63 verbose cache add name="control.monads" spec="~0.3.1" args=["control.monads","~0.3.1"]
+64 verbose parsed url { protocol: null,
+64 verbose parsed url   slashes: null,
+64 verbose parsed url   auth: null,
+64 verbose parsed url   host: null,
+64 verbose parsed url   port: null,
+64 verbose parsed url   hostname: null,
+64 verbose parsed url   hash: null,
+64 verbose parsed url   search: null,
+64 verbose parsed url   query: null,
+64 verbose parsed url   pathname: '~0.3.1',
+64 verbose parsed url   path: '~0.3.1',
+64 verbose parsed url   href: '~0.3.1' }
+65 verbose addNamed [ 'control.monads', '~0.3.1' ]
+66 verbose addNamed [ null, '>=0.3.1-0 <0.4.0-0' ]
+67 silly lockFile 4f5f6558-control-monads-0-3-1 control.monads@~0.3.1
+68 verbose lock control.monads@~0.3.1 /Users/LanceStacenko/.npm/4f5f6558-control-monads-0-3-1.lock
+69 verbose cache add [ 'data.future@~2.0.0', null ]
+70 verbose cache add name=undefined spec="data.future@~2.0.0" args=["data.future@~2.0.0",null]
+71 verbose parsed url { protocol: null,
+71 verbose parsed url   slashes: null,
+71 verbose parsed url   auth: null,
+71 verbose parsed url   host: null,
+71 verbose parsed url   port: null,
+71 verbose parsed url   hostname: null,
+71 verbose parsed url   hash: null,
+71 verbose parsed url   search: null,
+71 verbose parsed url   query: null,
+71 verbose parsed url   pathname: 'data.future@~2.0.0',
+71 verbose parsed url   path: 'data.future@~2.0.0',
+71 verbose parsed url   href: 'data.future@~2.0.0' }
+72 verbose cache add name="data.future" spec="~2.0.0" args=["data.future","~2.0.0"]
+73 verbose parsed url { protocol: null,
+73 verbose parsed url   slashes: null,
+73 verbose parsed url   auth: null,
+73 verbose parsed url   host: null,
+73 verbose parsed url   port: null,
+73 verbose parsed url   hostname: null,
+73 verbose parsed url   hash: null,
+73 verbose parsed url   search: null,
+73 verbose parsed url   query: null,
+73 verbose parsed url   pathname: '~2.0.0',
+73 verbose parsed url   path: '~2.0.0',
+73 verbose parsed url   href: '~2.0.0' }
+74 verbose addNamed [ 'data.future', '~2.0.0' ]
+75 verbose addNamed [ null, '>=2.0.0-0 <2.1.0-0' ]
+76 silly lockFile b72fb3d7-data-future-2-0-0 data.future@~2.0.0
+77 verbose lock data.future@~2.0.0 /Users/LanceStacenko/.npm/b72fb3d7-data-future-2-0-0.lock
+78 verbose cache add [ 'core.lambda@~0.2.1', null ]
+79 verbose cache add name=undefined spec="core.lambda@~0.2.1" args=["core.lambda@~0.2.1",null]
+80 verbose parsed url { protocol: null,
+80 verbose parsed url   slashes: null,
+80 verbose parsed url   auth: null,
+80 verbose parsed url   host: null,
+80 verbose parsed url   port: null,
+80 verbose parsed url   hostname: null,
+80 verbose parsed url   hash: null,
+80 verbose parsed url   search: null,
+80 verbose parsed url   query: null,
+80 verbose parsed url   pathname: 'core.lambda@~0.2.1',
+80 verbose parsed url   path: 'core.lambda@~0.2.1',
+80 verbose parsed url   href: 'core.lambda@~0.2.1' }
+81 verbose cache add name="core.lambda" spec="~0.2.1" args=["core.lambda","~0.2.1"]
+82 verbose parsed url { protocol: null,
+82 verbose parsed url   slashes: null,
+82 verbose parsed url   auth: null,
+82 verbose parsed url   host: null,
+82 verbose parsed url   port: null,
+82 verbose parsed url   hostname: null,
+82 verbose parsed url   hash: null,
+82 verbose parsed url   search: null,
+82 verbose parsed url   query: null,
+82 verbose parsed url   pathname: '~0.2.1',
+82 verbose parsed url   path: '~0.2.1',
+82 verbose parsed url   href: '~0.2.1' }
+83 verbose addNamed [ 'core.lambda', '~0.2.1' ]
+84 verbose addNamed [ null, '>=0.2.1-0 <0.3.0-0' ]
+85 silly lockFile e93b2823-core-lambda-0-2-1 core.lambda@~0.2.1
+86 verbose lock core.lambda@~0.2.1 /Users/LanceStacenko/.npm/e93b2823-core-lambda-0-2-1.lock
+87 verbose cache add [ 'data.maybe@^1.0.0', null ]
+88 verbose cache add name=undefined spec="data.maybe@^1.0.0" args=["data.maybe@^1.0.0",null]
+89 verbose parsed url { protocol: null,
+89 verbose parsed url   slashes: null,
+89 verbose parsed url   auth: null,
+89 verbose parsed url   host: null,
+89 verbose parsed url   port: null,
+89 verbose parsed url   hostname: null,
+89 verbose parsed url   hash: null,
+89 verbose parsed url   search: null,
+89 verbose parsed url   query: null,
+89 verbose parsed url   pathname: 'data.maybe@^1.0.0',
+89 verbose parsed url   path: 'data.maybe@^1.0.0',
+89 verbose parsed url   href: 'data.maybe@^1.0.0' }
+90 verbose cache add name="data.maybe" spec="^1.0.0" args=["data.maybe","^1.0.0"]
+91 verbose parsed url { protocol: null,
+91 verbose parsed url   slashes: null,
+91 verbose parsed url   auth: null,
+91 verbose parsed url   host: null,
+91 verbose parsed url   port: null,
+91 verbose parsed url   hostname: null,
+91 verbose parsed url   hash: null,
+91 verbose parsed url   search: null,
+91 verbose parsed url   query: null,
+91 verbose parsed url   pathname: '^1.0.0',
+91 verbose parsed url   path: '^1.0.0',
+91 verbose parsed url   href: '^1.0.0' }
+92 verbose addNamed [ 'data.maybe', '^1.0.0' ]
+93 verbose addNamed [ null, null ]
+94 silly lockFile 9a2d5c52-data-maybe-1-0-0 data.maybe@^1.0.0
+95 verbose lock data.maybe@^1.0.0 /Users/LanceStacenko/.npm/9a2d5c52-data-maybe-1-0-0.lock
+96 silly addNameRange { name: 'control.monads',
+96 silly addNameRange   range: '>=0.3.1-0 <0.4.0-0',
+96 silly addNameRange   hasData: false }
+97 silly addNameRange { name: 'data.future',
+97 silly addNameRange   range: '>=2.0.0-0 <2.1.0-0',
+97 silly addNameRange   hasData: false }
+98 silly addNameRange { name: 'core.lambda',
+98 silly addNameRange   range: '>=0.2.1-0 <0.3.0-0',
+98 silly addNameRange   hasData: false }
+99 info addNameTag [ 'data.maybe', '^1.0.0' ]
+100 verbose url raw control.monads
+101 verbose url resolving [ 'https://registry.npmjs.org/', './control.monads' ]
+102 verbose url resolved https://registry.npmjs.org/control.monads
+103 info trying registry request attempt 1 at 17:21:36
+104 verbose etag "5G3DB1MDYKAV2OXBV7R6YP03R"
+105 http GET https://registry.npmjs.org/control.monads
+106 verbose url raw data.maybe
+107 verbose url resolving [ 'https://registry.npmjs.org/', './data.maybe' ]
+108 verbose url resolved https://registry.npmjs.org/data.maybe
+109 info trying registry request attempt 1 at 17:21:36
+110 verbose etag "6NXICU21XDFGXJSE05UVNQ2VY"
+111 http GET https://registry.npmjs.org/data.maybe
+112 verbose url raw data.future
+113 verbose url resolving [ 'https://registry.npmjs.org/', './data.future' ]
+114 verbose url resolved https://registry.npmjs.org/data.future
+115 info trying registry request attempt 1 at 17:21:36
+116 verbose etag "1AZKJ5XU5DTBKKH9B3N7S3LUY"
+117 http GET https://registry.npmjs.org/data.future
+118 verbose url raw core.lambda
+119 verbose url resolving [ 'https://registry.npmjs.org/', './core.lambda' ]
+120 verbose url resolved https://registry.npmjs.org/core.lambda
+121 info trying registry request attempt 1 at 17:21:36
+122 verbose etag "7NLLMFA7S7RXSEAMNZBNB5RXZ"
+123 http GET https://registry.npmjs.org/core.lambda
+124 http 304 https://registry.npmjs.org/data.future
+125 silly registry.get cb [ 304,
+125 silly registry.get   { date: 'Wed, 26 Feb 2014 22:21:36 GMT',
+125 silly registry.get     server: 'Apache',
+125 silly registry.get     connection: 'Keep-Alive',
+125 silly registry.get     'keep-alive': 'timeout=10, max=50',
+125 silly registry.get     etag: '"1AZKJ5XU5DTBKKH9B3N7S3LUY"',
+125 silly registry.get     'cache-control': 'max-age=1',
+125 silly registry.get     vary: 'Accept' } ]
+126 verbose etag data.future from cache
+127 silly addNameRange number 2 { name: 'data.future',
+127 silly addNameRange   range: '>=2.0.0-0 <2.1.0-0',
+127 silly addNameRange   hasData: true }
+128 silly addNameRange versions [ 'data.future', [ '1.0.0', '2.0.0' ] ]
+129 verbose addNamed [ 'data.future', '2.0.0' ]
+130 verbose addNamed [ '2.0.0', '2.0.0' ]
+131 silly lockFile bfdcbbb4-data-future-2-0-0 data.future@2.0.0
+132 verbose lock data.future@2.0.0 /Users/LanceStacenko/.npm/bfdcbbb4-data-future-2-0-0.lock
+133 http 304 https://registry.npmjs.org/data.maybe
+134 silly registry.get cb [ 304,
+134 silly registry.get   { date: 'Wed, 26 Feb 2014 22:21:36 GMT',
+134 silly registry.get     server: 'Apache',
+134 silly registry.get     connection: 'Keep-Alive',
+134 silly registry.get     'keep-alive': 'timeout=10, max=50',
+134 silly registry.get     etag: '"6NXICU21XDFGXJSE05UVNQ2VY"',
+134 silly registry.get     'cache-control': 'max-age=1',
+134 silly registry.get     vary: 'Accept' } ]
+135 verbose etag data.maybe from cache
+136 http 304 https://registry.npmjs.org/core.lambda
+137 silly registry.get cb [ 304,
+137 silly registry.get   { date: 'Wed, 26 Feb 2014 22:21:36 GMT',
+137 silly registry.get     server: 'Apache',
+137 silly registry.get     connection: 'Keep-Alive',
+137 silly registry.get     'keep-alive': 'timeout=10, max=50',
+137 silly registry.get     etag: '"7NLLMFA7S7RXSEAMNZBNB5RXZ"',
+137 silly registry.get     'cache-control': 'max-age=1',
+137 silly registry.get     vary: 'Accept' } ]
+138 verbose etag core.lambda from cache
+139 silly lockFile 9a2d5c52-data-maybe-1-0-0 data.maybe@^1.0.0
+140 silly lockFile 9a2d5c52-data-maybe-1-0-0 data.maybe@^1.0.0
+141 verbose about to build /usr/local/lib/node_modules/fuck-you
+142 info /usr/local/lib/node_modules/fuck-you unbuild
+143 info preuninstall fuck-you@1.1.0
+144 info uninstall fuck-you@1.1.0
+145 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild fuck-you@1.1.0
+146 verbose /usr/local/bin,[object Object] binRoot
+147 info postuninstall fuck-you@1.1.0
+148 error Error: No compatible version found: data.maybe@'^1.0.0'
+148 error Valid install targets:
+148 error ["1.0.0"]
+148 error     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache.js:719:10)
+148 error     at /usr/local/lib/node_modules/npm/lib/cache.js:638:10
+148 error     at saved (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:142:7)
+148 error     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:133:7
+148 error     at Object.oncomplete (fs.js:107:15)
+149 error If you need help, you may report this log at:
+149 error     <http://github.com/isaacs/npm/issues>
+149 error or email it to:
+149 error     <npm-@googlegroups.com>
+150 error System Darwin 13.0.0
+151 error command "node" "/usr/local/bin/npm" "install" "-g" "fuck-you"
+152 error cwd /Users/LanceStacenko/Development/Projects/08_frugally_Caffeinated/still-harbor-9573
+153 error node -v v0.10.21
+154 error npm -v 1.3.5
+155 verbose exit [ 1, true ]
