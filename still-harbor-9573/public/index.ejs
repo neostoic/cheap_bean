@@ -64,7 +64,7 @@
       <div id="myCarousel" class="carousel slide">
         <div class="carousel-inner">
           <div class="item active">
-            <img src="img/slide-01.jpg" width="100%" alt="">
+            <img src="img/Carousel/slide-01.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
                 <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="img/slide-02.jpg" width="100%" alt="">
+            <img src="img/Carousel/slide-02.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
                 <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="img/slide-03.jpg" width="100%" alt="">
+            <img src="img/Carousel/slide-03.jpg" width="100%" alt="">
             <div class="carousel-caption">
               <div class="container">
                 <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
@@ -98,18 +98,32 @@
           <center>More coffeeshops are constantly being added. Check back soon!</center>
         </div>
         
-        <!-- Insert dynamic EJS table -->
+
+        <!-- Styled Table insertion -->
+        <table id="hor-minimalist-a" summary="Front Page Coffeeshops">
+          <thead>
+          <tr>
+            <th style="width: 30%"> Name </th>
+            <th style="width: 30%"> Address </th>
+            <th style="width: 10%; padding:5px"> Rating </th>
+            <th style="width: 20%; padding:5px"> Difference from <br> Average Price </th>
+          </tr>
+          <% users.map(user) %>
+        </table>
+
+
+        <!-- Insert dynamic EJS table
         <table style="width:100%; margin-left:20px; clear:both;">
-        <!-- TABLE HEADER -->
+        <!-- TABLE HEADER
         <tr>
           <th style="width: 30%"> Name </th>
           <th style="width: 30%"> Address </th>
           <th style="width: 10%; padding:5px"> Rating </th>
-          <th style="width: 20%; padding:5px"> Difference from <br> Avg. Price </th>
+          <th style="width: 20%; padding:5px"> Difference from <br> Average Price </th>
         </tr>
-          <!-- Insert function user(user) into HTML table -->
+          <!-- Insert function user(user) into HTML table 
           <% users.map(user) %>
-        </table>
+        </table> -->
       </div>
       <!-- Google Maps implimentation
       ================================================== -->
@@ -170,7 +184,7 @@
 
       // Cache reference to map container
       var $map = $("#map");
-      var $table 
+      var $table = $("");
 
       // A function for updating max-height
       function updateMaxHeight () {
