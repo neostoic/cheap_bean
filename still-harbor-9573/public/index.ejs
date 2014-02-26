@@ -4,9 +4,9 @@
     <tr>
         <!-- Write if/else control flow to determine whether to display green or red icon, dependant on status. -->
         <td> <image src="/img/open.png" width="15" height="15" align="left"> </td>
-        <td>  <a href="<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %> </td>
-        <td> <%= user.locations[i].address %> </td>
-        <td><%= user.rating.yelp_rating %> (<%= user.rating.yelp_reviews %>)</td>
+        <td>  <a href="http://<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %> </td>
+        <td> <%= user.locations[i].address %></td>
+        <td><%= user.rating.yelp_rating %></td>
         <td>% <%= user.avg_price %></td>
     </tr>
   <% } }%>
@@ -16,7 +16,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Frugally Caffeinated</title>
+		<title>CheapBean</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <!-- Hotfixes on top of stylesheet-->
     <link rel="stylesheet" type="text/css" href="css/frugallycaffeinated.css"
@@ -46,7 +46,7 @@
   	  <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
-            <a class="brand" href="#">Frugally Caffeinated</a>
+            <a class="brand" href="#">CheapBean</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="#">Home</a></li>
@@ -69,7 +69,7 @@
             <img src="img/Carousel/slide-01.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
+                <p class="lead">Welcome to CheapBean, the authority on finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
             <img src="img/Carousel/slide-02.jpg" width="100%" alt="">
               <div class="carousel-caption">
                 <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
+                <p class="lead">Welcome to CheapBean, the authority on finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@
             <img src="img/Carousel/slide-03.jpg" width="100%" alt="">
             <div class="carousel-caption">
               <div class="container">
-                <p class="lead">Welcome to //FrugallyCaffeinated//, the authority for finding the best inexpensive coffeeshops in your area.</p>
+                <p class="lead">Welcome to CheapBean, the authority on finding the best inexpensive coffeeshops in your area.</p>
               </div>
             </div>
           </div>

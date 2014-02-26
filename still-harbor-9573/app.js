@@ -288,7 +288,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 4.5,
+              yelp_rating: 3.5,
               yelp_reviews: 25,
               user_rating: null
             },
@@ -381,7 +381,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 7.5,
+              yelp_rating: 3.5,
               yelp_reviews: 25,
               user_rating: null
             },
