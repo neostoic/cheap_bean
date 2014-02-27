@@ -5,7 +5,6 @@
       html,
       body {
         height: 100%;
-        overflow: hidden;
       }
       table,th,td{
           border:0px solid black; text-align:center; vertical-align: middle; padding: 1px;

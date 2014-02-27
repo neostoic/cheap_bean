@@ -1,4 +1,4 @@
-var users = [
+[
 	{
 		"company_name": "Balzac's Coffee Roasters",
 		"display_name": "Balzac's",
@@ -928,7 +928,4 @@ var users = [
 			"user_rating": null
 		},
 		"__v": 0
-	}
-]
-
-exports.users(users);
+	}]

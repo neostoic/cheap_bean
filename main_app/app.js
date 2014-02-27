@@ -78,6 +78,11 @@ app.use(express.static(__dirname + '/public'));
 //Seperate page for 'How it works', about section.
 app.get("/about", function(request, response) {
   var path = __dirname + '/public/about.ejs';
+
+  var ret = ejs.render(str, {
+    filename: path //Set path
+  });
+  response.send(ret);
 });
 
 //Serve webpage as default dir.
@@ -87,7 +92,7 @@ app.get("/", function(request, response) {
   var str = fs.readFileSync(path, 'utf8');
 
     //Initialize an empty array
-    var users = [users.users(users)];
+    var users = [];
 
     // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
     nest_model.find({chain: 'true'}, function (err, coffeeshop) {
@@ -98,10 +103,8 @@ app.get("/", function(request, response) {
         //users.push(coffeeshop);
       }
         var ret = ejs.render(str, {
-          //Map var users
-          users: users,
-          //Set path
-          filename: path
+          users: users, //Map var users
+          filename: path //Set path
         });
         response.send(ret);
     });
