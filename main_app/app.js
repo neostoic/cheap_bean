@@ -95,14 +95,14 @@ app.get("/", function(request, response) {
     var shops = [];
 
     // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
-    nest_model.find({chain: 'true'}, function (err, coffeeshop) {
+    nest_model.find({chain: 'false'}, function (err, coffeeshop) {
       if(err){
         onErr(err,callback);
         console.log('Encountered an error executing query operation.');
       }else{
-        console.log(coffeeshop);
+        console.log('coffeeshop' + coffeeshop);
         shops = coffeeshop;
-        console.log(shops);
+        console.log('shops' + shops);
         //users.push(coffeeshop);
       }
         var ret = ejs.render(str, {
