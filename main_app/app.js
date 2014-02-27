@@ -74,6 +74,9 @@ process.env.PWD = process.cwd();
 
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
+
+//Conor suggested registering a second root for handling /about page, cannot do it inside of html/ejs
+
 //Serve webpage as default dir.
 app.get("/", function(request, response) {
 
@@ -107,7 +110,7 @@ app.get("/", function(request, response) {
               response.send(ret);
     });
 
-  //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
+  /*Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
     users.push({
             company_name: "Balzac's Coffee Roasters",
             display_name: "Balzac's",
@@ -1037,6 +1040,22 @@ app.get("/", function(request, response) {
               user_rating: null
             },
             __v: 0
+    });*/
+    //Support for writing contents of users array to file for testing
+    fs.writeFile("usersarray_contents", JSON.stringify(users, null, "\t"), function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("The file was saved!");
+        }
+    });
+    fs.readFile('userarray_contents', function (err, data) {
+        if(err) {
+            console.log(err);
+        } else {
+            //Setup data callback to push directly into array users. Does positioning within file matter much if at all?
+            data = users;
+        }
     });
 });
 
