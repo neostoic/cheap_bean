@@ -15,5 +15,5 @@ Mongo database running on Heroku that contains all data for the coffee site, fro
 ####Section 4 - Front End
 Site created with twitter bootstrap to display data to the user, as well as google maps and other content. Will use EJS to add dynamic tables and display JSON data from mongo database. Will also add support for dynamically generating profile pages and other content on request.
 
-http://CheapBean.com/
+http://CheapBean.com/                                                                         
 http://still-harbor-9573.herokuapp.com/ - Heroku URL (Backup in case of DNS issues)
