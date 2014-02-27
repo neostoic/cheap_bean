@@ -11,8 +11,7 @@ var mongoose = require('mongoose')
 
 var fs = require('fs');
 
-// mongodb://heroku:admin@troup.mongohq.com:10075/app22094857
-mongoose.connect('mongodb://heroku:admin@troup.mongohq.com:10075/app22094857');
+mongoose.connect('mongodb://heroku:4dm1n@troup.mongohq.com:10029/app22422589');
 
 console.log('Attempting authentication.');
 	var db = mongoose.connection;

@@ -92,7 +92,7 @@ app.get("/", function(request, response) {
   var str = fs.readFileSync(path, 'utf8');
 
     //Initialize an empty array
-    var users = [];
+    var shops = [];
 
     // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
     nest_model.find({chain: 'true'}, function (err, coffeeshop) {
@@ -100,36 +100,17 @@ app.get("/", function(request, response) {
         onErr(err,callback);
         console.log('Encountered an error executing query operation.');
       }else{
+        console.log(coffeeshop);
+        shops = coffeeshop;
+        console.log(shops);
         //users.push(coffeeshop);
       }
         var ret = ejs.render(str, {
-          users: users, //Map var users
+          users: shops, //Map var users
           filename: path //Set path
         });
         response.send(ret);
     });
-
-    //Support for writing contents of users array to file for testing 
-    /*fs.writeFile("usersarray_contents", JSON.stringify(users, null, "\t"), function(err) {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log("The file was saved!");
-        }
-    });*/
-
-    //Support for reading from file and populating users array with the data.
-    fs.readFile('usersarray_contents', function (err, data) {
-        if(err) {
-            console.log(err);
-        } else {
-            //Setup data callback to push directly into array users. Does positioning within file matter much if at all?
-            //users = [];
-            users.push(data);
-            //console.log(data);
-        }
-    });
-    console.log(users);
 });
 
 app.listen(port);
