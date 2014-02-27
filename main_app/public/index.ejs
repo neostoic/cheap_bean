@@ -15,8 +15,8 @@
   <% } }%>
 <% } %>
 
-<!-- EJS include header -->
-<% include header.ejs %>
+    <!-- EJS include header -->
+    <% include /boiler/header.ejs %>
 
       <div class="row-fluid">
       <!-- Data Table + Tablesorter 2.0
@@ -54,5 +54,9 @@
      </div>
     </div>
 
-<!-- EJS include footer -->
-<% include footer.ejs %>
+    <!-- EJS include footer -->
+    <% include /boiler/footer.ejs %>
+    <!-- EJS include dependancies -->
+    <% include /boiler/scripts.ejs %>
+  </body>
+</html>

@@ -77,7 +77,7 @@ app.use(express.static(__dirname + '/public'));
 //Serve webpage as default dir.
 app.get("/", function(request, response) {
 
-  var path = __dirname + '/public/index.ejs';
+  var path = __dirname + '/public/content/index.ejs';
   var str = fs.readFileSync(path, 'utf8');
 
     //Initialize an empty array
