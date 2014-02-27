@@ -1,7 +1,5 @@
-
       /* Sticky footer styles
       -------------------------------------------------- */
-
       html,
       body {
         height: 100%;
@@ -12,7 +10,7 @@
       table{
         padding-left: 20px;
       }
-
+      /* Footer element styling */
       .bitcoin
       {
         vertical-align: middle;
@@ -25,37 +23,35 @@
         vertical-align: middle;
         padding-top: 7px;
       }
-
-      /* Styling for tables, 'horozontal minimalist', from web */
-      #hor-minimalist-a
-      {
-        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-        font-size: 12px;
-        background: #fff;
-        margin: 20px;
-        width: 1000%;
-        border-collapse: collapse;
-        text-align: left;
-      }
-      #hor-minimalist-a th
-      {
-        font-size: 13px;
-        font-weight: normal;
-        color: #039;
-        padding: 2px 2px;
-        border-bottom: 2px solid #6678b1
-      }
-      #hor-minimalist-a td
-      {
-        color: #669;
-        padding: 2px 2px 1px 2px;
-      }
-      #hor-minimalist-a tbody tr:hover td
-      {
-        color: #009;
-      }
-      tr:nth-child(2n+1) {background-color: #efefef}
-
+        /* Styling for tables, 'horozontal minimalist', from web */
+        #hor-minimalist-a
+        {
+          font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+          font-size: 12px;
+          background: #fff;
+          margin: 20px;
+          width: 1000%;
+          border-collapse: collapse;
+          text-align: left;
+        }
+        #hor-minimalist-a th
+        {
+          font-size: 13px;
+          font-weight: normal;
+          color: #039;
+          padding: 2px 2px;
+          border-bottom: 2px solid #6678b1
+        }
+        #hor-minimalist-a td
+        {
+          color: #669;
+          padding: 2px 2px 1px 2px;
+        }
+        #hor-minimalist-a tbody tr:hover td
+        {
+          color: #009;
+        }
+        tr:nth-child(2n+1) {background-color: #efefef}
 
       /* Styling for Google Map
       -------------------------------------------------- */      
@@ -80,7 +76,7 @@
               height: 0;
             }
             /* Removes 'report error to google' button */
-            a[title="Report errors in the road map or imagery to Google"] {
+            a[title="lReport errors in the road map or imagery to Google"] {
                 display: none !important;
             }
       .fluid-wrapper iframe {
@@ -219,8 +215,7 @@
       }
 
       /* MARKETING CONTENT
-      -------------------------------------------------- */
-
+      --------------------------------------------------
       /* Center align the text within the three columns below the carousel */
       .marketing .span4 {
         text-align: center;
@@ -235,7 +230,6 @@
 
       /* RESPONSIVE CSS
       -------------------------------------------------- */
-
       @media (max-width: 979px) {
 
         .container.navbar-wrapper {
@@ -267,7 +261,6 @@
           margin: 0 auto 20px;
         }
       }
-
 
       @media (max-width: 767px) {
 
@@ -311,5 +304,4 @@
           font-size: 18px;
           line-height: 1.5;
         }
-        }   
-        }
+      }   
