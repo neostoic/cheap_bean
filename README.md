@@ -13,6 +13,7 @@ Collection of nested scripts that authenticate into Mongo database, declare a mo
 Mongo database running on Heroku that contains all data for the coffee site, from Form Site.
 
 ####Section 4 - Front End
-Site created with twitter bootstrap to display data to the user, as well as google maps and other content. Will use EJS to add dynamic tables and display JSON data from mongo database. 
+Site created with twitter bootstrap to display data to the user, as well as google maps and other content. Will use EJS to add dynamic tables and display JSON data from mongo database. Will also add support for dynamically generating profile pages and other content on request.
 
-http://still-harbor-9573.herokuapp.com/ 
+http://CheapBean.com/
+http://still-harbor-9573.herokuapp.com/ - Heroku URL (Backup in case of DNS issues)
