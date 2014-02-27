@@ -13,14 +13,12 @@ process.env.PWD = process.cwd();
   // User: Heroku | Pass: 4dm1n (Will be changed upon switching to production)
   mongoose.connect('mongodb://heroku:4dm1n@troup.mongohq.com:10029/app22422589');
 
-  // [2] DB authentication.
-  console.log('Attempting authentication.');
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function callback () {
-      console.log('Yeah were in!');
-    });
-  console.log('Over authentication block.');
+  // [2] DB authentication
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function callback () {
+    console.log('Yeah were in!');
+  });
 
   // [3]Declares schema.
   var main = mongoose.Schema({
@@ -77,6 +75,11 @@ app.use(express.static(__dirname + '/public'));
 
 //Conor suggested registering a second root for handling /about page, cannot do it inside of html/ejs
 
+//Seperate page for 'How it works', about section.
+app.get("/about", function(request, response) {
+  var path = __dirname + '/public/about.ejs';
+});
+
 //Serve webpage as default dir.
 app.get("/", function(request, response) {
 
@@ -84,7 +87,7 @@ app.get("/", function(request, response) {
   var str = fs.readFileSync(path, 'utf8');
 
     //Initialize an empty array
-    var users = [];
+    var users = [users.users(users)];
 
     // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
     nest_model.find({chain: 'true'}, function (err, coffeeshop) {
@@ -100,25 +103,30 @@ app.get("/", function(request, response) {
           //Set path
           filename: path
         });
-      response.send(ret);
-  });
-    //Support for writing contents of users array to file for testing.
-    fs.writeFile("usersarray_contents", JSON.stringify(users, null, "\t"), function(err) {
+        response.send(ret);
+    });
+
+    //Support for writing contents of users array to file for testing 
+    /*fs.writeFile("usersarray_contents", JSON.stringify(users, null, "\t"), function(err) {
         if(err) {
             console.log(err);
         } else {
             console.log("The file was saved!");
         }
-    });
+    });*/
+
     //Support for reading from file and populating users array with the data.
-    fs.readFile('userarray_contents', function (err, data) {
+    fs.readFile('usersarray_contents', function (err, data) {
         if(err) {
             console.log(err);
         } else {
             //Setup data callback to push directly into array users. Does positioning within file matter much if at all?
-            data = users;
+            //users = [];
+            users.push(data);
+            //console.log(data);
         }
     });
+    console.log(users);
 });
 
 app.listen(port);
