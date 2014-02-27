@@ -73,8 +73,6 @@ process.env.PWD = process.cwd();
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
 
-//Conor suggested registering a second root for handling /about page, cannot do it inside of html/ejs
-
 //Seperate page for 'How it works', about section.
 app.get("/about", function(request, response) {
   var path = __dirname + '/public/about.ejs';
@@ -100,10 +98,7 @@ app.get("/", function(request, response) {
         onErr(err,callback);
         console.log('Encountered an error executing query operation.');
       }else{
-        console.log('coffeeshop' + coffeeshop);
         shops = coffeeshop;
-        console.log('shops' + shops);
-        //users.push(coffeeshop);
       }
         var ret = ejs.render(str, {
           users: shops, //Map var users
