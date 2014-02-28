@@ -1,17 +1,15 @@
 /* Mongo datbase connection
 ================================*/
-var mongoose = require('mongoose')
-  , Schema = mongoose.Schema
-  , mongo_auth = require('./2-schema_model.js')
-  , nest_model = require('./2-schema_model.js').nest_model;
-
-  console.log(mongo_auth);
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var mongo_auth = require('./2-schema_model.js');
+var nest_model = require('./2-schema_model.js').nest_model;
 
 /* Data entry into model
 ================================*/
 var coffeeshop = new nest_model({
-	company_name: "The shithole",
-	display_name: "The shithole",
+	company_name: "The Abbott",
+	display_name: "The Abbott",
 	website: 'http://www.theabbott.ca/',
 	chain: false,
 	avg_price: null,
@@ -27,7 +25,7 @@ var coffeeshop = new nest_model({
 	locations: [{
 		number: 1,
 		name: 'The Abbott - Parkdale',
-		address: '99 eatshit Ave, Toronto',
+		address: '99 Spencer Ave, Toronto',
 		phone: '(416)876-3855', 
 		hours: {
 			Monday: '6:30 AM - 7:00 PM',
