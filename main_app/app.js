@@ -73,14 +73,8 @@ process.env.PWD = process.cwd();
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
 
-//Seperate page for 'How it works', about section.
-app.get("/about", function(request, response) {
-  var path = __dirname + '/public/about.ejs';
 
-  var ret = ejs.render(str, {
-    filename: path //Set path
-  });
-  response.send(ret);
+app.get('/about', function(req, res, next) {
 });
 
 //Serve webpage as default dir.
