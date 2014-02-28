@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- Dependancies
 ================================================== -->
 <script type="text/javascript" src="js/jquery-1.11.0.js"></script> <!-- JQuery -->
@@ -6,8 +7,8 @@
 <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>  <!-- Tablesorter -->
 <script type="text/javascript" src="js/ejs.js"></script>  <!-- EJS -->
 <script type="text/javascript" src="js/underscore.js"></script> <!-- Underscore -->
-<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script> --><!-- Google Maps -->
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script><!-- Google Maps -->
+<!--<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>-->
 <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
     f[z]=function(){
     (a.s=a.s||[]).push(arguments)};var a=f[z]._={
@@ -64,7 +65,7 @@
     ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
+      zoom: 12,
       center: new google.maps.LatLng(43.6617, -79.3950),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
