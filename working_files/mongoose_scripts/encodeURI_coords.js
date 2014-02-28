@@ -8,15 +8,26 @@ var request = require('request');
 //Array holding addresses of coffee shops (Eventually populating with DB result)
 addresses = ['426 College St, Toronto, ON M5T 1T3', '43 Hanna Ave #123, Toronto, ON M6K 1X1', '215 Spadina Ave Toronto, ON'];
 
-//Bounding box, Southest|Northeast coords. Restricts results to only Toronto
-//Find way to concatinate as parameter.
-bounds = "-79.025345,43.591134|-79.709244,43.811540"; //Selected southeast corner below torontoislands/scarborough, northwest markham/brampton
+//Google maps geocoding API parameters.
+	//Region parameter. (ca = Canada)
+		region = 'ca';
+	//Bounding box, Southest|Northeast coords. Restricts results to GTA only.
+	//Selected southeast corner below torontoislands/scarborough, northwest markham/brampton.
+		bounds = '-79.025345,43.591134|-79.709244,43.811540'; 
+	//API key, geolocation and gmaps V3 enabled
+		apikey = 'AIzaSyC-CIhgJ0CGbhGAOQBmW67H1p0Y_20lXGg';
+	//Location sensor
+		sensorstatus = 'false'
 
 //for loop that iterates through addresses locations and returns formatted URL for each.
 for (i=0; i < addresses.length; i++){
 	var address = addresses[i];
-	var url = 'http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=' + encodeURIComponent(address);
-	console.log(url);
+	var url = 'http://maps.googleapis.com/maps/api/geocode/json'
+				+ '?sensor='+  sensorstatus
+				+ '&region='+  region
+				+ '&bounds='+  bounds
+				+ '&address='+ encodeURIComponent(address);
+	//console.log(url);
 
 	//Makes http request to each URL returned by for loop.
 	request(url, function (error, response, body) {
@@ -43,9 +54,26 @@ for (i=0; i < addresses.length; i++){
 			//Conor suggested writing flow control that iterates through address_components, searching by 
 			//types. For example, if 'types' = locality, assume city name, as indexing using positioning
 			//is not repeatable and reliable.
-			for (i=0; i< json.results[0].address_components.length; i++) {
-				console.log(i);
+
+
+			// Function takes 3 paramenters, components is array of address components, type is key of address component to be returned
+			// is_long is boolean, true or false, dependant on result.
+			function getAddressComponent(components, type, is_long){
+				//Setting up a loop to iterate through address components in array
+				for(var i =0; i < components.length; i++){
+					var component = components[i];
+					//Iterating through types array in component
+					for(var j = 0; j < component.types.length; j++){
+						if( component.types[j] == type){ //Checking to see if type that we want is in this array, if so returning long or short name based on boolean.
+							return (is_long) ? component.long_name : component.short_name;
+						}
+					}
+				}
+
 			}
+			//querying street name, and passing paramers into function getAddressComponent. True | returns long form.			
+			var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
+			console.log(street_name);
 		}
 	});
 }
