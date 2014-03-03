@@ -6,6 +6,17 @@
 //Write control flow here that iterates through mongo dataset, and returns each address,
 //populating array 'testdata' in lieu of manually adding.
 
+//Requires DB authentication code, Heroku.
+var db_connection = require('./1-mongo_auth.js').db;
+	, mongo_auth = require('./2-schema_model.js');
+	, nest_model = require('./2-schema_model.js').nest_model;
+
+//PSUEDOCODE:
+//Find operation - If no geocoding section is present && document contains address.
+//Iteration logic, would this be done in async?
+
+/*---------------------- ^^^ MONGO/MONGOOSE ^^^ ---------------------*/
+
 //Array holding testdata of coffee shops (Eventually populating with DB result)
 testdata = ['426 College St, Toronto, ON M5T 1T3', '43 Hanna Ave #123, Toronto, ON M6K 1X1', '215 Spadina Ave Toronto, ON'];
 
@@ -60,4 +71,55 @@ for (i=0; i < testdata.length; i++){
 	});
 }
 
+/*---------------------- VVV MONGO/MONGOOSE VVV ---------------------*/
+
 //Return latitude & longitude to mongo database with save operation under modified schema, here.
+
+//Writes result into schema (Need to figure out logic to write to previously generated documents)
+var coffeeshop = new nest_model({
+	company_name: "",
+	display_name: "",
+	website: '',
+	chain: ,
+	avg_price: ,
+	date: {
+		date_added: { type: Date, default: Date.now},
+		date_lastupdated: { type: Date, default: Date.now},		
+	},
+	rating: {
+		yelp_rating: ,
+		yelp_reviews: ,
+		user_rating: ,
+	},
+	locations: [{
+		number: ,
+		name: '',
+		address: '',
+		phone: '', 
+		hours: {
+			Monday: '',
+			Tuesday: '',
+			Wednesday: '',
+			Thursday: '',
+			Friday: '',
+			Saturday: '',
+			Sunday: '',
+		},
+		geocoding: {
+			lat: '',
+			lng: '',
+			formatted_address: '',
+		}
+	}],
+	drinks: []
+	}
+);
+
+//Saves nest_model to mongo database, coffeeshop collection.
+coffeeshop.save(function (err) {
+	if (err) return handleError(err);
+	nest_model.findById(coffeeshop, function (err, doc) {
+		if (err) return handleError(err);
+		console.log(doc);
+	});
+});
