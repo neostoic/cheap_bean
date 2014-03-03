@@ -4,7 +4,7 @@
 //read/write operations, to update records with coordinates automatically.
 
 //Write control flow here that iterates through mongo dataset, and returns each address,
-//populating array 'testdata' in lieu of manually adding.
+//populating array 'shop' in lieu of manually adding.
 
 //Requires DB authentication code, Heroku.
 var db_connection = require('./1-mongo_auth.js').db;
@@ -12,27 +12,24 @@ var mongo_auth = require('./2-schema_model.js');
 var nest_model = require('./2-schema_model.js').nest_model;
 
 //Write logic here to iterate through all available records that satisfy condition in query.
-nest_model.find({ geocoding: { $exists: false } }, function (err, documents) {
-	//Initialize an empty array for testing.
-	var data = [];
-	//Push contents of callback into array data
-	data.push(documents);
+nest_model.find({ geocoding: { $exists: false } }, onResults);
 
+//Takes results returned by DB query, and iterates through them individually.
+function onResults (err, documents) {
+	//Initialize an empty array for testing.
+	var data = documents;
+	
 	//For each document returned by query, log to console.
 	for (i=0; i<data.length; i++) {
-		console.log(data[i].[0].locations)
+		var shop = data[i];
+		//console.log(shop.locations[i].address)
+		geocodeLocation([shop.locations[i].address]);
 	}
+}
 
-	//Indexing geocoding within documents/
-	/*
-		testdata[i].locations[n].geocoding.lat
-		testdata[i].locations[n].geocoding.lng
-		testdata[i].locations[n].geocoding.formatted_address
-	*/
-
-	/*--------------------------- ^^^ MONGO/MONGOOSE ^^^ --------------------------*/
-	//Array holding testdata of coffee shops (Eventually populating with DB result)
-	testdata = ['426 College St, Toronto, ON M5T 1T3', '43 Hanna Ave #123, Toronto, ON M6K 1X1', '215 Spadina Ave Toronto, ON'];
+function geocodeLocation(shop){
+	//Array holding shop of coffee shops (Eventually populating with DB result)
+	shop = shop; //Define callback as = to shop.
 	//Google maps geocoding API parameters.
 	region = 'ca'; //Region parameter. (ca = Canada)
 	bounding_box = '-79.025345,43.591134|-79.709244,43.811540'; //Selected southeast corner below Toronto islands/scarborough, northwest markham/brampton. (GTA)
@@ -40,16 +37,17 @@ nest_model.find({ geocoding: { $exists: false } }, function (err, documents) {
 	sensorstatus = 'false'; //Location sensor, false
 
 	//for loop that iterates through array locations and returns formatted URL for each.
-	for (i=0; i < testdata.length; i++){
-		var address = testdata[i];
+	for (i=0; i < shop.length; i++){
+		var address = shop[i];
 		var url = 'http://maps.googleapis.com/maps/api/geocode/json'
 					+ '?sensor='  +  sensorstatus
 					+ '&region='  +  region
 					+ '&bounds='  +  bounding_box
+					//+ '&key='     +  apikey
 					+ '&address=' +  encodeURIComponent(address);
 
 		//NPM dependancy 'require'.
-		var request = require('request');
+		var request = require('request'); //for loop requests further input by a factor of 3
 		//HTTP request to each formatted URL returned by for loop
 		request(url, function (error, response, body) {
 			if (!error) {
@@ -61,7 +59,6 @@ nest_model.find({ geocoding: { $exists: false } }, function (err, documents) {
 						//-----CONCAT-----
 						var coords = [lat, lng]; //Array of formatted coordinates, Lat/Lng
 						console.log(coords); //Log out to console as a demonstration
-
 				//Function takes 3 paramenters, components is array of address components, type is key of address component to be returned
 				//is_long is boolean, true or false, dependant on result.
 				function getAddressComponent(components, type, is_long){
@@ -78,18 +75,12 @@ nest_model.find({ geocoding: { $exists: false } }, function (err, documents) {
 				}
 				//querying street name, and passing paramers into function getAddressComponent. True | returns long form.			
 				var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
-				console.log(street_name);
+				//console.log(street_name);
 			}
 		});
 	}
-});
+}
 
-/*--------------------------- VVV MONGO/MONGOOSE VVV --------------------------*/
-/*
-db.coffeeshop.udpate(function (err) {
-if (err) return handleError(err);
-nest_model.findById(coffeeshop, function (err, doc) {
-if (err) return handleError(err);
-console.log(doc)
-})
-})*/
+function writedatabase(){
+
+}
