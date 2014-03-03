@@ -39,6 +39,11 @@ var main = Schema({
 				Saturday:  String,
 				Sunday:    String,
 			}
+			geocoding: {
+				lat:       String,
+				lng:       String,
+				formatted_address: String,
+			}
 	});
 
 	/* Schema for embedded subdocument drinks
