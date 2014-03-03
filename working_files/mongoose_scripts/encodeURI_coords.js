@@ -15,6 +15,15 @@ var db_connection = require('./1-mongo_auth.js').db;
 //Find operation - If no geocoding section is present && document contains address.
 //Iteration logic, would this be done in async?
 
+//Query all records with null fields for lat, lng, & formatted_address.
+db.coffeeshop.find( { geocoding: 
+	{ lat: { $exists: false } },
+	{ lng: { $exists: false } },
+	{ formatted_address: { $exists: false } }
+);
+
+//do some foreach logic here to deal with one record at a time.
+
 /*---------------------- ^^^ MONGO/MONGOOSE ^^^ ---------------------*/
 
 //Array holding testdata of coffee shops (Eventually populating with DB result)
@@ -115,11 +124,12 @@ var coffeeshop = new nest_model({
 	}
 );
 
-//Saves nest_model to mongo database, coffeeshop collection.
-coffeeshop.save(function (err) {
+//Ensure 'upsert: true', so document is updated, not created.
+//Updates existing schema (Preferable method for this script)
+db.coffeeshop.udpate(function (err) {
 	if (err) return handleError(err);
 	nest_model.findById(coffeeshop, function (err, doc) {
 		if (err) return handleError(err);
-		console.log(doc);
-	});
-});
+		console.log(doc)
+	})
+})
