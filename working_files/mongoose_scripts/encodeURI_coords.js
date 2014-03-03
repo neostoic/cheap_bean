@@ -11,29 +11,29 @@ var db_connection = require('./1-mongo_auth.js').db;
 var mongo_auth = require('./2-schema_model.js');
 var nest_model = require('./2-schema_model.js').nest_model;
 
+//Step1: Query the database for all documents that do not contain geocoding data. 
 //Write logic here to iterate through all available records that satisfy condition in query.
 nest_model.find({ geocoding: { $exists: false } }, onResults);
-
-//Takes results returned by DB query, and iterates through them individually.
-function onResults (err, documents) {
-	//Initialize an empty array for testing.
-	var data = documents;
-	
-	//For each document returned by query, log to console.
-	for (i=0; i<data.length; i++) {
-		var shop = data[i];
-		//console.log(shop.locations[i].address)
-		geocodeLocation([shop.locations[i].address]);
+	//Takes results returned by DB query, and iterates through them individually.
+	function onResults (err, documents) {
+		//Initialize an empty array for testing.
+		var data = documents;
+		//For each document returned by query, log to console.
+		for (i=0; i<data.length; i++) {
+			var shop = data[i];
+			console.log(shop);
+			//console.log(shop.locations[i].address)
+			geocodeLocation([shop.locations[i].address]);
+		}
 	}
-}
 
+//Step2: Run the output of query operation through google maps geocoding API. Index and pass to next function.
 function geocodeLocation(shop){
 	//Google maps geocoding API parameters.
 	region = 'ca'; //Region parameter. (ca = Canada)
 	bounding_box = '-79.025345,43.591134|-79.709244,43.811540'; //Selected SE: corner below Toronto Islands/Scarborough, NW: Markham/Brampton. (GTA)
 	apikey = 'AIzaSyC-CIhgJ0CGbhGAOQBmW67H1p0Y_20lXGg';	//API key, geolocation and gmaps V3 enabled
-	sensorstatus = 'false'; //Location sensor, false
-
+	sensorstatus = 'false'; //Location sensor, set to false
 	//for loop that iterates through array locations and returns formatted URL for each.
 	for (i=0; i < shop.length; i++){
 		var address = shop[i];
@@ -43,7 +43,6 @@ function geocodeLocation(shop){
 					+ '&bounds='  +  bounding_box
 					//+ '&key='     +  apikey
 					+ '&address=' +  encodeURIComponent(address);
-
 		//NPM dependancy 'require'.
 		var request = require('request'); //for loop requests further input by a factor of 3
 		//HTTP request to each formatted URL returned by for loop
@@ -76,18 +75,19 @@ function geocodeLocation(shop){
 				//querying street name, and passing paramers into function getAddressComponent. True | returns long form.			
 				var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
 				//console.log(street_name);
+
+				//Exports variables so next function, writedatabase, can use them. 
+				writedatabase(shop, lat, lng, formatted_address, neighbourhood);
 			}
 		});
 	}
 }
 
-function writedatabase(lat, lng, formatted_address){
-	nest_model.update(
-		{ geocoding:
-			{ lat: lat },
-			{ lng: lng },
-			{ formatted_address: formatted_address  },
-			{ neighbourhood: neighbourhood  },
-		}
-	}
+//Step3: Write results back to database. (Set upsert to false, preventing new records from being created.)
+function writedatabase(shop, lat, lng, formatted_address, neighbourhood){
+    var locations = shop.locations;
+	// alter the locations array 
+	console.log(locations);
+	//Still giving me an unexpected token error, troubleshoot syntax. 
+	//nest_model.update({ "_id": shop._id }, {$set: {locations: locations}, { upsert: false });
 }
