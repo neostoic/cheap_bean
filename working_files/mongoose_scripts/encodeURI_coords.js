@@ -15,19 +15,21 @@ var db_connection = require('./1-mongo_auth.js').db;
 //Find operation - If no geocoding section is present && document contains address.
 //Iteration logic, would this be done in async?
 
-//Query all records with null fields for lat, lng, & formatted_address.
-db.coffeeshop.find( { geocoding: 
-	{ lat: { $exists: false } },
-	{ lng: { $exists: false } },
-	{ formatted_address: { $exists: false } }
-);
+//Query a record with the callback.
+//How do callbacks work within the scope of a database find operation?
+nest_model.findOne( { geocoding:
+	{ lat: { $exists: false } }, //If lat doesn't exist.
+	{ lng: { $exists: false } }, //If lng doesn't exist.
+	{ formatted_address: { $exists: false } } //If f_a doesn't exist.
+})
 
 //do some foreach logic here to deal with one record at a time.
 
 /*---------------------- ^^^ MONGO/MONGOOSE ^^^ ---------------------*/
-
 //Array holding testdata of coffee shops (Eventually populating with DB result)
 testdata = ['426 College St, Toronto, ON M5T 1T3', '43 Hanna Ave #123, Toronto, ON M6K 1X1', '215 Spadina Ave Toronto, ON'];
+//Populate array with callback of mongoose find operation.
+data = [];
 
 //Google maps geocoding API parameters.
 region = 'ca'; //Region parameter. (ca = Canada)
@@ -71,7 +73,6 @@ for (i=0; i < testdata.length; i++){
 						}
 					}
 				}
-
 			}
 			//querying street name, and passing paramers into function getAddressComponent. True | returns long form.			
 			var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
