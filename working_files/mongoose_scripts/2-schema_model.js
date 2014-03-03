@@ -14,11 +14,6 @@ var main = Schema({
     date_added:       { type: Date, default: Date.now}, //Add logic to differentiate between added and lastupdated
     date_lastupdated: { type: Date, default: Date.now},     
   },
-  rating: {
-    yelp_rating:       Number,
-    num_reviews:       Number,
-    user_rating:       Number,
-  },
   locations: [locations],
   drinks: [drinks]
 });
@@ -38,10 +33,15 @@ var main = Schema({
 				Friday:    String,
 				Saturday:  String,
 				Sunday:    String,
-			}
+			},
+			rating: {
+				yelp_rating: Number,
+				num_reviews: Number,
+				user_rating: Number,
+			},
 			geocoding: {
-				lat:       String,
-				lng:       String,
+				lat:         String,
+				lng:         String,
 				formatted_address: String,
 			}
 	});

@@ -8,23 +8,18 @@ var nest_model = require('./2-schema_model.js').nest_model;
 /* Data entry into model
 ================================*/
 var coffeeshop = new nest_model({
-	company_name: "The Abbott",
-	display_name: "The Abbott",
-	website: 'http://www.theabbott.ca/',
-	chain: false,
+	company_name: "Jimmy's Coffee",
+	display_name: "Jimmy's Coffee",
+	website: 'http://www.jimmyscoffee.ca/',
+	chain: true,
 	avg_price: null,
-	date: {
-		date_added: { type: Date, default: Date.now}, //come up with right logic
+	date: {				//if date lastupdated == dateadded, write lastupdated to current date 
+		date_added:       { type: Date, default: Date.now},
 		date_lastupdated: { type: Date, default: Date.now},		
-	},
-	rating: {
-		yelp_rating: 4,
-		yelp_reviews: 15,
-		user_rating: null,
 	},
 	locations: [{
 		number: 1,
-		name: 'The Abbott - Parkdale',
+		name: "Kensington Market",
 		address: '99 Spencer Ave, Toronto',
 		phone: '(416)876-3855', 
 		hours: {
@@ -36,6 +31,16 @@ var coffeeshop = new nest_model({
 			Saturday: '7:00 AM - 7:00 PM',
 			Sunday: '7:00 AM - 7:00 PM',
 		},
+		rating: {
+			yelp_rating: 4,
+			yelp_reviews: 29,
+			user_rating: null,
+		},
+		geocoding: {
+			lat: null,
+			lng: null,
+			formatted_address: null,
+		}
 	}],
 	drinks: [{
 		drink: 'Coffee',
@@ -117,7 +122,7 @@ var coffeeshop = new nest_model({
 				large: 2.50,
 			}
 		}]
-	}
+	},
 );
 
 /* Saves model entry to mongo as document
