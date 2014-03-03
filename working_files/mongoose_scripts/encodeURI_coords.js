@@ -28,11 +28,9 @@ function onResults (err, documents) {
 }
 
 function geocodeLocation(shop){
-	//Array holding shop of coffee shops (Eventually populating with DB result)
-	shop = shop; //Define callback as = to shop.
 	//Google maps geocoding API parameters.
 	region = 'ca'; //Region parameter. (ca = Canada)
-	bounding_box = '-79.025345,43.591134|-79.709244,43.811540'; //Selected southeast corner below Toronto islands/scarborough, northwest markham/brampton. (GTA)
+	bounding_box = '-79.025345,43.591134|-79.709244,43.811540'; //Selected SE: corner below Toronto Islands/Scarborough, NW: Markham/Brampton. (GTA)
 	apikey = 'AIzaSyC-CIhgJ0CGbhGAOQBmW67H1p0Y_20lXGg';	//API key, geolocation and gmaps V3 enabled
 	sensorstatus = 'false'; //Location sensor, false
 
@@ -56,9 +54,11 @@ function geocodeLocation(shop){
 					var lat =				(json.results[0].geometry.location.lat); //Latitide
 					var lng =				(json.results[0].geometry.location.lng); //Longitude
 					var formatted_address = (json.results[0].formatted_address); //formatted_address
+					var neighbourhood = (json.results[0].geometry)
 						//-----CONCAT-----
 						var coords = [lat, lng]; //Array of formatted coordinates, Lat/Lng
-						console.log(coords); //Log out to console as a demonstration
+						//console.log(coords); //Log out to console as a demonstration
+						console.log(body);
 				//Function takes 3 paramenters, components is array of address components, type is key of address component to be returned
 				//is_long is boolean, true or false, dependant on result.
 				function getAddressComponent(components, type, is_long){
@@ -81,6 +81,13 @@ function geocodeLocation(shop){
 	}
 }
 
-function writedatabase(){
-
+function writedatabase(lat, lng, formatted_address){
+	nest_model.update(
+		{ geocoding:
+			{ lat: lat },
+			{ lng: lng },
+			{ formatted_address: formatted_address  },
+			{ neighbourhood: neighbourhood  },
+		}
+	}
 }
