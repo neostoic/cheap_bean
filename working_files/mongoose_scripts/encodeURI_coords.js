@@ -44,8 +44,8 @@ function geocodeLocation(shop){
 					//+ '&key='     +  apikey
 					+ '&address=' +  encodeURIComponent(address);
 		//NPM dependancy 'require'.
-		var request = require('request'); //for loop requests further input by a factor of 3
-		//HTTP request to each formatted URL returned by for loop
+		var request = require('request');
+		//HTTP request to each formatted URL returned by for loop, using npm module: request
 		request(url, function (error, response, body) {
 			if (!error) {
 				var json = JSON.parse(body);
@@ -54,12 +54,14 @@ function geocodeLocation(shop){
 					var lng =				(json.results[0].geometry.location.lng); //Longitude
 					var formatted_address = (json.results[0].formatted_address); //formatted_address
 					var neighbourhood = (json.results[0].geometry)
+					var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
 						//-----CONCAT-----
 						var coords = [lat, lng]; //Array of formatted coordinates, Lat/Lng
 						//console.log(coords); //Log out to console as a demonstration
-						console.log(body);
+						//console.log(body); //Log out contents of body (Full JSON document from query.)
+
 				//Function takes 3 paramenters, components is array of address components, type is key of address component to be returned
-				//is_long is boolean, true or false, dependant on result.
+				//is_long is boolean, true or false, dependant on result (Short is preferable for user display, long for standardization)
 				function getAddressComponent(components, type, is_long){
 					//Setting up a loop to iterate through address components in array
 					for(var n=0; n < components.length; n++){
@@ -72,9 +74,6 @@ function geocodeLocation(shop){
 						}
 					}
 				}
-				//querying street name, and passing paramers into function getAddressComponent. True | returns long form.			
-				var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
-				//console.log(street_name);
 
 				//Exports variables so next function, writedatabase, can use them. 
 				writedatabase(shop, lat, lng, formatted_address, neighbourhood);
@@ -88,6 +87,6 @@ function writedatabase(shop, lat, lng, formatted_address, neighbourhood){
     var locations = shop.locations;
 	// alter the locations array 
 	console.log(locations);
-	//Still giving me an unexpected token error, troubleshoot syntax. 
+	//Still giving me an unexpected token error, troubleshoot syntax, look at examples on mongoose site.
 	//nest_model.update({ "_id": shop._id }, {$set: {locations: locations}, { upsert: false });
 }
