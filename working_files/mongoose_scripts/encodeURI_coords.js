@@ -18,11 +18,11 @@ nest_model.find({ geocoding: { $exists: false } }, onResults);
 	function onResults (err, documents) {
 		//Initialize an empty array for testing.
 		var data = documents;
+		//console.log(data); //Returns all documents, but iteration isn't working correctly.
 		//For each document returned by query, log to console.
 		for (i=0; i<data.length; i++) {
 			var shop = data[i];
-			console.log(shop);
-			//console.log(shop.locations[i].address)
+			//console.log(shop); //Returning records as it should.
 			geocodeLocation([shop.locations[i].address]);
 		}
 	}
@@ -35,17 +35,16 @@ function geocodeLocation(shop){
 	apikey = 'AIzaSyC-CIhgJ0CGbhGAOQBmW67H1p0Y_20lXGg';	//API key, geolocation and gmaps V3 enabled
 	sensorstatus = 'false'; //Location sensor, set to false
 	//for loop that iterates through array locations and returns formatted URL for each.
-	for (i=0; i < shop.length; i++){
+	for (i=0; i < shop.length; i++) {
 		var address = shop[i];
 		var url = 'http://maps.googleapis.com/maps/api/geocode/json'
-					+ '?sensor='  +  sensorstatus
-					+ '&region='  +  region
-					+ '&bounds='  +  bounding_box
-					//+ '&key='     +  apikey
-					+ '&address=' +  encodeURIComponent(address);
-		//NPM dependancy 'require'.
-		var request = require('request');
-		//HTTP request to each formatted URL returned by for loop, using npm module: request
+					+ '?sensor='  +  sensorstatus //Location sensor
+					+ '&region='  +  region //Country code
+					+ '&bounds='  +  bounding_box //Bounding box, select geocoding borders
+					//+ '&key='     +  apikey //APIkey not working properly at this point, troubleshoot. //Is APIkey valid?
+					+ '&address=' +  encodeURIComponent(address); //Formatted address returned by query operation. 
+		var request = require('request');	//NPM dependancy 'require'.
+		//HTTP request to each formatted URL returned by for loop, using npm module request.
 		request(url, function (error, response, body) {
 			if (!error) {
 				var json = JSON.parse(body);
@@ -53,12 +52,11 @@ function geocodeLocation(shop){
 					var lat =				(json.results[0].geometry.location.lat); //Latitide
 					var lng =				(json.results[0].geometry.location.lng); //Longitude
 					var formatted_address = (json.results[0].formatted_address); //formatted_address
-					var neighbourhood = (json.results[0].geometry)
+					var neighbourhood =     (json.results[0].geometry);
 					var street_name = getAddressComponent(json.results[0].address_components, 'route', true);
-						//-----CONCAT-----
-						var coords = [lat, lng]; //Array of formatted coordinates, Lat/Lng
-						//console.log(coords); //Log out to console as a demonstration
-						//console.log(body); //Log out contents of body (Full JSON document from query.)
+					//--------CONCAT-------
+					var coords = [lat, lng]; //Array of formatted coordinates, [ Lat,Lng ]
+					//	console.log(coords);
 
 				//Function takes 3 paramenters, components is array of address components, type is key of address component to be returned
 				//is_long is boolean, true or false, dependant on result (Short is preferable for user display, long for standardization)
@@ -74,7 +72,6 @@ function geocodeLocation(shop){
 						}
 					}
 				}
-
 				//Exports variables so next function, writedatabase, can use them. 
 				writedatabase(shop, lat, lng, formatted_address, neighbourhood);
 			}
@@ -84,9 +81,11 @@ function geocodeLocation(shop){
 
 //Step3: Write results back to database. (Set upsert to false, preventing new records from being created.)
 function writedatabase(shop, lat, lng, formatted_address, neighbourhood){
+    //console.log(shop);
     var locations = shop.locations;
-	// alter the locations array 
-	console.log(locations);
+    //	console.log(shop._id)
+    //	console.log(shop.locations);
+	//console.log(locations);
 	//Still giving me an unexpected token error, troubleshoot syntax, look at examples on mongoose site.
-	//nest_model.update({ "_id": shop._id }, {$set: {locations: locations}, { upsert: false });
+	nest_model.update( { "_id": shop._id }, {$set: {locations: locations}}, { upsert: false } );
 }

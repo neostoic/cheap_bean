@@ -3,13 +3,16 @@ var mongoose = require('mongoose')
   , mongo_auth = require('./1-mongo_auth.js');
 
 /* Declares schema
-================================*/
+================*/
 var main = Schema({
   company_name:        String,
   display_name:        String,
-  website:             String,
   chain:               Boolean,
-  avg_price:           Number, //Most logical place to put avg_price right now
+  avg_price:           Number,
+  internet: {
+    website:           String,
+    internalurl:       String,
+  },
   date: {
     date_added:       { type: Date, default: Date.now}, //Add logic to differentiate between added and lastupdated
     date_lastupdated: { type: Date, default: Date.now},     
@@ -19,7 +22,7 @@ var main = Schema({
 });
 
 	/* Schema for embedded subdocument location
-	================================*/
+	=========================================*/
 	var locations = Schema({
 			number:        Number,
 			name:          String,
@@ -47,7 +50,7 @@ var main = Schema({
 	});
 
 	/* Schema for embedded subdocument drinks
-	================================*/
+	=======================================*/
 	var drinks = Schema({
 			drink:         String,
 			sizes: {
@@ -58,7 +61,7 @@ var main = Schema({
 	});
 
 /* Declares model from schema
-================================*/
+===========================*/
 var nest_model = mongoose.model('coffeeshop', main);
 
 // Exports variables so next script can use them.

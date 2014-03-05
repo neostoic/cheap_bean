@@ -3,6 +3,7 @@ var fs = require('fs');
 var express = require("express");
 var app = express();
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 console.log("Starting Node.js");
 var port = process.env.PORT || 5000;
@@ -17,53 +18,61 @@ process.env.PWD = process.cwd();
   var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', function callback () {
-    console.log('Yeah were in!');
+    console.log('Sucessfully authenticated into database.');
   });
 
   // [3]Declares schema.
-  var main = mongoose.Schema({
-    company_name: String,
-    display_name: String,
-    website: String,
-    chain: Boolean,
-    avg_price: Number, //Most logical place to put avg_price right now
+  var main = Schema({
+    company_name:        String,
+    display_name:        String,
+    chain:               Boolean,
+    avg_price:           Number,
+    internet: {
+      website:           String,
+      internalurl:       String,
+    },
     date: {
-      date_added: { type: Date, default: Date.now}, //Add logic to differentiate between added and lastupdated
-      date_lastupdated: { type: Date, default: Date.now},
+      date_added:       { type: Date, default: Date.now}, //Add logic to differentiate between added and lastupdated
+      date_lastupdated: { type: Date, default: Date.now},     
     },
-    rating: {
-      yelp_rating: Number,
-      num_reviews: Number,
-      user_rating: Number,
-    },
-    locations: [locations], //Reference for subdocument locations
-    drinks: [drinks]  //Reference for subdocument drinks.
+    locations: [locations],
+    drinks: [drinks]
   });
     
     // [3a] Schema for embedded subdocument location.
-    var locations = mongoose.Schema({
-    number: Number,
-    name: String,
-    address: String,
-    phone: String,
-      hours: {
-        Monday: String,
-        Tuesday: String,
-        Wednesday: String,
-        Thursday: String,
-        Friday: String,
-        Saturday: String,
-        Sunday: String,
-      }
+    var locations = Schema({
+        number:        Number,
+        name:          String,
+        address:       String,
+        phone:         String, 
+        hours: {
+          Monday:    String,
+          Tuesday:   String,
+          Wednesday: String,
+          Thursday:  String,
+          Friday:    String,
+          Saturday:  String,
+          Sunday:    String,
+        },
+        rating: {
+          yelp_rating: Number,
+          num_reviews: Number,
+          user_rating: Number,
+        },
+        geocoding: {
+          lat:         String,
+          lng:         String,
+          formatted_address: String,
+        }
     });
 
     // [3b] Schema for embedded subdocument drinks.
-    var drinks = mongoose.Schema({
-    drink: String,
-      sizes: {
-        small: Number,
-        medium: Number,
-        large: Number,
+    var drinks = Schema({
+        drink:         String,
+        sizes: {
+          small:     Number,
+          medium:    Number,
+          large:     Number,
       }
     });
 
@@ -73,31 +82,32 @@ process.env.PWD = process.cwd();
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
 
-/* ---------------------------------------------- 
+/* ---------------------------------------------- */
 // Conor's Suggestions for serving from friendly URLs using Node.js.
 // Configuration details are in original email.
-  // Register your URL Route and assign it to a function:
-  app.get('/app/:app_id', renderApp);
+// Register your URL Route and assign it to a function:
+app.get(    '/shop/:shop_url',  renderApp);
 
-  // Define the function to retreive the data and return a response:
-  function renderApp(req, res){
-      // Get the App ID in scope (req.params.app_id gets me the value typed in the :app_id portion of the URL. I'm using the Mongo ID field in this example, but you may want to use a different field.)
-      var app_id = new BSON.ObjectID(req.params.app_id);
-      
-    // Run a DB query using the app_id to get back the data I need
-    db.collection('apps', function(err, collection) {
-          collection.find({'_id':app_id}).toArray(function(err, items) { 
-          if(!err && items){
-                  // Database query returned objects, I'll pass them to my 'index' template to be rendered:
-                  res.render('index', { data: items });
-                  res.render('about', { data: about.ejs });
-              }else{
-                  // Error, break from loop, 
-                  res.send('Error with DB query or empty set returned. Troubleshoot.');
-              }
-          });
-      });
-  }
+//Define the function to retreive the data and return a response:
+function renderApp(req, res){
+
+    // Get the App ID in scope ( req.params.app_id gets me the value typed in the :app_id portion of the URL.  I'm using the Mongo ID field in this example, but you may want to use a different field.
+    //var app_id = new BSON.ObjectID(req.params.app_id);
+    
+  // Run a DB query using the app_id to get back the data I need
+        nest_model.find({'internet.internalurl':req.params.shop_url}, function(err, items) {
+          console.log(items); //Example URL: localhost:5000/shop/jimmys-coffee
+          //Returns items on request, just logs out to console. Next steps are to write a .ejs template that gets populated with dynamic data (Tables and the like)
+
+        /*if(!err && items){
+                // Database query returned objects, I'll pass them to my 'index' template to be rendered:
+                res.render('index', { data: items});
+            }else{
+                // Something either went wrong with my db query or returned an empty set, handle the error here:
+                res.send('Nothing here.');
+            }*/
+    });
+}
 /* ---------------------------------------------- */
 
 // Working. Serves about page on /about request.
