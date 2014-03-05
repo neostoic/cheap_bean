@@ -108,11 +108,22 @@ function renderApp(req, res){
             }*/
     });
 }
+
 /* ---------------------------------------------- */
 
-// Working. Serves about page on /about request.
+//Serves about.ejs from /about path.
 app.get('/about', function(req, res, next) {
   var path = __dirname + '/public/about.ejs';
+  var str = fs.readFileSync(path, 'utf8');
+  var ret = ejs.render(str, {
+    filename: path, //Sets path to about as filename.
+  });
+  res.send(ret);
+});
+
+//Serves dynamic.ejs from /shop path. 
+app.get('/shop', function(req, res, next) {
+  var path = __dirname + '/public/dynamic.ejs';
   var str = fs.readFileSync(path, 'utf8');
   var ret = ejs.render(str, {
     filename: path, //Sets path to about as filename.
