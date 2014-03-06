@@ -8,7 +8,7 @@
         <td> <image src="/img/open.png" width="15" height="15" align="center"> </td>
         <td>  <a href="http://<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %> </td>
         <td> <%= user.locations[i].address %></td>
-        <!--<td><%= user.rating.yelp_rating %></td>-->
+           <td>  <div class="shop-rating raw-rating">3</div> </td> <!-- Rating -->
         <!--<td> <img src="/img/Rating/coffeemed.jpg"></td>-->
         <td>% <%= user.avg_price %></td>
     </tr>
@@ -43,10 +43,6 @@
         <div class="alert alert-success" style="width:85%; margin-left:7%; ">
           <center>The average price for //Index Item// in Toronto is $2.32</center>
         </div> -->
-
-
-
-
       </div> 
       <!-- Google Maps implimentation
       ================================================== -->

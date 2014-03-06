@@ -245,7 +245,7 @@
           if (i == irange.range) {
             hash++;
           }
-        } else {c
+        } else {
           var icon = select ? 'starOn' : 'starOff';
 
           star.attr('src', this.opt.path + this.opt[icon]);
@@ -450,9 +450,9 @@
     single        : false,
     size          : 16,
     space         : true,
-    starHalf      : '30w_filled_half_bean.png',
-    starOff       : '30w_unfilled_whole_bean.png',
-    starOn        : '30w_filled_whole_bean.png',
+    starHalf      : 'star-half.png',
+    starOff       : 'star-off.png',
+    starOn        : 'star-on.png',
     target        : undefined,
     targetFormat  : '{score}',
     targetKeep    : false,

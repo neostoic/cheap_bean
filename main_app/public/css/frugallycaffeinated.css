@@ -105,6 +105,9 @@
       .rating-star:hover {
           background-position: 0 0;
       }
+
+      .raw-rating { display:none; }
+
       /* Styling for Footer
       -------------------------------------------------- */   
       /* Wrapper for page content to push down footer */
