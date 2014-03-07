@@ -474,7 +474,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 5.5,
+              yelp_rating: 3,
               yelp_reviews: 30,
               user_rating: null
             },
@@ -567,7 +567,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 5.5,
+              yelp_rating: 4,
               yelp_reviews: 70,
               user_rating: null
             },
@@ -660,7 +660,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 5.5,
+              yelp_rating: 3.5,
               yelp_reviews: 70,
               user_rating: null
             },
@@ -846,7 +846,7 @@ app.get("/", function(request, response) {
               }
             ],
             rating: {
-              yelp_rating: 5.5,
+              yelp_rating: 3.5,
               yelp_reviews: 86,
               user_rating: null
             },

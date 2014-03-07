@@ -6,7 +6,7 @@ $(document).ready(function(){
 			console.log("hello");
 			var $elem = $(elem), score = $elem.html();
 			var settings = {
-					starHalf      : '/img/Coffeebean_ratings/filled_halfbean.png',
+					starHalf      : '/img/Coffeebean_ratings/filled_halfbeanfull.png',
 					starOff       : '/img/Coffeebean_ratings/unfilled_wholebean.png',
 					starOn        : '/img/Coffeebean_ratings/filled_wholebean.png',
 					score         :score

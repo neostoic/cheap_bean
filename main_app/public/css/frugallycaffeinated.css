@@ -15,12 +15,12 @@
       {
         vertical-align: middle;
         padding-top: 5px;
-        padding-left: 2px;
+        padding-left: 5px;
       }
       .copywrite
       {
-        text-align: left;
-        vertical-align: middle;
+        text-align: center;
+        /*vertical-align: middle;*/
         padding-top: 7px;
       }
         /* Styling for tables, 'horozontal minimalist', from web */
