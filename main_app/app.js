@@ -72,6 +72,17 @@ process.env.PWD = process.cwd();
     // [4] Declares nest_model from schema.
     var nest_model = mongoose.model('coffeeshop', main);
 
+
+// Working. Serves about page on /about request.
+app.get('/about', function(req, res, next) {
+  var path = __dirname + '/public/about.ejs';
+  var str = fs.readFileSync(path, 'utf8');
+  var ret = ejs.render(str, {
+    filename: path, //Sets path to about as filename.
+  });
+  res.send(ret);
+});
+
 //Serve files out of /public directory.
 app.use(express.static(__dirname + '/public'));
 //Serve webpage as default dir.
