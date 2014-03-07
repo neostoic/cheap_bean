@@ -6,9 +6,9 @@
     <tr>
         <!-- Write if/else control flow to determine whether to display green or red icon, dependant on status. -->
         <td><image src="/img/Icons/closed.png" width="15" height="15" align="center"></td>
-        <td><a href="http://<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %> </td>
+        <td><a href="http://<%= user.website %>"> <%= user.display_name%></a>,<%= user.locations[i].location_name %> </td>
         <td> <%= user.locations[i].address %></td>
-           <td>  <div class="shop-rating raw-rating"> 3 </div> </td> <!-- Rating -->
+           <td>  <div class="shop-rating raw-rating">3</div> </td> <!-- Rating -->
         <!--<td> <img src="/img/Rating/coffeemed.jpg"></td>-->
         <td>% <%= user.avg_price %></td>
     </tr>
