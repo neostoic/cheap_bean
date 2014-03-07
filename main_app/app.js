@@ -72,10 +72,47 @@ process.env.PWD = process.cwd();
     // [4] Declares nest_model from schema.
     var nest_model = mongoose.model('coffeeshop', main);
 
+/* ---------------------------------------------- */
+// Conor's Suggestions for serving from friendly URLs using Node.js.
+// Configuration details are in original email.
+// Register your URL Route and assign it to a function:
+app.get( '/shop/:shop_url', renderApp);
 
-// Working. Serves about page on /about request.
+//Define the function to retreive the data and return a response:
+function renderApp(req, res){
+
+    // Get the App ID in scope ( req.params.app_id gets me the value typed in the :app_id portion of the URL. I'm using the Mongo ID field in this example, but you may want to use a different field.
+    //var app_id = new BSON.ObjectID(req.params.app_id);
+    
+  // Run a DB query using the app_id to get back the data I need
+        nest_model.find({'internet.internalurl':req.params.shop_url}, function(err, items) {
+          console.log(items); //Example URL: localhost:5000/shop/jimmys-coffee
+          //Returns items on request, just logs out to console. Next steps are to write a .ejs template that gets populated with dynamic data (Tables and the like)
+
+        /*if(!err && items){
+// Database query returned objects, I'll pass them to my 'index' template to be rendered:
+res.render('index', { data: items});
+}else{
+// Something either went wrong with my db query or returned an empty set, handle the error here:
+res.send('Nothing here.');
+}*/
+    });
+}
+/* ---------------------------------------------- */
+
+//Serves about.ejs from /about path.
 app.get('/about', function(req, res, next) {
   var path = __dirname + '/public/about.ejs';
+  var str = fs.readFileSync(path, 'utf8');
+  var ret = ejs.render(str, {
+    filename: path, //Sets path to about as filename.
+  });
+  res.send(ret);
+});
+
+//Serves dynamic.ejs from /shop path.
+app.get('/shop', function(req, res, next) {
+  var path = __dirname + '/public/dynamic.ejs';
   var str = fs.readFileSync(path, 'utf8');
   var ret = ejs.render(str, {
     filename: path, //Sets path to about as filename.
