@@ -5,7 +5,7 @@
   <% for(var i=0; i<user.locations.length; i++) { if(i==0){ %>
     <tr>
         <!-- Write if/else control flow to determine whether to display green or red icon, dependant on status. -->
-        <td><image src="/img/closed.png" width="15" height="15" align="center"></td>
+        <td><image src="/img/Icons/closed.png" width="15" height="15" align="center"></td>
         <td><a href="http://<%= user.website %>"> <%= user.display_name%></a>,   <%= user.locations[i].location_name %> </td>
         <td> <%= user.locations[i].address %></td>
            <td>  <div class="shop-rating raw-rating"> 3 </div> </td> <!-- Rating -->
