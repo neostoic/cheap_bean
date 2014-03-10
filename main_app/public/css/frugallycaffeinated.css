@@ -59,8 +59,7 @@
         height: 350px;
         margin-right: 2%;
       }
-        /* Illegal google maps terms removal CSS */
-        /* Haha fuckers */
+        /* Illegal google maps terms removal CSS, haha fuckers */
               .gmnoprint a, .gmnoprint span {
                   display:none;
               }
@@ -75,7 +74,7 @@
               padding-bottom: 56.25%; /* 16:9 */
               height: 0;
             }
-            /* Removes 'report error to google' button */
+            /* Removes 'report error to google' button */ 
             a[title="lReport errors in the road map or imagery to Google"] {
                 display: none !important;
             }

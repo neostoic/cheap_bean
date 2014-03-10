@@ -112,10 +112,13 @@ app.get('/about', function(req, res, next) {
 
 //Serves dynamic.ejs from /shop path.
 app.get('/shop', function(req, res, next) {
+  var users = [];
+
   var path = __dirname + '/public/dynamic.ejs';
   var str = fs.readFileSync(path, 'utf8');
   var ret = ejs.render(str, {
     filename: path, //Sets path to about as filename.
+    users: users,
   });
   res.send(ret);
 });
@@ -153,6 +156,15 @@ app.get("/", function(request, response) {
                 filename: path
               });
               response.send(ret);
+
+              string = JSON.stringify(users, null, "\t");
+              console.log(string);
+
+              fs.writeFile('testdata.json', string, function (err) {
+                if (err) throw err;
+                console.log('File Saved');
+              });
+
     });
 
   //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
