@@ -114,8 +114,11 @@ app.get('/about', function(req, res, next) {
 app.get('/shop', function(req, res, next) {
   var path = __dirname + '/public/dynamic.ejs';
   var str = fs.readFileSync(path, 'utf8');
+  var users = getTestData(); //Test data from function
+
   var ret = ejs.render(str, {
     filename: path, //Sets path to about as filename.
+    users: users,
   });
   res.send(ret);
 });
@@ -138,10 +141,10 @@ app.get("/", function(request, response) {
     nest_model.find({chain: 'true'}, function (err, coffeeshop) {
               if(err){
                 onErr(err,callback);
-                console.log('Encountered an error executing query operation.');
+                //console.log('Encountered an error executing query operation.');
               }else{
                 //mongoose.connection.close(); //Closes DB session
-                console.log('Stored coffeeshop callback as operation, and closed mongo connection');
+                //console.log('Stored coffeeshop callback as operation, and closed mongo connection');
                 //users.push(coffeeshop);
               }
               //console.log(users);

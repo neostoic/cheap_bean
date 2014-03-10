@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 
+<!-- EJS for left table -->
+<% function user(user) { %>
+  <% for(var i=0; i<user.locations.length; i++) { if(i==0){ %>
+    <tr>
+      <!-- Switch between open/closed on random boolean value -->
+        <% var randomNumber = Math.random() >= 0.5; %> <!-- Generates true or false (random) -->
+        <% if (randomNumber == true) { %>
+            <td><image src="/img/Icons/open.png" width="15" height="15" align="center"></td> 
+          <% } else { %>
+            <td><image src="/img/Icons/closed.png" width="15" height="15" align="center"></td>
+          <% } %>
+        <td><a href="http://<%= user.website %>"> <%= user.display_name%></a>,  <%= user.locations[i].location_name %> </td>
+        <td> <%= user.locations[i].address %></td>
+           <td>  <div class="shop-rating raw-rating"><%= user.rating.yelp_rating %></div> </td> <!-- Rating -->
+        <!--<td> <img src="/img/Rating/coffeemed.jpg"></td>-->
+        <td>% <%= user.avg_price %></td>
+    </tr>
+  <% } } %>
+<% } %>
+
     <!-- EJS include header -->
     <% include /boiler/header.ejs %>
 
@@ -10,36 +30,44 @@
         <li class="active">Balzac's</li>
       </ul>
 
-      <!-- Styled Table insertion -->
+      <!-- Left table -->
       <div class="span12">
         <!-- Styled Table insertion -->
-        <table id="hor-minimalist-a" summary="Profile Page Coffeeshops">
+        <table id="hor-minimalist-a" summary="Front Page Coffeeshops">
           <thead>
           <tr>
-            <th style="width: 40%">Drink</th>
-            <th style="width: 30%">Size</th>
-            <th style="width: 30%">Price</th>
+            <th style="width: 5%">&nbsp;Open</th>
+            <th style="width: 30%">Coffeeshop</th>
+            <th style="width: 30%">Location</th>
+            <th style="width: 10%; padding:5px">Rating</th>
+            <th style="width: 20%; padding:5px">Difference from<br>Average Price</th>
           </tr>
+          <!-- Map users array to user for EJS -->
+          <% users.map(user) %>
         </table>
       </div> 
 
-      <!-- Styled Table insertion -->
-      <div class="span12 offset12">
+      <!-- Right Table -->
+      <div class="span12">
         <!-- Styled Table insertion -->
-        <table id="hor-minimalist-a" summary="Shop Information">
+        <table id="hor-minimalist-a" summary="Coffeeshop detail">
           <thead>
           <tr>
-            <th style="width: 40%">Location</th>
-            <th style="width: 30%">Website</th>
-            <th style="width: 30%">Hours</th>
+            <th style="width: 5%">Location #</th>
+            <th style="width: 30%">Company Name</th>
+            <th style="width: 30%">Location Name</th>
+            <th style="width: 10%; padding:5px">Rating</th>
+            <th style="width: 20%; padding:5px">Difference from<br>Average Price</th>
           </tr>
+          <!-- Map users array to user for EJS -->
+          <% users.map(user) %>
         </table>
-      </div>
+      </div> 
 
-
+      <!-- Well used for displaying tag data -->
       <div class="well well-large">
-        TEST DATA GOES IN HERE
       </div>
+
     <!-- EJS include footer -->
     <% include /boiler/footer.ejs %>
     <!-- EJS include scripts -->
