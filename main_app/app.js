@@ -128,7 +128,7 @@ app.get("/", function(request, response) {
   var str = fs.readFileSync(path, 'utf8');
 
     //Initialize an empty array
-    var users = gettestdata();
+    var users = getTestData();
 
     // Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
     // function so args can be inserted externally, and it is better practice than having global variables.
@@ -1090,6 +1090,7 @@ function getTestData(){
             },
             __v: 0
     });
+console.log(users);
 return users;
 }
 
