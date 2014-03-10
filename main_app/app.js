@@ -112,13 +112,10 @@ app.get('/about', function(req, res, next) {
 
 //Serves dynamic.ejs from /shop path.
 app.get('/shop', function(req, res, next) {
-  var users = [];
-
   var path = __dirname + '/public/dynamic.ejs';
   var str = fs.readFileSync(path, 'utf8');
   var ret = ejs.render(str, {
     filename: path, //Sets path to about as filename.
-    users: users,
   });
   res.send(ret);
 });
@@ -127,12 +124,11 @@ app.get('/shop', function(req, res, next) {
 app.use(express.static(__dirname + '/public'));
 //Serve webpage as default dir.
 app.get("/", function(request, response) {
-
   var path = __dirname + '/public/index.ejs';
   var str = fs.readFileSync(path, 'utf8');
 
     //Initialize an empty array
-    var users = [];
+    var users = gettestdata();
 
     // Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
     // function so args can be inserted externally, and it is better practice than having global variables.
@@ -156,18 +152,14 @@ app.get("/", function(request, response) {
                 filename: path
               });
               response.send(ret);
-
-              string = JSON.stringify(users, null, "\t");
-              console.log(string);
-
-              fs.writeFile('testdata.json', string, function (err) {
-                if (err) throw err;
-                console.log('File Saved');
-              });
-
     });
 
-  //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)
+  //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)=
+});
+
+//Function to push tests data into array. 
+function getTestData(){
+  var users = [];
     users.push({
             company_name: "Balzac's Coffee Roasters",
             display_name: "Balzac's",
@@ -1098,6 +1090,7 @@ app.get("/", function(request, response) {
             },
             __v: 0
     });
-});
+return users;
+}
 
 app.listen(port);
