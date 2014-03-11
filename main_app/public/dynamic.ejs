@@ -17,23 +17,17 @@
 
 <!-- EJS for dynamic table on home page -->
 <% function locationinfo(user) { %>
-  <% for(var i=0; i<user.locations.length; i++) { if(i==0){ %>
+  <% for(var i=0; i<user.locations.length; i++) { %>
     <tr>
-      <!-- Switch between open/closed on random boolean value -->
-        <% var randomNumber = Math.random() >= 0.5; %> <!-- Generates true or false (random) -->
-        <% if (randomNumber == true) { %>
-            <td><image src="/img/Icons/open.png" width="15" height="15" align="center"></td> 
-          <% } else { %>
-            <td><image src="/img/Icons/closed.png" width="15" height="15" align="center"></td>
-          <% } %>
-        <td> <%= user.locations[i].location_name %> </td> <!-- Location Name -->
-        <td> <%= user.locations[i].address %></td> <!-- Address -->
-           <td>  <div class="shop-rating raw-rating"><%= user.rating.yelp_rating %></div> </td> <!-- Bean Rating -->
-        <!--<td> <img src="/img/Rating/coffeemed.jpg"></td>-->
-        <td>% <%= user.avg_price %></td>
+      <td><%= user.locations[i].location_number %></td>
+      <td><%= user.locations[i].location_name %></td>
+      <td><%= user.locations[i].address %><br>
+          <%= user.locations[i].phone %><br></td>  
+      <td><div class="shop-rating raw-rating"><%= user.rating.yelp_rating %></div></td>
     </tr>
-  <% } } %>
-<% } %>
+
+  <% } %> <!-- Closes for loop -->
+<% } %> <!-- Closes function -->
 
     <!-- EJS include header -->
     <% include /boiler/header.ejs %>
@@ -66,20 +60,19 @@
         <table id="hor-minimalist-a" summary="Coffeeshop detail">
           <thead>
           <tr>
-            <th style="width: 5%">Location #</th>
-            <th style="width: 30%">Company Name</th>
-            <th style="width: 30%">Location Name</th>
-            <th style="width: 10%; padding:5px">Rating</th>
-            <th style="width: 20%; padding:5px">Difference from<br>Average Price</th>
+            <th style="width: 5%">Open</th>
+            <th style="width: 40%">Location Name</th>
+            <th style="width: 40%">Contact Information</th>
+            <th style="width: 15%; padding:5px">Rating</th> 
           </tr>
           <!-- Map users array to user for EJS -->
           <% users.map(locationinfo) %>
         </table>
       </div> 
 
-      <!-- Well used for displaying tag data -->
+      <!-- Well used for displaying tag data 
       <div class="well well-large">
-      </div>
+      </div> -->
 
     <!-- EJS include footer -->
     <% include /boiler/footer.ejs %>
