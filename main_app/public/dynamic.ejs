@@ -4,13 +4,13 @@
 <% function drinkprices(user) { %>
   <% for(var i=0; i<user.drinks.length; i++) { %>
         <tr>
-          <td><%= user.drinks[i].drink %></td> <!-- Dynamic, EJS drink labels -->
+          <td><%= user.drinks[i].drink %></td>
           <td>Small<br>
               Medium<br>
               Large</td>
-          <td>$3.42<br> <!-- Static pricing tags, will replace with EJS later -->
-              $2.45<br>
-              $5.65</td>
+          <td>$ <%= user.drinks[i].sizes.small %><br>
+              $ <%= user.drinks[i].sizes.medium %><br>
+              $ <%= user.drinks[i].sizes.large %></td>
         </tr>
   <% } %> 
 <% } %>
@@ -18,14 +18,18 @@
 <!-- EJS for dynamic table on home page -->
 <% function locationinfo(user) { %>
   <% for(var i=0; i<user.locations.length; i++) { %>
-    <tr>
-      <td><%= user.locations[i].location_number %></td>
+  <tr>
+      <% var randomNumber = Math.random() >= 0.5; %> <!-- Generates true or false (random) -->
+      <% if (randomNumber == true) { %>
+        <td><image src="/img/Icons/open.png" width="15" height="15" align="center"></td> 
+      <% } else { %>
+        <td><image src="/img/Icons/closed.png" width="15" height="15" align="center"></td>
+      <% } %>
       <td><%= user.locations[i].location_name %></td>
       <td><%= user.locations[i].address %><br>
-          <%= user.locations[i].phone %><br></td>  
-      <td><div class="shop-rating raw-rating"><%= user.rating.yelp_rating %></div></td>
-    </tr>
-
+          <%= user.locations[i].phone %><br></td>
+      <td><div class="shop-rating raw-rating"><%= user.locations[i].rating.yelp_rating %></div></td>
+  </tr>
   <% } %> <!-- Closes for loop -->
 <% } %> <!-- Closes function -->
 
@@ -37,30 +41,15 @@
         &nbsp;&nbsp;<li><a href="#">Home</a> <span></span class="divider">/</span></li>
         <li><a href="#">Shops</a> <span class="divider">/</span></li>
         <li class="active">Balzac's</li>
+        <div class="center"><h2>Balzac's Coffee Roasters</h2></div>
       </ul>
 
-      <!-- Left table (#1)-->
-      <div class="span8">
-        <!-- Styled Table insertion -->
-        <table id="hor-minimalist-a" summary="Front Page Coffeeshops">
-          <thead>
-          <tr>
-            <th style="width: 5%">&nbsp;Drink</th>
-            <th style="width: 30%">Sizes</th>
-            <th style="width: 30%">Price</th>
-          </tr>
-          <!-- Map users array to user for EJS -->  
-          <% drinkprices(users[0]) %> <!-- Mapping runs once for every item, this is better for my use-case -->
-        </table>
-      </div> 
-
-      <!-- Right Table (#2)-->
       <div class="span12">
         <!-- Styled Table insertion -->
         <table id="hor-minimalist-a" summary="Coffeeshop detail">
           <thead>
           <tr>
-            <th style="width: 5%">Open</th>
+            <th style="width: 10%">Open</th>  
             <th style="width: 40%">Location Name</th>
             <th style="width: 40%">Contact Information</th>
             <th style="width: 15%; padding:5px">Rating</th> 
@@ -69,6 +58,22 @@
           <% users.map(locationinfo) %>
         </table>
       </div> 
+
+      <div class="span8 offset2">
+        <!-- Styled Table insertion -->
+        <table id="hor-minimalist-a" summary="Front Page Coffeeshops">
+          <thead>
+          <tr>
+            <th style="width: 5%">&nbsp;Drink</th>
+            <th style="width: 30%">Sizes</th>
+            <th style="width: 30%">Prices</th>
+          </tr>
+          <!-- Map users array to user for EJS -->  
+          <% drinkprices(users[0]) %> <!-- Mapping runs once for every item, this is better for my use-case -->
+        </table>
+      </div> 
+
+
 
       <!-- Well used for displaying tag data 
       <div class="well well-large">

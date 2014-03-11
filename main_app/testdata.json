@@ -34,7 +34,7 @@
 					"Tuesday": "7:00 AM - 8:00 PM",
 					"Monday": "7:00 AM - 8:00 PM"
 				},
-				"phone": "(416)207-1709",
+				"phone": "(416) 207-1709",
 				"address": "43 Hanna Ave, Toronto",
 				"location_name": "Liberty Village",
 				"location_number": 1
@@ -49,7 +49,7 @@
 					"Tuesday": "7:00 AM - 7:00 PM",
 					"Monday": "7:00 AM - 7:00 PM"
 				},
-				"phone": "(416)534-7372",
+				"phone": "(416) 534-7372",
 				"address": "43 Hanna Ave, Toronto",
 				"location_name": "Liberty Village",
 				"location_number": 2
@@ -64,7 +64,7 @@
 					"Tuesday": "7:00 AM - 9:00 PM",
 					"Monday": "7:00 AM - 9:00 PM"
 				},
-				"phone": "(416)597-1700",
+				"phone": "(416) 597-1700",
 				"address": "122 Bond Street, Toronto",
 				"location_name": "Ryerson Image Arts",
 				"location_number": 3
@@ -79,7 +79,7 @@
 					"Tuesday": "7:00 AM - 8:30 PM",
 					"Monday": "7:00 AM - 8:30 PM"
 				},
-				"phone": "(416)922-3700",
+				"phone": "(416) 922-3700",
 				"address": "789 Yonge Street, Toronto",
 				"location_name": "Toronto Reference Library",
 				"location_number": 4
@@ -127,7 +127,7 @@
 					"Tuesday": "7:00 AM - 8:00 PM",
 					"Monday": "7:00 AM - 8:00 PM"
 				},
-				"phone": "(416)207-1709",
+				"phone": "(416) 207-1709",
 				"address": "426 College St, Toronto",
 				"location_name": "Bathurst and College",
 				"location_number": 1
@@ -142,7 +142,7 @@
 					"Tuesday": "7:00 AM - 7:00 PM",
 					"Monday": "7:00 AM - 7:00 PM"
 				},
-				"phone": "(416)534-7372",
+				"phone": "(416) 534-7372",
 				"address": "43 Hanna Ave, Toronto",
 				"location_name": "Liberty Village",
 				"location_number": 2
@@ -157,7 +157,7 @@
 					"Tuesday": "7:00 AM - 9:00 PM",
 					"Monday": "7:00 AM - 9:00 PM"
 				},
-				"phone": "(416)597-1700",
+				"phone": "(416) 597-1700",
 				"address": "122 Bond Street, Toronto",
 				"location_name": "Ryerson Image Arts",
 				"location_number": 3
@@ -172,7 +172,7 @@
 					"Tuesday": "7:00 AM - 8:30 PM",
 					"Monday": "7:00 AM - 8:30 PM"
 				},
-				"phone": "(416)922-3700",
+				"phone": "(416) 922-3700",
 				"address": "789 Yonge Street, Toronto",
 				"location_name": "Toronto Reference Library",
 				"location_number": 4
@@ -265,7 +265,7 @@
 					"Tuesday": "7:00 AM - 8:30 PM",
 					"Monday": "7:00 AM - 8:30 PM"
 				},
-				"phone": "(416)922-3700",
+				"phone": "(416) 922-3700",
 				"address": "789 Yonge Street, Toronto",
 				"location_name": "Toronto Reference Library",
 				"location_number": 4

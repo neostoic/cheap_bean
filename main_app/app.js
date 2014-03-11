@@ -114,11 +114,11 @@ app.get('/about', function(req, res, next) {
 app.get('/shop', function(req, res, next) {
   var path = __dirname + '/public/dynamic.ejs';
   var str = fs.readFileSync(path, 'utf8');
-  var users = getTestData(); //Test data from function
+  var users = getBalzacs(); //Test data from function
 
   var ret = ejs.render(str, {
     filename: path, //Sets path to about as filename.
-    users: users,
+    users: users, //From users array, made global
   });
   res.send(ret);
 });
@@ -133,11 +133,7 @@ app.get("/", function(request, response) {
     //Initialize an empty array
     var users = getTestData();
 
-    // Conor's thoughts: Instead of putting the callback into a variable then exporting variable, export
-    // function so args can be inserted externally, and it is better practice than having global variables.
-    // UPADATE: Moved everything to 1 file, will deal with exportation later.
-
-    // [5] Query operation on DB. Intermediary step is storing callback as a global var and passing to server.js that way.  
+    // [5] Query operation on DB.
     nest_model.find({chain: 'true'}, function (err, coffeeshop) {
               if(err){
                 onErr(err,callback);
@@ -159,6 +155,119 @@ app.get("/", function(request, response) {
 
   //Push test data into array (Deprecated once support for FS or direct callback passing is implimented.)=
 });
+
+function getBalzacs(){
+  var users = [];
+  users.push({
+            company_name: "Balzac's Coffee Roasters",
+            display_name: "Balzac's",
+            website: "www.balzacs.com",
+            chain: true,
+            avg_price: 2.89,
+            drinks: [
+              {
+                sizes: {
+                  large: 3.1,
+                  medium: 2.6,
+                  small: 2.4
+                },
+                drink: "Americano"
+              },
+              {
+                sizes: {
+                  large: 2.8,
+                  medium: 2.1,
+                  small: 3.4
+                },
+                drink: "Cappucino"
+              }
+            ],
+            locations: [
+              {
+                hours: {
+                  Sunday: "8:00 AM - 7:00 PM",
+                  Saturday: "7:00 AM - 8:00 PM",
+                  Friday: "7:00 AM - 8:00 PM",
+                  Thursday: "7:00 AM - 8:00 PM",
+                  Wednesday: "7:00 AM - 8:00 PM",
+                  Tuesday: "7:00 AM - 8:00 PM",
+                  Monday: "7:00 AM - 8:00 PM"
+                },
+                phone: "(416) 207-1709",
+                address: "1 Trinity St, Toronto",
+                location_name: "Distillery District",
+                location_number: 1,
+                rating: {
+                  yelp_rating: 4,
+                  num_reviews: null,
+                  user_rating: null,
+                },
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 7:00 PM",
+                  Saturday: "8:00 AM - 7:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 7:00 PM",
+                  Wednesday: "7:00 AM - 7:00 PM",
+                  Tuesday: "7:00 AM - 7:00 PM",
+                  Monday: "7:00 AM - 7:00 PM"
+                },
+                phone: "(416) 534-7372",
+                address: "43 Hanna Ave, Toronto",
+                location_name: "Liberty Village",
+                location_number: 2,
+                rating: {
+                  yelp_rating: 3.5,
+                  num_reviews: null,
+                  user_rating: null,
+                },               
+              },
+              {
+                hours: {
+                  Sunday: "10:00 AM - 5:00 PM",
+                  Saturday: "10:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 9:00 PM",
+                  Thursday: "7:00 AM - 9:00 PM",
+                  Wednesday: "7:00 AM - 9:00 PM",
+                  Tuesday: "7:00 AM - 9:00 PM",
+                  Monday: "7:00 AM - 9:00 PM"
+                },
+                phone: "(416) 597-1700",
+                address: "122 Bond Street, Toronto",
+                location_name: "Ryerson Image Arts",
+                location_number: 3,
+                rating: {
+                  yelp_rating: 4,
+                  num_reviews: null,
+                  user_rating: null,
+                },
+              },
+              {
+                hours: {
+                  Sunday: "9:00 AM - 4:00 PM",
+                  Saturday: "8:00 AM - 5:00 PM",
+                  Friday: "7:00 AM - 7:00 PM",
+                  Thursday: "7:00 AM - 8:30 PM",
+                  Wednesday: "7:00 AM - 8:30 PM",
+                  Tuesday: "7:00 AM - 8:30 PM",
+                  Monday: "7:00 AM - 8:30 PM"
+                },
+                phone: "(416) 922-3700",
+                address: "789 Yonge Street, Toronto",
+                location_name: "Toronto Reference Library",
+                location_number: 4,
+                rating: {
+                  yelp_rating: 3.5,
+                  num_reviews: null,
+                  user_rating: null,
+                },
+              }
+            ],
+            __v: 0
+    });
+return users;
+}
 
 //Function to push tests data into array. 
 function getTestData(){
