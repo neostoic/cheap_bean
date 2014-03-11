@@ -4,11 +4,11 @@
 <% function drinkprices(user) { %>
   <% for(var i=0; i<user.drinks.length; i++) { %>
         <tr>
-          <td><%= user.drinks[i].drink %></td>
+          <td><%= user.drinks[i].drink %></td> <!-- Dynamic, EJS drink labels -->
           <td>Small<br>
               Medium<br>
               Large</td>
-          <td>$3.42<br>
+          <td>$3.42<br> <!-- Static pricing tags, will replace with EJS later -->
               $2.45<br>
               $5.65</td>
         </tr>
@@ -26,9 +26,9 @@
           <% } else { %>
             <td><image src="/img/Icons/closed.png" width="15" height="15" align="center"></td>
           <% } %>
-        <td><a href="http://<%= user.website %>"> <%= user.display_name%></a>,  <%= user.locations[i].location_name %> </td>
-        <td> <%= user.locations[i].address %></td>
-           <td>  <div class="shop-rating raw-rating"><%= user.rating.yelp_rating %></div> </td> <!-- Rating -->
+        <td> <%= user.locations[i].location_name %> </td> <!-- Location Name -->
+        <td> <%= user.locations[i].address %></td> <!-- Address -->
+           <td>  <div class="shop-rating raw-rating"><%= user.rating.yelp_rating %></div> </td> <!-- Bean Rating -->
         <!--<td> <img src="/img/Rating/coffeemed.jpg"></td>-->
         <td>% <%= user.avg_price %></td>
     </tr>
@@ -40,13 +40,13 @@
 
       <!-- Path breadcrumb -->
       <ul class="breadcrumb">
-        &nbsp;&nbsp;<li><a href="#">Home</a> <span></span>n class="divider">/</span></li>
+        &nbsp;&nbsp;<li><a href="#">Home</a> <span></span class="divider">/</span></li>
         <li><a href="#">Shops</a> <span class="divider">/</span></li>
         <li class="active">Balzac's</li>
       </ul>
 
       <!-- Left table (#1)-->
-      <div class="span12">
+      <div class="span8">
         <!-- Styled Table insertion -->
         <table id="hor-minimalist-a" summary="Front Page Coffeeshops">
           <thead>
@@ -56,8 +56,7 @@
             <th style="width: 30%">Price</th>
           </tr>
           <!-- Map users array to user for EJS -->  
-          <!-- <% users.map(drinkprices) %>-->
-          <% drinkprices(users[0]) %>
+          <% drinkprices(users[0]) %> <!-- Mapping runs once for every item, this is better for my use-case -->
         </table>
       </div> 
 
